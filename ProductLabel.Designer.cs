@@ -47,13 +47,13 @@
             this.btnProductLabelSave = new System.Windows.Forms.Button();
             this.dgProductLabel = new System.Windows.Forms.DataGridView();
             this.lblPackedByName = new System.Windows.Forms.Label();
-            this.btnPrintProduct = new System.Windows.Forms.Button();
+            this.btnPrintProductLabel = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgProductLabel)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(228, 10);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(260, 23);
@@ -218,23 +218,24 @@
             this.lblPackedByName.TabIndex = 0;
             this.lblPackedByName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // btnPrintProduct
+            // btnPrintProductLabel
             // 
-            this.btnPrintProduct.Location = new System.Drawing.Point(327, 316);
-            this.btnPrintProduct.Name = "btnPrintProduct";
-            this.btnPrintProduct.Size = new System.Drawing.Size(101, 23);
-            this.btnPrintProduct.TabIndex = 3;
-            this.btnPrintProduct.Text = "Print";
-            this.btnPrintProduct.UseVisualStyleBackColor = true;
-            this.btnPrintProduct.Click += new System.EventHandler(this.btnProductLabelSave_Click);
+            this.btnPrintProductLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPrintProductLabel.Location = new System.Drawing.Point(324, 316);
+            this.btnPrintProductLabel.Name = "btnPrintProductLabel";
+            this.btnPrintProductLabel.Size = new System.Drawing.Size(104, 23);
+            this.btnPrintProductLabel.TabIndex = 5;
+            this.btnPrintProductLabel.Text = "Print";
+            this.btnPrintProductLabel.UseVisualStyleBackColor = true;
+            this.btnPrintProductLabel.Click += new System.EventHandler(this.btnPrintProductLabel_Click);
             // 
             // ProductLabel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 494);
+            this.Controls.Add(this.btnPrintProductLabel);
             this.Controls.Add(this.dgProductLabel);
-            this.Controls.Add(this.btnPrintProduct);
             this.Controls.Add(this.btnProductLabelSave);
             this.Controls.Add(this.expDateTime);
             this.Controls.Add(this.mfxDateTime);
@@ -283,6 +284,6 @@
         private System.Windows.Forms.Button btnProductLabelSave;
         private System.Windows.Forms.DataGridView dgProductLabel;
         private System.Windows.Forms.Label lblPackedByName;
-        private System.Windows.Forms.Button btnPrintProduct;
+        private System.Windows.Forms.Button btnPrintProductLabel;
     }
 }

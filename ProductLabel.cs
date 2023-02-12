@@ -107,6 +107,11 @@ namespace LabelPrint
             txtStorageCondition.Text = dgProductLabel.Rows[e.RowIndex].Cells[6].Value.ToString();
            
         }
+
+        private void btnPrintProductLabel_Click(object sender, EventArgs e)
+        {
+
+        }
     }
     
  

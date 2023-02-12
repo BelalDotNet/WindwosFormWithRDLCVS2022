@@ -62,6 +62,7 @@
             this.txtUserName.Name = "txtUserName";
             this.txtUserName.Size = new System.Drawing.Size(197, 29);
             this.txtUserName.TabIndex = 1;
+            this.txtUserName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtPassword
             // 
@@ -69,7 +70,8 @@
             this.txtPassword.Multiline = true;
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(197, 28);
-            this.txtPassword.TabIndex = 1;
+            this.txtPassword.TabIndex = 2;
+            this.txtPassword.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // button1
             // 

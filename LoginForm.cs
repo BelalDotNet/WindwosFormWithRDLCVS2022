@@ -21,7 +21,7 @@ namespace LabelPrint
 
         private void LoginForm_Load(object sender, EventArgs e)
         {
-            cn = new SqlConnection(@"Data Source=DESKTOP-GFBVDG9;Initial Catalog=LabelPrintDB; User ID=sa; Password=Belal@123;");
+            cn = new SqlConnection(@"Data Source=DESKTOP-03VU7SV;Initial Catalog=LabelPrintDB; User ID=sa; Password=Belal@1234;");
             cn.Open();
         }
 
@@ -44,6 +44,9 @@ namespace LabelPrint
                 if (dr.Read())
                 {
                     DisplayUser.User_Name = dr["UserName"].ToString();
+                    DisplayUser.Display_Name = dr["DisplayName"].ToString();
+                    DisplayUser.User_Id =Convert.ToInt32(dr["UserId"]);
+
                     dr.Close();
                     this.Hide();
                     ProductLabel prodLabel = new ProductLabel();

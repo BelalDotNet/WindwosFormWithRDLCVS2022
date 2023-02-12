@@ -27,12 +27,12 @@ namespace LabelPrint
 
         private void ProductLabel_Load(object sender, EventArgs e)
         {
-            cn = new SqlConnection(@"Data Source=DESKTOP-GFBVDG9;Initial Catalog=LabelPrintDB; User ID=sa; Password=Belal@123;");
+            cn = new SqlConnection(@"Data Source=DESKTOP-03VU7SV;Initial Catalog=LabelPrintDB; User ID=sa; Password=Belal@1234;");
             cn.Open();
             //bind data in data grid view  
             GetAllProductLabel();
 
-            lblPackedByName.Text = DisplayUser.User_Name;
+            lblPackedByName.Text = DisplayUser.Display_Name;
             //disable delete and update button on load  
             // btnUpdate.Enabled = false;
             // btnDelete.Enabled = false;
@@ -90,6 +90,7 @@ namespace LabelPrint
             DataTable dt = new DataTable();
             da.Fill(dt);
             dgProductLabel.DataSource = dt;
+            dgProductLabel.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
 
         private void dgProductLabel_CellContentClick(object sender, DataGridViewCellEventArgs e)

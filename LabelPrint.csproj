@@ -48,6 +48,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DisplayUser.cs" />
+    <Compile Include="LabelPrintForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LabelPrintForm.Designer.cs">
+      <DependentUpon>LabelPrintForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>

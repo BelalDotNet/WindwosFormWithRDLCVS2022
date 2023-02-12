@@ -147,48 +147,53 @@
             this.txtProductName.Name = "txtProductName";
             this.txtProductName.Size = new System.Drawing.Size(208, 20);
             this.txtProductName.TabIndex = 1;
+            this.txtProductName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtBatchNo
             // 
             this.txtBatchNo.Location = new System.Drawing.Point(220, 119);
             this.txtBatchNo.Name = "txtBatchNo";
             this.txtBatchNo.Size = new System.Drawing.Size(208, 20);
-            this.txtBatchNo.TabIndex = 1;
+            this.txtBatchNo.TabIndex = 2;
+            this.txtBatchNo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtPackQuantity
             // 
             this.txtPackQuantity.Location = new System.Drawing.Point(220, 214);
             this.txtPackQuantity.Name = "txtPackQuantity";
             this.txtPackQuantity.Size = new System.Drawing.Size(208, 20);
-            this.txtPackQuantity.TabIndex = 1;
+            this.txtPackQuantity.TabIndex = 5;
+            this.txtPackQuantity.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtSrNo
             // 
             this.txtSrNo.Location = new System.Drawing.Point(220, 247);
             this.txtSrNo.Name = "txtSrNo";
             this.txtSrNo.Size = new System.Drawing.Size(208, 20);
-            this.txtSrNo.TabIndex = 1;
+            this.txtSrNo.TabIndex = 6;
+            this.txtSrNo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtStorageCondition
             // 
             this.txtStorageCondition.Location = new System.Drawing.Point(220, 278);
             this.txtStorageCondition.Name = "txtStorageCondition";
             this.txtStorageCondition.Size = new System.Drawing.Size(208, 20);
-            this.txtStorageCondition.TabIndex = 1;
+            this.txtStorageCondition.TabIndex = 7;
+            this.txtStorageCondition.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // mfxDateTime
             // 
             this.mfxDateTime.Location = new System.Drawing.Point(220, 150);
             this.mfxDateTime.Name = "mfxDateTime";
             this.mfxDateTime.Size = new System.Drawing.Size(200, 20);
-            this.mfxDateTime.TabIndex = 2;
+            this.mfxDateTime.TabIndex = 3;
             // 
             // expDateTime
             // 
             this.expDateTime.Location = new System.Drawing.Point(220, 182);
             this.expDateTime.Name = "expDateTime";
             this.expDateTime.Size = new System.Drawing.Size(200, 20);
-            this.expDateTime.TabIndex = 2;
+            this.expDateTime.TabIndex = 4;
             // 
             // btnProductLabelSave
             // 
@@ -203,9 +208,10 @@
             // dgProductLabel
             // 
             this.dgProductLabel.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgProductLabel.Location = new System.Drawing.Point(7, 345);
+            this.dgProductLabel.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.dgProductLabel.Location = new System.Drawing.Point(0, 344);
             this.dgProductLabel.Name = "dgProductLabel";
-            this.dgProductLabel.Size = new System.Drawing.Size(781, 150);
+            this.dgProductLabel.Size = new System.Drawing.Size(800, 150);
             this.dgProductLabel.TabIndex = 4;
             this.dgProductLabel.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgProductLabel_CellContentClick);
             // 

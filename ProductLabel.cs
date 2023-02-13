@@ -24,10 +24,13 @@ namespace LabelPrint
         SqlDataReader dr;
 
         //string con = ConfigurationManager.ConnectionStrings["DBCon"].ConnectionString;
+        string con = ConfigurationManager.ConnectionStrings["LabelPrint.Properties.Settings.LabelPrintDBConnectionString"].ConnectionString;
 
         private void ProductLabel_Load(object sender, EventArgs e)
         {
-            cn = new SqlConnection(@"Data Source=DESKTOP-03VU7SV;Initial Catalog=LabelPrintDB; User ID=sa; Password=Belal@1234;");
+            //cn = new SqlConnection(@"Data Source=DESKTOP-GFBVDG9;Initial Catalog=LabelPrintDB; User ID=sa; Password=Belal@123;");
+            cn = new SqlConnection(con);
+
             cn.Open();
             //bind data in data grid view  
             GetAllProductLabel();
@@ -61,7 +64,7 @@ namespace LabelPrint
                 cmd.Parameters.AddWithValue("@MfgDate", Convert.ToDateTime(mfxDateTime.Text));
                 cmd.Parameters.AddWithValue("@ExpDate", Convert.ToDateTime(expDateTime.Text));
                 cmd.Parameters.AddWithValue("@PackQuantity", Convert.ToDecimal(txtPackQuantity.Text));
-                cmd.Parameters.AddWithValue("@PackedBy", 1);
+                cmd.Parameters.AddWithValue("@PackedBy", DisplayUser.User_Id);
                 cmd.Parameters.AddWithValue("@SrNo", txtSrNo.Text);
                 cmd.Parameters.AddWithValue("@StorageCondition", txtStorageCondition.Text);
                 cmd.ExecuteNonQuery();
@@ -95,23 +98,75 @@ namespace LabelPrint
 
         private void dgProductLabel_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            //ID = Convert.ToInt32(dgProductLabel.Rows[e.RowIndex].Cells[0].Value.ToString());
-            txtProductName.Text = dgProductLabel.Rows[e.RowIndex].Cells[0].Value.ToString();
-            txtBatchNo.Text = dgProductLabel.Rows[e.RowIndex].Cells[1].Value.ToString();
 
-            mfxDateTime.Text = dgProductLabel.Rows[e.RowIndex].Cells[2].Value.ToString();
-            expDateTime.Text = dgProductLabel.Rows[e.RowIndex].Cells[3].Value.ToString();
+            txtProductID.Text = dgProductLabel.Rows[e.RowIndex].Cells[0].Value.ToString();
+            txtProductName.Text = dgProductLabel.Rows[e.RowIndex].Cells[1].Value.ToString();
+            txtBatchNo.Text = dgProductLabel.Rows[e.RowIndex].Cells[2].Value.ToString();
 
-            txtPackQuantity.Text = dgProductLabel.Rows[e.RowIndex].Cells[4].Value.ToString();
-            txtSrNo.Text = dgProductLabel.Rows[e.RowIndex].Cells[5].Value.ToString();
+            mfxDateTime.Text = dgProductLabel.Rows[e.RowIndex].Cells[3].Value.ToString();
+            expDateTime.Text = dgProductLabel.Rows[e.RowIndex].Cells[4].Value.ToString();
 
-            txtStorageCondition.Text = dgProductLabel.Rows[e.RowIndex].Cells[6].Value.ToString();
+            txtPackQuantity.Text = dgProductLabel.Rows[e.RowIndex].Cells[5].Value.ToString();
+            txtSrNo.Text = dgProductLabel.Rows[e.RowIndex].Cells[6].Value.ToString();
+
+            txtStorageCondition.Text = dgProductLabel.Rows[e.RowIndex].Cells[7].Value.ToString();
            
         }
 
         private void btnPrintProductLabel_Click(object sender, EventArgs e)
         {
+            try
+            {
+                SavePrintedProductLabel();
 
+                if (txtProductID.Text != string.Empty)
+                {
+                    SqlCommand cmmd = new SqlCommand("spProductLabel_GetByProductLabelId", cn);
+                    cmmd.CommandType = CommandType.StoredProcedure;
+
+                    cmmd.Parameters.AddWithValue("@ProductLabelId", Convert.ToInt32(txtProductID.Text));
+                    SqlDataReader dr = cmmd.ExecuteReader();
+                    LabelPrintForm ff = new LabelPrintForm(dr);
+                    ff.ShowDialog();
+                    dr.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Please Select Data From List", "Empty Field Clicked", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            
+
+           
+                
+        }
+
+        private void SavePrintedProductLabel()
+        {
+            if (txtProductID.Text != string.Empty)
+            {
+                cmd = new SqlCommand("sp_ProductLabelPrintList_Create", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@ProductLabelId", Convert.ToInt32(txtProductID.Text));
+                cmd.ExecuteNonQuery();
+            }
+            else
+            {
+                MessageBox.Show("Please Select Data From List", "Empty Field Clicked", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
+        }
+
+        private void btnPrintedProductList_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            PrintedProductList ppl = new PrintedProductList();
+            ppl.ShowDialog();
         }
     }
     

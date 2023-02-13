@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Reporting.WinForms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,23 @@ namespace LabelPrint
         public LabelPrintForm()
         {
             InitializeComponent();
+        }
+
+        ReportDataSource datasource;
+
+        public LabelPrintForm(IDataReader dr)
+        {
+            InitializeComponent();
+
+            datasource = new ReportDataSource("DS_ProductLabel", dr);
+        }
+
+        private void LabelPrintForm_Load(object sender, EventArgs e)
+        {
+            this.reportViewer1.LocalReport.DataSources.Clear();
+            this.reportViewer1.LocalReport.DataSources.Add(datasource);
+            this.reportViewer1.RefreshReport();
+            
         }
     }
 }

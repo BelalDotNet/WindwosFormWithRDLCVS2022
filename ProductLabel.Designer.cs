@@ -48,6 +48,9 @@
             this.dgProductLabel = new System.Windows.Forms.DataGridView();
             this.lblPackedByName = new System.Windows.Forms.Label();
             this.btnPrintProductLabel = new System.Windows.Forms.Button();
+            this.lblProductID = new System.Windows.Forms.Label();
+            this.txtProductID = new System.Windows.Forms.TextBox();
+            this.btnPrintedProductList = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgProductLabel)).BeginInit();
             this.SuspendLayout();
             // 
@@ -185,14 +188,14 @@
             // 
             this.mfxDateTime.Location = new System.Drawing.Point(220, 150);
             this.mfxDateTime.Name = "mfxDateTime";
-            this.mfxDateTime.Size = new System.Drawing.Size(200, 20);
+            this.mfxDateTime.Size = new System.Drawing.Size(208, 20);
             this.mfxDateTime.TabIndex = 3;
             // 
             // expDateTime
             // 
             this.expDateTime.Location = new System.Drawing.Point(220, 182);
             this.expDateTime.Name = "expDateTime";
-            this.expDateTime.Size = new System.Drawing.Size(200, 20);
+            this.expDateTime.Size = new System.Drawing.Size(208, 20);
             this.expDateTime.TabIndex = 4;
             // 
             // btnProductLabelSave
@@ -235,11 +238,47 @@
             this.btnPrintProductLabel.UseVisualStyleBackColor = true;
             this.btnPrintProductLabel.Click += new System.EventHandler(this.btnPrintProductLabel_Click);
             // 
+            // lblProductID
+            // 
+            this.lblProductID.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblProductID.Location = new System.Drawing.Point(74, 56);
+            this.lblProductID.Name = "lblProductID";
+            this.lblProductID.Size = new System.Drawing.Size(122, 23);
+            this.lblProductID.TabIndex = 8;
+            this.lblProductID.Text = "Product ID";
+            this.lblProductID.UseMnemonic = false;
+            this.lblProductID.Visible = false;
+            // 
+            // txtProductID
+            // 
+            this.txtProductID.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txtProductID.Location = new System.Drawing.Point(220, 60);
+            this.txtProductID.Multiline = true;
+            this.txtProductID.Name = "txtProductID";
+            this.txtProductID.ReadOnly = true;
+            this.txtProductID.Size = new System.Drawing.Size(208, 20);
+            this.txtProductID.TabIndex = 9;
+            this.txtProductID.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtProductID.Visible = false;
+            // 
+            // btnPrintedProductList
+            // 
+            this.btnPrintedProductList.Location = new System.Drawing.Point(701, 315);
+            this.btnPrintedProductList.Name = "btnPrintedProductList";
+            this.btnPrintedProductList.Size = new System.Drawing.Size(87, 23);
+            this.btnPrintedProductList.TabIndex = 10;
+            this.btnPrintedProductList.Text = "Printed List";
+            this.btnPrintedProductList.UseVisualStyleBackColor = true;
+            this.btnPrintedProductList.Click += new System.EventHandler(this.btnPrintedProductList_Click);
+            // 
             // ProductLabel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 494);
+            this.Controls.Add(this.btnPrintedProductList);
+            this.Controls.Add(this.txtProductID);
+            this.Controls.Add(this.lblProductID);
             this.Controls.Add(this.btnPrintProductLabel);
             this.Controls.Add(this.dgProductLabel);
             this.Controls.Add(this.btnProductLabelSave);
@@ -291,5 +330,8 @@
         private System.Windows.Forms.DataGridView dgProductLabel;
         private System.Windows.Forms.Label lblPackedByName;
         private System.Windows.Forms.Button btnPrintProductLabel;
+        private System.Windows.Forms.Label lblProductID;
+        private System.Windows.Forms.TextBox txtProductID;
+        private System.Windows.Forms.Button btnPrintedProductList;
     }
 }

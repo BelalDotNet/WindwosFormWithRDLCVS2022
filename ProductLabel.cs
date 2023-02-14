@@ -157,7 +157,7 @@ namespace LabelPrint
             }
             else
             {
-                MessageBox.Show("Please Select Data From List", "Empty Field Clicked", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //MessageBox.Show("Please Select Data From List", "Empty Field Clicked", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
         }
@@ -167,6 +167,40 @@ namespace LabelPrint
             this.Hide();
             PrintedProductList ppl = new PrintedProductList();
             ppl.ShowDialog();
+        }
+
+        private void dgProductLabel_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            txtProductID.Text = dgProductLabel.Rows[e.RowIndex].Cells[0].Value.ToString();
+            txtProductName.Text = dgProductLabel.Rows[e.RowIndex].Cells[1].Value.ToString();
+            txtBatchNo.Text = dgProductLabel.Rows[e.RowIndex].Cells[2].Value.ToString();
+
+            mfxDateTime.Text = dgProductLabel.Rows[e.RowIndex].Cells[3].Value.ToString();
+            expDateTime.Text = dgProductLabel.Rows[e.RowIndex].Cells[4].Value.ToString();
+
+            txtPackQuantity.Text = dgProductLabel.Rows[e.RowIndex].Cells[5].Value.ToString();
+            txtSrNo.Text = dgProductLabel.Rows[e.RowIndex].Cells[6].Value.ToString();
+
+            txtStorageCondition.Text = dgProductLabel.Rows[e.RowIndex].Cells[7].Value.ToString();
+        }
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            LoginForm lf=new LoginForm();
+            lf.ShowDialog();
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            txtProductName.Text = "";
+            txtBatchNo.Text = "";
+            mfxDateTime.Text = DateTime.Now.ToString();
+            expDateTime.Text = DateTime.Now.ToString();
+            txtPackQuantity.Text = "";
+            txtSrNo.Text = "";
+            txtStorageCondition.Text = "";
+            txtProductID.Text = string.Empty;
         }
     }
     

@@ -52,6 +52,8 @@
             this.txtProductID = new System.Windows.Forms.TextBox();
             this.btnPrintedProductList = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
+            this.btnClear = new System.Windows.Forms.Button();
+            this.btnLogout = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgProductLabel)).BeginInit();
             this.SuspendLayout();
             // 
@@ -140,7 +142,7 @@
             // label9
             // 
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(570, 317);
+            this.label9.Location = new System.Drawing.Point(582, 317);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(106, 23);
             this.label9.TabIndex = 0;
@@ -217,7 +219,7 @@
             // 
             this.btnProductLabelSave.BackColor = System.Drawing.Color.ForestGreen;
             this.btnProductLabelSave.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnProductLabelSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnProductLabelSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnProductLabelSave.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnProductLabelSave.Location = new System.Drawing.Point(220, 317);
             this.btnProductLabelSave.Name = "btnProductLabelSave";
@@ -237,11 +239,12 @@
             this.dgProductLabel.Size = new System.Drawing.Size(800, 143);
             this.dgProductLabel.TabIndex = 4;
             this.dgProductLabel.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgProductLabel_CellContentClick);
+            this.dgProductLabel.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgProductLabel_CellContentDoubleClick);
             // 
             // lblPackedByName
             // 
             this.lblPackedByName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPackedByName.Location = new System.Drawing.Point(663, 317);
+            this.lblPackedByName.Location = new System.Drawing.Point(684, 317);
             this.lblPackedByName.Name = "lblPackedByName";
             this.lblPackedByName.Size = new System.Drawing.Size(106, 23);
             this.lblPackedByName.TabIndex = 0;
@@ -251,7 +254,7 @@
             // 
             this.btnPrintProductLabel.BackColor = System.Drawing.Color.Orange;
             this.btnPrintProductLabel.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnPrintProductLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPrintProductLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPrintProductLabel.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnPrintProductLabel.Location = new System.Drawing.Point(327, 317);
             this.btnPrintProductLabel.Name = "btnPrintProductLabel";
@@ -288,7 +291,7 @@
             // 
             this.btnPrintedProductList.BackColor = System.Drawing.Color.LightSeaGreen;
             this.btnPrintedProductList.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnPrintedProductList.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPrintedProductList.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPrintedProductList.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnPrintedProductList.Location = new System.Drawing.Point(437, 317);
             this.btnPrintedProductList.Name = "btnPrintedProductList";
@@ -308,12 +311,40 @@
             this.label10.Text = "LABAID PHARMACEUTICALS LIMITED";
             this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // btnClear
+            // 
+            this.btnClear.BackColor = System.Drawing.Color.Tomato;
+            this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClear.Location = new System.Drawing.Point(437, 285);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(106, 26);
+            this.btnClear.TabIndex = 0;
+            this.btnClear.Text = "Clear Record";
+            this.btnClear.UseVisualStyleBackColor = false;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
+            // 
+            // btnLogout
+            // 
+            this.btnLogout.BackColor = System.Drawing.Color.Bisque;
+            this.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnLogout.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogout.Location = new System.Drawing.Point(718, 1);
+            this.btnLogout.Name = "btnLogout";
+            this.btnLogout.Size = new System.Drawing.Size(75, 23);
+            this.btnLogout.TabIndex = 12;
+            this.btnLogout.Text = "Logout";
+            this.btnLogout.UseVisualStyleBackColor = false;
+            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
+            // 
             // ProductLabel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkSeaGreen;
             this.ClientSize = new System.Drawing.Size(800, 494);
+            this.Controls.Add(this.btnLogout);
+            this.Controls.Add(this.btnClear);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.btnPrintedProductList);
             this.Controls.Add(this.txtProductID);
@@ -339,6 +370,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "ProductLabel";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ProductLabel";
             this.Load += new System.EventHandler(this.ProductLabel_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgProductLabel)).EndInit();
@@ -373,5 +405,7 @@
         private System.Windows.Forms.TextBox txtProductID;
         private System.Windows.Forms.Button btnPrintedProductList;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Button btnClear;
+        private System.Windows.Forms.Button btnLogout;
     }
 }

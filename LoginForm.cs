@@ -26,6 +26,7 @@ namespace LabelPrint
             //cn = new SqlConnection(@"Data Source=DESKTOP-GFBVDG9;Initial Catalog=LabelPrintDB; User ID=sa; Password=Belal@123;");
             cn = new SqlConnection(con);
             cn.Open();
+            txtPassword.PasswordChar= '*';
         }
 
         public LoginForm()
@@ -71,6 +72,9 @@ namespace LabelPrint
     
         }
 
-       
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

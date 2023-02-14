@@ -32,6 +32,7 @@ namespace LabelPrint
             cn.Open();
             //bind data in data grid view  
             GetAllPrintedProductLabel();
+            GetAllUser();
 
         }
 
@@ -48,9 +49,9 @@ namespace LabelPrint
         private void btnBack_Click(object sender, EventArgs e)
         {
             this.Hide();
-            ProductLabel pl=new ProductLabel();
+            ProductLabel pl = new ProductLabel();
             pl.ShowDialog();
-           
+
         }
 
         private void btnLogout_Click(object sender, EventArgs e)
@@ -59,6 +60,88 @@ namespace LabelPrint
             LoginForm lf=new LoginForm();
             lf.ShowDialog();
            
+        }
+
+        private void btnBack_Click_1(object sender, EventArgs e)
+        {
+            this.Hide();
+            ProductLabel pl = new ProductLabel();
+            pl.ShowDialog();
+        }
+
+        private void btnLogout_Click_1(object sender, EventArgs e)
+        {
+            this.Hide();
+            LoginForm lf = new LoginForm();
+            lf.ShowDialog();
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            if (Convert.ToInt32(comboBoxUser.SelectedValue) != 0)
+            {
+                cmd = new SqlCommand("sp_PrintedListByUserOrDateRange", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@PrintById", Convert.ToInt32(comboBoxUser.SelectedValue));
+
+                da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                dataGridView1.DataSource = dt;
+                dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            }
+            else if (Convert.ToInt32(comboBoxUser.SelectedValue) != 0 && txtFromDate.Text != string.Empty && txtToDate.Text != string.Empty)
+            {
+                cmd = new SqlCommand("sp_PrintedListByUserOrDateRange", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@PrintById", Convert.ToInt32(comboBoxUser.SelectedValue));
+                cmd.Parameters.AddWithValue("@FromDate", Convert.ToDateTime(txtFromDate.Text));
+                cmd.Parameters.AddWithValue("@ToDate", Convert.ToDateTime(txtToDate.Text));
+
+                da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                dataGridView1.DataSource = dt;
+                dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            }
+            else if (Convert.ToInt32(comboBoxUser.SelectedValue) == 0 && txtFromDate.Text != string.Empty && txtToDate.Text != string.Empty)
+            {
+                cmd = new SqlCommand("sp_PrintedListByUserOrDateRange", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@FromDate", Convert.ToDateTime(txtFromDate.Text));
+                cmd.Parameters.AddWithValue("@ToDate", Convert.ToDateTime(txtToDate.Text));
+
+                da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                dataGridView1.DataSource = dt;
+                dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            }
+            else
+            {
+                MessageBox.Show("Criteria Not Matched", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+
+        private void GetAllUser()
+        {
+            cmd = new SqlCommand("sp_GetAllUser", cn);
+            da = new SqlDataAdapter(cmd);
+            //Fill the DataTable with records from Table.
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+
+            //Insert the Default Item to DataTable.
+            DataRow row = dt.NewRow();
+            row[0] = 0;
+            row[1] = "Please select";
+            dt.Rows.InsertAt(row, 0);
+
+            //Assign DataTable as DataSource.
+            comboBoxUser.DataSource = dt;
+            comboBoxUser.DisplayMember = "DisplayName";
+            comboBoxUser.ValueMember = "UserId";
         }
     }
 }

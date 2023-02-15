@@ -36,6 +36,7 @@ namespace LabelPrint
 
         private void button1_Click(object sender, EventArgs e)
         {
+           
 
             if (txtUserName.Text != string.Empty || txtPassword.Text != string.Empty)
             {
@@ -75,6 +76,14 @@ namespace LabelPrint
         private void btnExit_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void txtPassword_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode==Keys.Enter)
+            {
+                button1.PerformClick();
+            }
         }
     }
 }

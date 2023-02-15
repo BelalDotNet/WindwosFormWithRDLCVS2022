@@ -187,6 +187,7 @@
     <Folder Include="ProductReport\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="DB_Script\LabelPrintDB_Script.sql" />
     <Content Include="Images\LAlogo.jpeg" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginForm));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtUserName = new System.Windows.Forms.TextBox();
@@ -67,6 +68,7 @@
             this.txtUserName.Size = new System.Drawing.Size(197, 29);
             this.txtUserName.TabIndex = 1;
             this.txtUserName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtUserName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtUserName_KeyDown);
             // 
             // txtPassword
             // 
@@ -88,7 +90,7 @@
             this.button1.Location = new System.Drawing.Point(258, 197);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(89, 32);
-            this.button1.TabIndex = 2;
+            this.button1.TabIndex = 3;
             this.button1.Text = "Login";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -102,7 +104,7 @@
             this.btnExit.Location = new System.Drawing.Point(357, 197);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(95, 32);
-            this.btnExit.TabIndex = 3;
+            this.btnExit.TabIndex = 4;
             this.btnExit.Text = "Exit";
             this.btnExit.UseVisualStyleBackColor = false;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
@@ -144,6 +146,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "LoginForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LoginForm";

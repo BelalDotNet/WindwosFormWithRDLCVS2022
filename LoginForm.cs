@@ -7,6 +7,7 @@ using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -43,8 +44,8 @@ namespace LabelPrint
 
                 cmd = new SqlCommand("sp_GetUserByUserNameAndPassword", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@UserName", txtUserName.Text);
-                cmd.Parameters.AddWithValue("@Password", txtPassword.Text);
+                cmd.Parameters.AddWithValue("@UserName",Regex.Replace(txtUserName.Text," ",""));
+                cmd.Parameters.AddWithValue("@Password", Regex.Replace(txtPassword.Text, " ",""));
                 dr = cmd.ExecuteReader();
                 if (dr.Read())
                 {
@@ -82,7 +83,21 @@ namespace LabelPrint
         {
             if (e.KeyCode==Keys.Enter)
             {
-                button1.PerformClick();
+               button1.PerformClick();
+                //TextBox Will Not Cleared If I Use SuppressKeyPress
+                e.SuppressKeyPress = true;
+                txtPassword.Text = "";
+
+            }
+        }
+
+        private void txtUserName_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {       
+               txtPassword.Focus();
+                // TextBox Will Not Cleared If I Use SuppressKeyPress
+               e.SuppressKeyPress = true;
             }
         }
     }

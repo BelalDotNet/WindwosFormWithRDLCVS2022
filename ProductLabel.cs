@@ -68,7 +68,7 @@ namespace LabelPrint
                 cmd.Parameters.AddWithValue("@SrNo", txtSrNo.Text);
                 cmd.Parameters.AddWithValue("@StorageCondition", txtStorageCondition.Text);
                 cmd.ExecuteNonQuery();
-                MessageBox.Show("Record inserted successfully.", "Record Inserted", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("New Label Saved Successfully.", "Record Saved", MessageBoxButtons.OK, MessageBoxIcon.Information);
                  GetAllProductLabel();
                 txtProductName.Text = "";
                 txtBatchNo.Text = "";

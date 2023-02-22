@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LabelPrint.MasterPage;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Configuration;
@@ -21,6 +22,7 @@ namespace LabelPrint
         SqlDataReader dr;
         //public static string displayUser = string.Empty;
         string con = ConfigurationManager.ConnectionStrings["LabelPrint.Properties.Settings.LabelPrintDBConnectionString"].ConnectionString;
+        string CurrentYear = DateTime.Now.Year.ToString();
 
         private void LoginForm_Load(object sender, EventArgs e)
         {
@@ -28,6 +30,7 @@ namespace LabelPrint
             cn = new SqlConnection(con);
             cn.Open();
             txtPassword.PasswordChar= '*';
+            lblFooterCopyRightText.Text = "Copy Right " + CurrentYear + ", Retail Technologies Ltd.";
         }
 
         public LoginForm()
@@ -55,9 +58,12 @@ namespace LabelPrint
 
                     dr.Close();
                     this.Hide();
-                    ProductLabel prodLabel = new ProductLabel();
+                    //ProductLabel prodLabel = new ProductLabel();
                     //prodLabel.Show();
-                   prodLabel.ShowDialog();
+                   //prodLabel.ShowDialog();
+                    Label_Home Lh=new Label_Home();
+                    Lh.ShowDialog();              
+                 
                 }
                 else
                 {
@@ -99,6 +105,11 @@ namespace LabelPrint
                 // TextBox Will Not Cleared If I Use SuppressKeyPress
                e.SuppressKeyPress = true;
             }
+        }
+
+        private void btnRegisterFormRedirect_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

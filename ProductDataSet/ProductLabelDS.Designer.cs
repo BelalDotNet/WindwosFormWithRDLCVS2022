@@ -10,7 +10,7 @@
 
 #pragma warning disable 1591
 
-namespace LabelPrint {
+namespace LabelPrint.ProductDataSet {
     
     
     /// <summary>
@@ -987,7 +987,7 @@ namespace LabelPrint {
         }
     }
 }
-namespace LabelPrint.ProductLabelDSTableAdapters {
+namespace LabelPrint.ProductDataSet.ProductLabelDSTableAdapters {
     
     
     /// <summary>

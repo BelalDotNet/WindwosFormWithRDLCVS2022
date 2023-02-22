@@ -36,7 +36,8 @@
             this.button1 = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.lblFooterCopyRightText = new System.Windows.Forms.Label();
+            this.btnRegisterFormRedirect = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -120,16 +121,31 @@
             this.label3.Text = "LABAID PHARMACEUTICALS LIMITED";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label4
+            // lblFooterCopyRightText
             // 
-            this.label4.BackColor = System.Drawing.Color.MediumAquamarine;
-            this.label4.Font = new System.Drawing.Font("Century Schoolbook", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(-2, 315);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(717, 44);
-            this.label4.TabIndex = 5;
-            this.label4.Text = "Copy Right 2023, Retail Technologies Ltd.";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblFooterCopyRightText.BackColor = System.Drawing.Color.MediumAquamarine;
+            this.lblFooterCopyRightText.Font = new System.Drawing.Font("Century Schoolbook", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFooterCopyRightText.Location = new System.Drawing.Point(-2, 315);
+            this.lblFooterCopyRightText.Name = "lblFooterCopyRightText";
+            this.lblFooterCopyRightText.Size = new System.Drawing.Size(717, 44);
+            this.lblFooterCopyRightText.TabIndex = 5;
+            this.lblFooterCopyRightText.Text = "Copy Right 2023, Retail Technologies Ltd.";
+            this.lblFooterCopyRightText.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btnRegisterFormRedirect
+            // 
+            this.btnRegisterFormRedirect.BackColor = System.Drawing.Color.SkyBlue;
+            this.btnRegisterFormRedirect.FlatAppearance.BorderSize = 0;
+            this.btnRegisterFormRedirect.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRegisterFormRedirect.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRegisterFormRedirect.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnRegisterFormRedirect.Location = new System.Drawing.Point(258, 236);
+            this.btnRegisterFormRedirect.Name = "btnRegisterFormRedirect";
+            this.btnRegisterFormRedirect.Size = new System.Drawing.Size(197, 31);
+            this.btnRegisterFormRedirect.TabIndex = 5;
+            this.btnRegisterFormRedirect.Text = "Don\'t Have Account? Create";
+            this.btnRegisterFormRedirect.UseVisualStyleBackColor = false;
+            this.btnRegisterFormRedirect.Click += new System.EventHandler(this.btnRegisterFormRedirect_Click);
             // 
             // LoginForm
             // 
@@ -137,7 +153,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.PaleTurquoise;
             this.ClientSize = new System.Drawing.Size(715, 358);
-            this.Controls.Add(this.label4);
+            this.Controls.Add(this.btnRegisterFormRedirect);
+            this.Controls.Add(this.lblFooterCopyRightText);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.button1);
@@ -165,7 +182,8 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lblFooterCopyRightText;
+        private System.Windows.Forms.Button btnRegisterFormRedirect;
     }
 }
 

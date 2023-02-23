@@ -1,8 +1,10 @@
 USE [master]
 GO
-/****** Object:  Database [LabelPrintDB]    Script Date: 2/15/2023 4:08:47 PM ******/
+/****** Object:  Database [LabelPrintDB]    Script Date: 2/23/2023 5:59:10 PM ******/
 CREATE DATABASE [LabelPrintDB]
- GO
+GO
+ALTER DATABASE [LabelPrintDB] SET COMPATIBILITY_LEVEL = 130
+GO
 IF (1 = FULLTEXTSERVICEPROPERTY('IsFullTextInstalled'))
 begin
 EXEC [LabelPrintDB].[dbo].[sp_fulltext_database] @action = 'enable'
@@ -64,11 +66,25 @@ ALTER DATABASE [LabelPrintDB] SET FILESTREAM( NON_TRANSACTED_ACCESS = OFF )
 GO
 ALTER DATABASE [LabelPrintDB] SET TARGET_RECOVERY_TIME = 60 SECONDS 
 GO
+ALTER DATABASE [LabelPrintDB] SET DELAYED_DURABILITY = DISABLED 
+GO
 EXEC sys.sp_db_vardecimal_storage_format N'LabelPrintDB', N'ON'
+GO
+ALTER DATABASE [LabelPrintDB] SET QUERY_STORE = OFF
 GO
 USE [LabelPrintDB]
 GO
-/****** Object:  Table [dbo].[ProductLabel]    Script Date: 2/15/2023 4:08:47 PM ******/
+ALTER DATABASE SCOPED CONFIGURATION SET LEGACY_CARDINALITY_ESTIMATION = OFF;
+GO
+ALTER DATABASE SCOPED CONFIGURATION SET MAXDOP = 0;
+GO
+ALTER DATABASE SCOPED CONFIGURATION SET PARAMETER_SNIFFING = ON;
+GO
+ALTER DATABASE SCOPED CONFIGURATION SET QUERY_OPTIMIZER_HOTFIXES = OFF;
+GO
+USE [LabelPrintDB]
+GO
+/****** Object:  Table [dbo].[ProductLabel]    Script Date: 2/23/2023 5:59:11 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -89,7 +105,7 @@ CREATE TABLE [dbo].[ProductLabel](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[ProductLabelPrintList]    Script Date: 2/15/2023 4:08:47 PM ******/
+/****** Object:  Table [dbo].[ProductLabelPrintList]    Script Date: 2/23/2023 5:59:11 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -111,7 +127,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[tbl_User]    Script Date: 2/15/2023 4:08:47 PM ******/
+/****** Object:  Table [dbo].[tbl_User]    Script Date: 2/23/2023 5:59:11 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -123,6 +139,7 @@ CREATE TABLE [dbo].[tbl_User](
 	[Password] [nvarchar](50) NULL,
 	[Email] [nvarchar](30) NULL,
 	[Phone] [nvarchar](50) NULL,
+	[IsActive] [bit] NULL,
 PRIMARY KEY CLUSTERED 
 (
 	[UserId] ASC
@@ -160,6 +177,10 @@ GO
 INSERT [dbo].[ProductLabel] ([ProductLabelId], [ProductName], [BatchNo], [MfgDate], [ExpDate], [PackQuantity], [PackedBy], [SrNo], [StorageCondition]) VALUES (14, N'Nice Product', N'20100', CAST(N'2023-02-12T00:00:00.000' AS DateTime), CAST(N'2023-02-25T00:00:00.000' AS DateTime), CAST(10.00 AS Decimal(18, 2)), 1, N'524', N'Nice Condition')
 GO
 INSERT [dbo].[ProductLabel] ([ProductLabelId], [ProductName], [BatchNo], [MfgDate], [ExpDate], [PackQuantity], [PackedBy], [SrNo], [StorageCondition]) VALUES (15, N'xyc', N'0003', CAST(N'2023-02-08T00:00:00.000' AS DateTime), CAST(N'2023-02-03T00:00:00.000' AS DateTime), CAST(45.00 AS Decimal(18, 2)), 3, N'567', N'good')
+GO
+INSERT [dbo].[ProductLabel] ([ProductLabelId], [ProductName], [BatchNo], [MfgDate], [ExpDate], [PackQuantity], [PackedBy], [SrNo], [StorageCondition]) VALUES (16, N'Barcode Label xyz', N'B-014', CAST(N'2023-02-16T00:00:00.000' AS DateTime), CAST(N'2023-02-25T00:00:00.000' AS DateTime), CAST(10.00 AS Decimal(18, 2)), 1, N'S-1234', N'Nice')
+GO
+INSERT [dbo].[ProductLabel] ([ProductLabelId], [ProductName], [BatchNo], [MfgDate], [ExpDate], [PackQuantity], [PackedBy], [SrNo], [StorageCondition]) VALUES (17, N'RTL Barcode Label', N'B-101', CAST(N'2023-02-22T00:00:00.000' AS DateTime), CAST(N'2023-04-28T00:00:00.000' AS DateTime), CAST(500.00 AS Decimal(18, 2)), 3, N'501', N'Nice Storage Condition')
 GO
 SET IDENTITY_INSERT [dbo].[ProductLabel] OFF
 GO
@@ -249,19 +270,80 @@ INSERT [dbo].[ProductLabelPrintList] ([ProductPrintId], [ProductName], [BatchNo]
 GO
 INSERT [dbo].[ProductLabelPrintList] ([ProductPrintId], [ProductName], [BatchNo], [MfgDate], [ExpDate], [PackQuantity], [PrintById], [SrNo], [StorageCondition], [PrintDate]) VALUES (42, N'xyc', N'0003', CAST(N'2023-02-08T00:00:00.000' AS DateTime), CAST(N'2023-02-03T00:00:00.000' AS DateTime), CAST(45.00 AS Decimal(18, 2)), 3, N'567', N'good', CAST(N'2023-02-14T17:53:16.217' AS DateTime))
 GO
+INSERT [dbo].[ProductLabelPrintList] ([ProductPrintId], [ProductName], [BatchNo], [MfgDate], [ExpDate], [PackQuantity], [PrintById], [SrNo], [StorageCondition], [PrintDate]) VALUES (43, N'xyc', N'0003', CAST(N'2023-02-08T00:00:00.000' AS DateTime), CAST(N'2023-02-03T00:00:00.000' AS DateTime), CAST(45.00 AS Decimal(18, 2)), 3, N'567', N'good', CAST(N'2023-02-15T16:12:09.667' AS DateTime))
+GO
+INSERT [dbo].[ProductLabelPrintList] ([ProductPrintId], [ProductName], [BatchNo], [MfgDate], [ExpDate], [PackQuantity], [PrintById], [SrNo], [StorageCondition], [PrintDate]) VALUES (44, N'xyc', N'0003', CAST(N'2023-02-08T00:00:00.000' AS DateTime), CAST(N'2023-02-03T00:00:00.000' AS DateTime), CAST(45.00 AS Decimal(18, 2)), 3, N'567', N'good', CAST(N'2023-02-15T16:29:26.360' AS DateTime))
+GO
+INSERT [dbo].[ProductLabelPrintList] ([ProductPrintId], [ProductName], [BatchNo], [MfgDate], [ExpDate], [PackQuantity], [PrintById], [SrNo], [StorageCondition], [PrintDate]) VALUES (45, N'xyc', N'0003', CAST(N'2023-02-08T00:00:00.000' AS DateTime), CAST(N'2023-02-03T00:00:00.000' AS DateTime), CAST(45.00 AS Decimal(18, 2)), 3, N'567', N'good', CAST(N'2023-02-15T16:32:19.583' AS DateTime))
+GO
+INSERT [dbo].[ProductLabelPrintList] ([ProductPrintId], [ProductName], [BatchNo], [MfgDate], [ExpDate], [PackQuantity], [PrintById], [SrNo], [StorageCondition], [PrintDate]) VALUES (46, N'xyc', N'0003', CAST(N'2023-02-08T00:00:00.000' AS DateTime), CAST(N'2023-02-03T00:00:00.000' AS DateTime), CAST(45.00 AS Decimal(18, 2)), 3, N'567', N'good', CAST(N'2023-02-15T16:32:52.680' AS DateTime))
+GO
+INSERT [dbo].[ProductLabelPrintList] ([ProductPrintId], [ProductName], [BatchNo], [MfgDate], [ExpDate], [PackQuantity], [PrintById], [SrNo], [StorageCondition], [PrintDate]) VALUES (47, N'Barcode Print Label', N'184', CAST(N'2023-02-05T00:00:00.000' AS DateTime), CAST(N'2023-03-24T00:00:00.000' AS DateTime), CAST(10.00 AS Decimal(18, 2)), 2, N'S10', N'Nice', CAST(N'2023-02-16T11:14:16.110' AS DateTime))
+GO
+INSERT [dbo].[ProductLabelPrintList] ([ProductPrintId], [ProductName], [BatchNo], [MfgDate], [ExpDate], [PackQuantity], [PrintById], [SrNo], [StorageCondition], [PrintDate]) VALUES (48, N'Barcode Print Label', N'184', CAST(N'2023-02-05T00:00:00.000' AS DateTime), CAST(N'2023-03-24T00:00:00.000' AS DateTime), CAST(10.00 AS Decimal(18, 2)), 2, N'S10', N'Nice', CAST(N'2023-02-16T11:15:04.273' AS DateTime))
+GO
+INSERT [dbo].[ProductLabelPrintList] ([ProductPrintId], [ProductName], [BatchNo], [MfgDate], [ExpDate], [PackQuantity], [PrintById], [SrNo], [StorageCondition], [PrintDate]) VALUES (49, N'xyc', N'0003', CAST(N'2023-02-08T00:00:00.000' AS DateTime), CAST(N'2023-02-03T00:00:00.000' AS DateTime), CAST(45.00 AS Decimal(18, 2)), 3, N'567', N'good', CAST(N'2023-02-16T11:15:51.210' AS DateTime))
+GO
+INSERT [dbo].[ProductLabelPrintList] ([ProductPrintId], [ProductName], [BatchNo], [MfgDate], [ExpDate], [PackQuantity], [PrintById], [SrNo], [StorageCondition], [PrintDate]) VALUES (50, N'xyc', N'0003', CAST(N'2023-02-08T00:00:00.000' AS DateTime), CAST(N'2023-02-03T00:00:00.000' AS DateTime), CAST(45.00 AS Decimal(18, 2)), 3, N'567', N'good', CAST(N'2023-02-16T11:15:59.857' AS DateTime))
+GO
+INSERT [dbo].[ProductLabelPrintList] ([ProductPrintId], [ProductName], [BatchNo], [MfgDate], [ExpDate], [PackQuantity], [PrintById], [SrNo], [StorageCondition], [PrintDate]) VALUES (51, N'xyc', N'0003', CAST(N'2023-02-08T00:00:00.000' AS DateTime), CAST(N'2023-02-03T00:00:00.000' AS DateTime), CAST(45.00 AS Decimal(18, 2)), 3, N'567', N'good', CAST(N'2023-02-16T11:16:51.703' AS DateTime))
+GO
+INSERT [dbo].[ProductLabelPrintList] ([ProductPrintId], [ProductName], [BatchNo], [MfgDate], [ExpDate], [PackQuantity], [PrintById], [SrNo], [StorageCondition], [PrintDate]) VALUES (52, N'Barcode Label xyz', N'B-014', CAST(N'2023-02-16T00:00:00.000' AS DateTime), CAST(N'2023-02-25T00:00:00.000' AS DateTime), CAST(10.00 AS Decimal(18, 2)), 1, N'S-1234', N'Nice', CAST(N'2023-02-16T11:18:32.490' AS DateTime))
+GO
+INSERT [dbo].[ProductLabelPrintList] ([ProductPrintId], [ProductName], [BatchNo], [MfgDate], [ExpDate], [PackQuantity], [PrintById], [SrNo], [StorageCondition], [PrintDate]) VALUES (53, N'Barcode Label xyz', N'B-014', CAST(N'2023-02-16T00:00:00.000' AS DateTime), CAST(N'2023-02-25T00:00:00.000' AS DateTime), CAST(10.00 AS Decimal(18, 2)), 1, N'S-1234', N'Nice', CAST(N'2023-02-16T12:38:54.670' AS DateTime))
+GO
+INSERT [dbo].[ProductLabelPrintList] ([ProductPrintId], [ProductName], [BatchNo], [MfgDate], [ExpDate], [PackQuantity], [PrintById], [SrNo], [StorageCondition], [PrintDate]) VALUES (54, N'Barcode Label xyz', N'B-014', CAST(N'2023-02-16T00:00:00.000' AS DateTime), CAST(N'2023-02-25T00:00:00.000' AS DateTime), CAST(10.00 AS Decimal(18, 2)), 1, N'S-1234', N'Nice', CAST(N'2023-02-16T15:27:50.133' AS DateTime))
+GO
+INSERT [dbo].[ProductLabelPrintList] ([ProductPrintId], [ProductName], [BatchNo], [MfgDate], [ExpDate], [PackQuantity], [PrintById], [SrNo], [StorageCondition], [PrintDate]) VALUES (55, N'Barcode Label xyz', N'B-014', CAST(N'2023-02-16T00:00:00.000' AS DateTime), CAST(N'2023-02-25T00:00:00.000' AS DateTime), CAST(10.00 AS Decimal(18, 2)), 1, N'S-1234', N'Nice', CAST(N'2023-02-18T14:44:41.013' AS DateTime))
+GO
+INSERT [dbo].[ProductLabelPrintList] ([ProductPrintId], [ProductName], [BatchNo], [MfgDate], [ExpDate], [PackQuantity], [PrintById], [SrNo], [StorageCondition], [PrintDate]) VALUES (56, N'Barcode Label xyz', N'B-014', CAST(N'2023-02-16T00:00:00.000' AS DateTime), CAST(N'2023-02-25T00:00:00.000' AS DateTime), CAST(10.00 AS Decimal(18, 2)), 1, N'S-1234', N'Nice', CAST(N'2023-02-18T14:50:42.843' AS DateTime))
+GO
+INSERT [dbo].[ProductLabelPrintList] ([ProductPrintId], [ProductName], [BatchNo], [MfgDate], [ExpDate], [PackQuantity], [PrintById], [SrNo], [StorageCondition], [PrintDate]) VALUES (57, N'Barcode Label xyz', N'B-014', CAST(N'2023-02-16T00:00:00.000' AS DateTime), CAST(N'2023-02-25T00:00:00.000' AS DateTime), CAST(10.00 AS Decimal(18, 2)), 1, N'S-1234', N'Nice', CAST(N'2023-02-18T14:51:28.337' AS DateTime))
+GO
+INSERT [dbo].[ProductLabelPrintList] ([ProductPrintId], [ProductName], [BatchNo], [MfgDate], [ExpDate], [PackQuantity], [PrintById], [SrNo], [StorageCondition], [PrintDate]) VALUES (58, N'Barcode Label xyz', N'B-014', CAST(N'2023-02-16T00:00:00.000' AS DateTime), CAST(N'2023-02-25T00:00:00.000' AS DateTime), CAST(10.00 AS Decimal(18, 2)), 1, N'S-1234', N'Nice', CAST(N'2023-02-18T16:31:22.223' AS DateTime))
+GO
+INSERT [dbo].[ProductLabelPrintList] ([ProductPrintId], [ProductName], [BatchNo], [MfgDate], [ExpDate], [PackQuantity], [PrintById], [SrNo], [StorageCondition], [PrintDate]) VALUES (59, N'xyc', N'0003', CAST(N'2023-02-08T00:00:00.000' AS DateTime), CAST(N'2023-02-03T00:00:00.000' AS DateTime), CAST(45.00 AS Decimal(18, 2)), 3, N'567', N'good', CAST(N'2023-02-18T16:39:27.193' AS DateTime))
+GO
+INSERT [dbo].[ProductLabelPrintList] ([ProductPrintId], [ProductName], [BatchNo], [MfgDate], [ExpDate], [PackQuantity], [PrintById], [SrNo], [StorageCondition], [PrintDate]) VALUES (60, N'Barcode Label xyz', N'B-014', CAST(N'2023-02-16T00:00:00.000' AS DateTime), CAST(N'2023-02-25T00:00:00.000' AS DateTime), CAST(10.00 AS Decimal(18, 2)), 1, N'S-1234', N'Nice', CAST(N'2023-02-18T17:38:38.610' AS DateTime))
+GO
+INSERT [dbo].[ProductLabelPrintList] ([ProductPrintId], [ProductName], [BatchNo], [MfgDate], [ExpDate], [PackQuantity], [PrintById], [SrNo], [StorageCondition], [PrintDate]) VALUES (61, N'Barcode Label xyz', N'B-014', CAST(N'2023-02-16T00:00:00.000' AS DateTime), CAST(N'2023-02-25T00:00:00.000' AS DateTime), CAST(10.00 AS Decimal(18, 2)), 1, N'S-1234', N'Nice', CAST(N'2023-02-22T12:35:52.220' AS DateTime))
+GO
+INSERT [dbo].[ProductLabelPrintList] ([ProductPrintId], [ProductName], [BatchNo], [MfgDate], [ExpDate], [PackQuantity], [PrintById], [SrNo], [StorageCondition], [PrintDate]) VALUES (62, N'Barcode Label xyz', N'B-014', CAST(N'2023-02-16T00:00:00.000' AS DateTime), CAST(N'2023-02-25T00:00:00.000' AS DateTime), CAST(10.00 AS Decimal(18, 2)), 1, N'S-1234', N'Nice', CAST(N'2023-02-22T14:48:25.880' AS DateTime))
+GO
+INSERT [dbo].[ProductLabelPrintList] ([ProductPrintId], [ProductName], [BatchNo], [MfgDate], [ExpDate], [PackQuantity], [PrintById], [SrNo], [StorageCondition], [PrintDate]) VALUES (63, N'RTL Barcode Label', N'B-101', CAST(N'2023-02-22T00:00:00.000' AS DateTime), CAST(N'2023-04-28T00:00:00.000' AS DateTime), CAST(500.00 AS Decimal(18, 2)), 3, N'501', N'Nice Storage Condition', CAST(N'2023-02-22T15:05:23.853' AS DateTime))
+GO
+INSERT [dbo].[ProductLabelPrintList] ([ProductPrintId], [ProductName], [BatchNo], [MfgDate], [ExpDate], [PackQuantity], [PrintById], [SrNo], [StorageCondition], [PrintDate]) VALUES (64, N'RTL Barcode Label', N'B-101', CAST(N'2023-02-22T00:00:00.000' AS DateTime), CAST(N'2023-04-28T00:00:00.000' AS DateTime), CAST(500.00 AS Decimal(18, 2)), 3, N'501', N'Nice Storage Condition', CAST(N'2023-02-22T15:14:46.723' AS DateTime))
+GO
+INSERT [dbo].[ProductLabelPrintList] ([ProductPrintId], [ProductName], [BatchNo], [MfgDate], [ExpDate], [PackQuantity], [PrintById], [SrNo], [StorageCondition], [PrintDate]) VALUES (65, N'RTL Barcode Label', N'B-101', CAST(N'2023-02-22T00:00:00.000' AS DateTime), CAST(N'2023-04-28T00:00:00.000' AS DateTime), CAST(500.00 AS Decimal(18, 2)), 3, N'501', N'Nice Storage Condition', CAST(N'2023-02-22T15:14:55.177' AS DateTime))
+GO
+INSERT [dbo].[ProductLabelPrintList] ([ProductPrintId], [ProductName], [BatchNo], [MfgDate], [ExpDate], [PackQuantity], [PrintById], [SrNo], [StorageCondition], [PrintDate]) VALUES (66, N'Barcode Label xyz', N'B-014', CAST(N'2023-02-16T00:00:00.000' AS DateTime), CAST(N'2023-02-25T00:00:00.000' AS DateTime), CAST(10.00 AS Decimal(18, 2)), 1, N'S-1234', N'Nice', CAST(N'2023-02-22T16:00:44.303' AS DateTime))
+GO
+INSERT [dbo].[ProductLabelPrintList] ([ProductPrintId], [ProductName], [BatchNo], [MfgDate], [ExpDate], [PackQuantity], [PrintById], [SrNo], [StorageCondition], [PrintDate]) VALUES (67, N'Barcode Label xyz', N'B-014', CAST(N'2023-02-16T00:00:00.000' AS DateTime), CAST(N'2023-02-25T00:00:00.000' AS DateTime), CAST(10.00 AS Decimal(18, 2)), 1, N'S-1234', N'Nice', CAST(N'2023-02-23T17:17:50.457' AS DateTime))
+GO
+INSERT [dbo].[ProductLabelPrintList] ([ProductPrintId], [ProductName], [BatchNo], [MfgDate], [ExpDate], [PackQuantity], [PrintById], [SrNo], [StorageCondition], [PrintDate]) VALUES (68, N'RTL Barcode Label', N'B-101', CAST(N'2023-02-22T00:00:00.000' AS DateTime), CAST(N'2023-04-28T00:00:00.000' AS DateTime), CAST(500.00 AS Decimal(18, 2)), 3, N'501', N'Nice Storage Condition', CAST(N'2023-02-23T17:57:11.583' AS DateTime))
+GO
 SET IDENTITY_INSERT [dbo].[ProductLabelPrintList] OFF
 GO
 SET IDENTITY_INSERT [dbo].[tbl_User] ON 
 GO
-INSERT [dbo].[tbl_User] ([UserId], [UserName], [DisplayName], [Password], [Email], [Phone]) VALUES (1, N'Admin', N'Admin User', N'1234', N'User@gmail.com', N'12345')
+INSERT [dbo].[tbl_User] ([UserId], [UserName], [DisplayName], [Password], [Email], [Phone], [IsActive]) VALUES (1, N'Admin', N'Admin User', N'1234', N'User@gmail.com', N'12345', 1)
 GO
-INSERT [dbo].[tbl_User] ([UserId], [UserName], [DisplayName], [Password], [Email], [Phone]) VALUES (2, N'User', N'Demo User', N'1234', N'User@gmail.com', N'12345')
+INSERT [dbo].[tbl_User] ([UserId], [UserName], [DisplayName], [Password], [Email], [Phone], [IsActive]) VALUES (2, N'User', N'Demo User', N'1234', N'User@gmail.com', N'12345', 1)
 GO
-INSERT [dbo].[tbl_User] ([UserId], [UserName], [DisplayName], [Password], [Email], [Phone]) VALUES (3, N'Belal', N'Belal Hossain', N'1234', N'User@gmail.com', N'12345')
+INSERT [dbo].[tbl_User] ([UserId], [UserName], [DisplayName], [Password], [Email], [Phone], [IsActive]) VALUES (3, N'Belal', N'Belal Hossain', N'1234', N'User@gmail.com', N'12345', 1)
+GO
+INSERT [dbo].[tbl_User] ([UserId], [UserName], [DisplayName], [Password], [Email], [Phone], [IsActive]) VALUES (4, N'Abir', N'Abir Hossain', N'1234', N'abir@gmail.com', N'01715716388', 1)
+GO
+INSERT [dbo].[tbl_User] ([UserId], [UserName], [DisplayName], [Password], [Email], [Phone], [IsActive]) VALUES (5, N'Shovo', N'Mokabbir Hossain', N'1234', N'shovo@gmail.com', N'01715716388', 1)
+GO
+INSERT [dbo].[tbl_User] ([UserId], [UserName], [DisplayName], [Password], [Email], [Phone], [IsActive]) VALUES (11, N'Harun', N'asdfasf
+ljljasdlkf', N'1234', N'ljljkljl', N'adsfsa', 1)
 GO
 SET IDENTITY_INSERT [dbo].[tbl_User] OFF
 GO
-/****** Object:  StoredProcedure [dbo].[ProductLabel_GetAll]    Script Date: 2/15/2023 4:08:47 PM ******/
+ALTER TABLE [dbo].[tbl_User] ADD  CONSTRAINT [DF_tbl_User_IsActive]  DEFAULT ((0)) FOR [IsActive]
+GO
+/****** Object:  StoredProcedure [dbo].[ProductLabel_GetAll]    Script Date: 2/23/2023 5:59:11 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -281,7 +363,7 @@ FROM [dbo].[ProductLabel]
 ORDER BY ProductLabelId DESC
 END
 GO
-/****** Object:  StoredProcedure [dbo].[sp_GetAllUser]    Script Date: 2/15/2023 4:08:47 PM ******/
+/****** Object:  StoredProcedure [dbo].[sp_GetAllUser]    Script Date: 2/23/2023 5:59:11 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -292,7 +374,7 @@ BEGIN
 SELECT UserId, DisplayName From tbl_User
 END
 GO
-/****** Object:  StoredProcedure [dbo].[sp_GetUserByUserNameAndPassword]    Script Date: 2/15/2023 4:08:47 PM ******/
+/****** Object:  StoredProcedure [dbo].[sp_GetUserByUserNameAndPassword]    Script Date: 2/23/2023 5:59:11 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -313,7 +395,7 @@ WHERE UserName=@UserName AND [Password]=@Password
 END
 
 GO
-/****** Object:  StoredProcedure [dbo].[sp_PrintedListByUserOrDateRange]    Script Date: 2/15/2023 4:08:47 PM ******/
+/****** Object:  StoredProcedure [dbo].[sp_PrintedListByUserOrDateRange]    Script Date: 2/23/2023 5:59:11 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -343,7 +425,7 @@ SELECT
 		AND ((CAST(PL.PrintDate AS DATE) BETWEEN CAST(@FromDate AS DATE) AND CAST(@ToDate AS DATE))  OR (@FromDate IS NULL AND @ToDate IS NULL))
 END
 GO
-/****** Object:  StoredProcedure [dbo].[sp_ProductLabel_Create]    Script Date: 2/15/2023 4:08:47 PM ******/
+/****** Object:  StoredProcedure [dbo].[sp_ProductLabel_Create]    Script Date: 2/23/2023 5:59:11 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -390,7 +472,7 @@ END
 
 
 GO
-/****** Object:  StoredProcedure [dbo].[sp_ProductLabelPrintList_Create]    Script Date: 2/15/2023 4:08:47 PM ******/
+/****** Object:  StoredProcedure [dbo].[sp_ProductLabelPrintList_Create]    Script Date: 2/23/2023 5:59:11 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -429,7 +511,7 @@ SELECT SCOPE_IDENTITY()
 END
 
 GO
-/****** Object:  StoredProcedure [dbo].[sp_ProductLabelPrintList_Get]    Script Date: 2/15/2023 4:08:47 PM ******/
+/****** Object:  StoredProcedure [dbo].[sp_ProductLabelPrintList_Get]    Script Date: 2/23/2023 5:59:11 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -452,7 +534,7 @@ INNER JOIN tbl_User U ON U.UserId=PL.PrintById
 ORDER BY ProductPrintId DESC
 END
 GO
-/****** Object:  StoredProcedure [dbo].[spProductLabel_GetByProductLabelId]    Script Date: 2/15/2023 4:08:47 PM ******/
+/****** Object:  StoredProcedure [dbo].[spProductLabel_GetByProductLabelId]    Script Date: 2/23/2023 5:59:11 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -477,6 +559,41 @@ BEGIN
 	  FROM [dbo].[ProductLabel] PL
 	  INNER JOIN tbl_User U ON U.UserId=PL.PackedBy
 	  WHERE ProductLabelId=@ProductLabelId
+END
+GO
+/****** Object:  StoredProcedure [dbo].[tbl_User_Registration_Create]    Script Date: 2/23/2023 5:59:11 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[tbl_User_Registration_Create]
+(
+	 @UserName     NVARCHAR(50)
+    ,@DisplayName  NVARCHAR(250)=NULL
+	,@Password	   NVARCHAR(50)
+	,@Email		   NVARCHAR(30)=NULL
+	,@Phone		   NVARCHAR(50)=NULL
+)
+AS
+BEGIN      
+  INSERT INTO [tbl_User]
+  (
+	   [UserName]
+      ,[DisplayName]
+      ,[Password]
+      ,[Email]
+      ,[Phone]
+      ,[IsActive]
+  )
+  VALUES 
+  (
+	 @UserName   
+	,@DisplayName
+	,@Password	 
+	,@Email		 
+	,@Phone	
+	,1
+  )
 END
 GO
 USE [master]

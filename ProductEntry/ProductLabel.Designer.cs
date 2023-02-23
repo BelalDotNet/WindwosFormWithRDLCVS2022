@@ -195,7 +195,7 @@
             this.btnProductLabelSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnProductLabelSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnProductLabelSave.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnProductLabelSave.Location = new System.Drawing.Point(220, 312);
+            this.btnProductLabelSave.Location = new System.Drawing.Point(220, 305);
             this.btnProductLabelSave.Name = "btnProductLabelSave";
             this.btnProductLabelSave.Size = new System.Drawing.Size(121, 33);
             this.btnProductLabelSave.TabIndex = 3;
@@ -224,7 +224,7 @@
             this.btnPrintProductLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPrintProductLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPrintProductLabel.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnPrintProductLabel.Location = new System.Drawing.Point(476, 312);
+            this.btnPrintProductLabel.Location = new System.Drawing.Point(476, 305);
             this.btnPrintProductLabel.Name = "btnPrintProductLabel";
             this.btnPrintProductLabel.Size = new System.Drawing.Size(129, 33);
             this.btnPrintProductLabel.TabIndex = 5;
@@ -261,7 +261,8 @@
             this.btnClear.FlatAppearance.BorderSize = 0;
             this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClear.Location = new System.Drawing.Point(347, 312);
+            this.btnClear.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnClear.Location = new System.Drawing.Point(347, 305);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(123, 33);
             this.btnClear.TabIndex = 0;

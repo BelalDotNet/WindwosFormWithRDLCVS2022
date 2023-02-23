@@ -1,4 +1,5 @@
 ﻿using LabelPrint.MasterPage;
+using LabelPrint.UserInfo;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -35,14 +36,14 @@ namespace LabelPrint
 
         public LoginForm()
         {
-            InitializeComponent();
+            InitializeComponent(); 
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
            
 
-            if (txtUserName.Text != string.Empty || txtPassword.Text != string.Empty)
+            if (txtUserName.Text != string.Empty && txtPassword.Text != string.Empty)
             {
 
                 cmd = new SqlCommand("sp_GetUserByUserNameAndPassword", cn);
@@ -109,7 +110,9 @@ namespace LabelPrint
 
         private void btnRegisterFormRedirect_Click(object sender, EventArgs e)
         {
-            
+            this.Hide();
+            UserRegistration UR=new UserRegistration();
+            UR.ShowDialog();
         }
     }
 }

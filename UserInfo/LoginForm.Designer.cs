@@ -134,7 +134,7 @@
             // 
             // btnRegisterFormRedirect
             // 
-            this.btnRegisterFormRedirect.BackColor = System.Drawing.Color.SkyBlue;
+            this.btnRegisterFormRedirect.BackColor = System.Drawing.Color.LightSkyBlue;
             this.btnRegisterFormRedirect.FlatAppearance.BorderSize = 0;
             this.btnRegisterFormRedirect.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRegisterFormRedirect.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

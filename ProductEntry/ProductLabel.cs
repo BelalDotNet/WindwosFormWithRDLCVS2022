@@ -98,7 +98,10 @@ namespace LabelPrint
 
         private void dgProductLabel_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            if (e.RowIndex<0)
+            {
+                return;
+            }
             txtProductID.Text = dgProductLabel.Rows[e.RowIndex].Cells[0].Value.ToString();
             txtProductName.Text = dgProductLabel.Rows[e.RowIndex].Cells[1].Value.ToString();
             txtBatchNo.Text = dgProductLabel.Rows[e.RowIndex].Cells[2].Value.ToString();
@@ -171,6 +174,10 @@ namespace LabelPrint
 
         private void dgProductLabel_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (e.RowIndex < 0)
+            {
+                return;
+            }
             txtProductID.Text = dgProductLabel.Rows[e.RowIndex].Cells[0].Value.ToString();
             txtProductName.Text = dgProductLabel.Rows[e.RowIndex].Cells[1].Value.ToString();
             txtBatchNo.Text = dgProductLabel.Rows[e.RowIndex].Cells[2].Value.ToString();

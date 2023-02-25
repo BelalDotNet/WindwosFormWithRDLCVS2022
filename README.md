@@ -28,12 +28,13 @@
 
 #### Should be alert 💻
 - 👉 Report Viewer will Not Work if DoNet Framework Less than 4.6.
-- After Installing (Microsoft.ReportingServices.ReportViewerControl.Winforms) If You didn't find Report Viewer Control in ToolBox You have to add dll file manually from current project bin folder (Microsoft.ReportViewer.WinForms) dll file.
+- 👉 After Installing (Microsoft.ReportingServices.ReportViewerControl.Winforms) If You didn't find Report Viewer Control in ToolBox You have to add dll file manually from current project bin folder (Microsoft.ReportViewer.WinForms) dll file.
 
 
 
 #### Project Screen Shot 💻
-<img height="48" src="Images/Login_Page.PNG" alt="LoginPage"> <img height="48" src="Images/Home_Page.jpg" alt="HomePage">
+<img height="400" src="Images/Login_Page.PNG" alt="LoginPage"> 
+<img height="600" src="Images/Home_Page.jpg" alt="HomePage">
 
 
 #### How to Run If you Fork Or Download this project.

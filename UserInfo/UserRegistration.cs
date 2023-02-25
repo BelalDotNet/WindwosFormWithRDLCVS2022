@@ -85,7 +85,7 @@ namespace LabelPrint.UserInfo
                         txtBoxFullName.Text = "";
                         txtBoxEmail.Text = "";
                         txtBoxPhoneNumber.Text = "";
-                        txtBoxPhoneNumber.Text = "";
+                        txtBoxPassword.Text = "";
                         txtBoxConfirmPassword.Text = "";
 
                     }
@@ -137,7 +137,37 @@ namespace LabelPrint.UserInfo
         {
             if (e.KeyCode == Keys.Enter)
             {
-                //txtBoxConfirmPassword.Focus();
+                btnUserRegistration.Focus();
+                // TextBox Will Not Cleared If I Use SuppressKeyPress
+                e.SuppressKeyPress = true;
+            }
+        }
+
+        private void txtBoxFullName_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                txtBoxUserName.Focus();
+                // TextBox Will Not Cleared If I Use SuppressKeyPress
+                e.SuppressKeyPress = true;
+            }
+        }
+
+        private void txtBoxEmail_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                txtBoxPhoneNumber.Focus();
+                // TextBox Will Not Cleared If I Use SuppressKeyPress
+                e.SuppressKeyPress = true;
+            }
+        }
+
+        private void txtBoxPhoneNumber_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                txtBoxPassword.Focus();
                 // TextBox Will Not Cleared If I Use SuppressKeyPress
                 e.SuppressKeyPress = true;
             }

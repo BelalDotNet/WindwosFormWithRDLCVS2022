@@ -66,6 +66,7 @@
             this.txtBoxFullName.Size = new System.Drawing.Size(222, 30);
             this.txtBoxFullName.TabIndex = 1;
             this.txtBoxFullName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtBoxFullName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBoxFullName_KeyDown);
             // 
             // label2
             // 
@@ -117,6 +118,7 @@
             this.txtBoxPhoneNumber.Size = new System.Drawing.Size(219, 30);
             this.txtBoxPhoneNumber.TabIndex = 4;
             this.txtBoxPhoneNumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtBoxPhoneNumber.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBoxPhoneNumber_KeyDown);
             // 
             // label5
             // 
@@ -137,6 +139,7 @@
             this.txtBoxEmail.Size = new System.Drawing.Size(225, 30);
             this.txtBoxEmail.TabIndex = 3;
             this.txtBoxEmail.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtBoxEmail.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBoxEmail_KeyDown);
             // 
             // label6
             // 
@@ -233,7 +236,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtBoxFullName);
             this.Controls.Add(this.label1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "UserRegistration";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.UserRegistration_Load);

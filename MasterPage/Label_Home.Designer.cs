@@ -29,19 +29,20 @@
         private void InitializeComponent()
         {
             this.panelLeftSideBar = new System.Windows.Forms.Panel();
-            this.panelTopHeader = new System.Windows.Forms.Panel();
-            this.panelBottonFooter = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.lblHomeUserName = new System.Windows.Forms.Label();
-            this.btnCross = new System.Windows.Forms.Button();
+            this.panelTopHeader = new System.Windows.Forms.Panel();
             this.lblCompanyName = new System.Windows.Forms.Label();
+            this.btnCross = new System.Windows.Forms.Button();
+            this.panelBottonFooter = new System.Windows.Forms.Panel();
             this.panelHomeLogo = new System.Windows.Forms.Panel();
+            this.btnAddUser = new System.Windows.Forms.Button();
             this.btnNavLogout = new System.Windows.Forms.Button();
             this.btnNavProductReport = new System.Windows.Forms.Button();
             this.btnNavProductLabel = new System.Windows.Forms.Button();
             this.btnHome = new System.Windows.Forms.Button();
             this.panelUserPicBox = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.panelLeftSideBar.SuspendLayout();
             this.panelTopHeader.SuspendLayout();
             this.panelBottonFooter.SuspendLayout();
@@ -50,6 +51,7 @@
             // panelLeftSideBar
             // 
             this.panelLeftSideBar.BackColor = System.Drawing.Color.DarkCyan;
+            this.panelLeftSideBar.Controls.Add(this.btnAddUser);
             this.panelLeftSideBar.Controls.Add(this.label2);
             this.panelLeftSideBar.Controls.Add(this.label1);
             this.panelLeftSideBar.Controls.Add(this.btnNavLogout);
@@ -61,30 +63,30 @@
             this.panelLeftSideBar.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelLeftSideBar.Location = new System.Drawing.Point(0, 0);
             this.panelLeftSideBar.Name = "panelLeftSideBar";
-            this.panelLeftSideBar.Size = new System.Drawing.Size(200, 546);
+            this.panelLeftSideBar.Size = new System.Drawing.Size(200, 605);
             this.panelLeftSideBar.TabIndex = 0;
+            this.panelLeftSideBar.Paint += new System.Windows.Forms.PaintEventHandler(this.panelLeftSideBar_Paint);
             // 
-            // panelTopHeader
+            // label2
             // 
-            this.panelTopHeader.BackColor = System.Drawing.Color.DarkCyan;
-            this.panelTopHeader.Controls.Add(this.lblCompanyName);
-            this.panelTopHeader.Controls.Add(this.btnCross);
-            this.panelTopHeader.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelTopHeader.Location = new System.Drawing.Point(200, 0);
-            this.panelTopHeader.Name = "panelTopHeader";
-            this.panelTopHeader.Size = new System.Drawing.Size(847, 43);
-            this.panelTopHeader.TabIndex = 1;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label2.Location = new System.Drawing.Point(5, 570);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(182, 23);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "Retail Technologies Ltd.";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
-            // panelBottonFooter
+            // label1
             // 
-            this.panelBottonFooter.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panelBottonFooter.BackColor = System.Drawing.Color.Honeydew;
-            this.panelBottonFooter.Controls.Add(this.panelHomeLogo);
-            this.panelBottonFooter.Location = new System.Drawing.Point(200, 38);
-            this.panelBottonFooter.Name = "panelBottonFooter";
-            this.panelBottonFooter.Size = new System.Drawing.Size(847, 508);
-            this.panelBottonFooter.TabIndex = 2;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(3, 553);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(109, 23);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "Developed By : ";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // lblHomeUserName
             // 
@@ -95,22 +97,19 @@
             this.lblHomeUserName.TabIndex = 1;
             this.lblHomeUserName.Text = "User Name";
             this.lblHomeUserName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblHomeUserName.Click += new System.EventHandler(this.lblHomeUserName_Click);
             // 
-            // btnCross
+            // panelTopHeader
             // 
-            this.btnCross.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCross.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnCross.FlatAppearance.BorderSize = 0;
-            this.btnCross.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCross.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCross.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnCross.Location = new System.Drawing.Point(817, 6);
-            this.btnCross.Name = "btnCross";
-            this.btnCross.Size = new System.Drawing.Size(25, 25);
-            this.btnCross.TabIndex = 0;
-            this.btnCross.Text = "X";
-            this.btnCross.UseVisualStyleBackColor = false;
-            this.btnCross.Click += new System.EventHandler(this.btnCross_Click);
+            this.panelTopHeader.BackColor = System.Drawing.Color.DarkCyan;
+            this.panelTopHeader.Controls.Add(this.lblCompanyName);
+            this.panelTopHeader.Controls.Add(this.btnCross);
+            this.panelTopHeader.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelTopHeader.Location = new System.Drawing.Point(200, 0);
+            this.panelTopHeader.Name = "panelTopHeader";
+            this.panelTopHeader.Size = new System.Drawing.Size(994, 43);
+            this.panelTopHeader.TabIndex = 1;
+            this.panelTopHeader.Paint += new System.Windows.Forms.PaintEventHandler(this.panelTopHeader_Paint);
             // 
             // lblCompanyName
             // 
@@ -122,6 +121,35 @@
             this.lblCompanyName.TabIndex = 1;
             this.lblCompanyName.Text = "LABAID PHARMACEUTICALS LIMITED";
             this.lblCompanyName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblCompanyName.Click += new System.EventHandler(this.lblCompanyName_Click);
+            // 
+            // btnCross
+            // 
+            this.btnCross.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCross.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnCross.FlatAppearance.BorderSize = 0;
+            this.btnCross.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCross.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCross.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnCross.Location = new System.Drawing.Point(964, 6);
+            this.btnCross.Name = "btnCross";
+            this.btnCross.Size = new System.Drawing.Size(25, 25);
+            this.btnCross.TabIndex = 0;
+            this.btnCross.Text = "X";
+            this.btnCross.UseVisualStyleBackColor = false;
+            this.btnCross.Click += new System.EventHandler(this.btnCross_Click);
+            // 
+            // panelBottonFooter
+            // 
+            this.panelBottonFooter.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelBottonFooter.BackColor = System.Drawing.Color.Honeydew;
+            this.panelBottonFooter.Controls.Add(this.panelHomeLogo);
+            this.panelBottonFooter.Location = new System.Drawing.Point(200, 38);
+            this.panelBottonFooter.Name = "panelBottonFooter";
+            this.panelBottonFooter.Size = new System.Drawing.Size(994, 567);
+            this.panelBottonFooter.TabIndex = 2;
+            this.panelBottonFooter.Paint += new System.Windows.Forms.PaintEventHandler(this.panelBottonFooter_Paint);
             // 
             // panelHomeLogo
             // 
@@ -131,6 +159,23 @@
             this.panelHomeLogo.Name = "panelHomeLogo";
             this.panelHomeLogo.Size = new System.Drawing.Size(200, 100);
             this.panelHomeLogo.TabIndex = 0;
+            this.panelHomeLogo.Paint += new System.Windows.Forms.PaintEventHandler(this.panelHomeLogo_Paint);
+            // 
+            // btnAddUser
+            // 
+            this.btnAddUser.BackColor = System.Drawing.Color.DarkGray;
+            this.btnAddUser.FlatAppearance.BorderSize = 0;
+            this.btnAddUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddUser.Image = global::LabelPrint.Properties.Resources.addUser;
+            this.btnAddUser.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAddUser.Location = new System.Drawing.Point(3, 213);
+            this.btnAddUser.Name = "btnAddUser";
+            this.btnAddUser.Size = new System.Drawing.Size(191, 29);
+            this.btnAddUser.TabIndex = 8;
+            this.btnAddUser.Text = "Add User";
+            this.btnAddUser.UseVisualStyleBackColor = false;
+            this.btnAddUser.Click += new System.EventHandler(this.btnAddUser_Click);
             // 
             // btnNavLogout
             // 
@@ -140,7 +185,7 @@
             this.btnNavLogout.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNavLogout.Image = global::LabelPrint.Properties.Resources.Logout;
             this.btnNavLogout.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNavLogout.Location = new System.Drawing.Point(5, 340);
+            this.btnNavLogout.Location = new System.Drawing.Point(5, 318);
             this.btnNavLogout.Name = "btnNavLogout";
             this.btnNavLogout.Size = new System.Drawing.Size(191, 29);
             this.btnNavLogout.TabIndex = 5;
@@ -156,7 +201,7 @@
             this.btnNavProductReport.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNavProductReport.Image = global::LabelPrint.Properties.Resources.Report;
             this.btnNavProductReport.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNavProductReport.Location = new System.Drawing.Point(5, 295);
+            this.btnNavProductReport.Location = new System.Drawing.Point(5, 283);
             this.btnNavProductReport.Name = "btnNavProductReport";
             this.btnNavProductReport.Size = new System.Drawing.Size(191, 29);
             this.btnNavProductReport.TabIndex = 4;
@@ -172,7 +217,7 @@
             this.btnNavProductLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNavProductLabel.Image = global::LabelPrint.Properties.Resources.Product_Icon;
             this.btnNavProductLabel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNavProductLabel.Location = new System.Drawing.Point(5, 250);
+            this.btnNavProductLabel.Location = new System.Drawing.Point(4, 247);
             this.btnNavProductLabel.Name = "btnNavProductLabel";
             this.btnNavProductLabel.Size = new System.Drawing.Size(191, 29);
             this.btnNavProductLabel.TabIndex = 3;
@@ -188,7 +233,7 @@
             this.btnHome.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnHome.Image = global::LabelPrint.Properties.Resources.Home;
             this.btnHome.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnHome.Location = new System.Drawing.Point(4, 207);
+            this.btnHome.Location = new System.Drawing.Point(4, 178);
             this.btnHome.Name = "btnHome";
             this.btnHome.Size = new System.Drawing.Size(191, 29);
             this.btnHome.TabIndex = 2;
@@ -204,31 +249,13 @@
             this.panelUserPicBox.Name = "panelUserPicBox";
             this.panelUserPicBox.Size = new System.Drawing.Size(125, 119);
             this.panelUserPicBox.TabIndex = 0;
-            // 
-            // label1
-            // 
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(3, 504);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(109, 23);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "Developed By : ";
-            // 
-            // label2
-            // 
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label2.Location = new System.Drawing.Point(5, 521);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(182, 23);
-            this.label2.TabIndex = 7;
-            this.label2.Text = "Retail Technologies Ltd.";
+            this.panelUserPicBox.Paint += new System.Windows.Forms.PaintEventHandler(this.panelUserPicBox_Paint);
             // 
             // Label_Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1047, 546);
+            this.ClientSize = new System.Drawing.Size(1194, 605);
             this.ControlBox = false;
             this.Controls.Add(this.panelBottonFooter);
             this.Controls.Add(this.panelTopHeader);
@@ -260,5 +287,6 @@
         private System.Windows.Forms.Panel panelHomeLogo;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btnAddUser;
     }
 }

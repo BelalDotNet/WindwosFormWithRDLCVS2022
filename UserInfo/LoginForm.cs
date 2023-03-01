@@ -31,6 +31,8 @@ namespace LabelPrint
             cn = new SqlConnection(con);
             cn.Open();
             txtPassword.PasswordChar= '*';
+            txtPassword.Text = "1234";
+            txtUserName.Text = "Belal";
             lblFooterCopyRightText.Text = "Copy Right " + CurrentYear + ", Retail Technologies Ltd.";
         }
 

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LabelPrint.UserInfo;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -59,6 +60,60 @@ namespace LabelPrint.MasterPage
             panelBottonFooter.Controls.Add(panelHomeLogo);
 
 
+        }
+
+        private void panelLeftSideBar_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panelTopHeader_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblHomeUserName_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panelUserPicBox_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panelBottonFooter_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void lblCompanyName_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panelHomeLogo_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void btnAddUser_Click(object sender, EventArgs e)
+        {
+            UserRegistration uR = new UserRegistration();
+            uR.TopLevel = false;
+            panelBottonFooter.Controls.Add(uR);
+            uR.BringToFront();
+            uR.Show();
         }
     }
 }

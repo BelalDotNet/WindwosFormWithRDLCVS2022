@@ -20,7 +20,8 @@ namespace LabelPrint.UserInfo
         SqlCommand cmd;
         SqlDataAdapter da;
         SqlDataReader dr;
-        //public static string displayUser = string.Empty;
+        public static int UserId = 0;
+
         string con = ConfigurationManager.ConnectionStrings["LabelPrint.Properties.Settings.LabelPrintDBConnectionString"].ConnectionString;
 
 
@@ -34,6 +35,8 @@ namespace LabelPrint.UserInfo
             cn.Open();
             txtBoxPassword.PasswordChar = '*';
             txtBoxConfirmPassword.PasswordChar = '*';
+            ClearAll();
+            GetAllUser();
         }
 
         private void btnToLoginRender_Click(object sender, EventArgs e)
@@ -67,26 +70,22 @@ namespace LabelPrint.UserInfo
                         cmd.Parameters.AddWithValue("@Email", txtBoxEmail.Text);
                         cmd.Parameters.AddWithValue("@Phone", txtBoxPhoneNumber.Text);
                         cmd.ExecuteNonQuery();
+                        GetAllUser();
+                        ClearAll();
+                        //DialogResult result = MessageBox.Show("Do You Want to Login Now?", "Login", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+                        //if (result.Equals(DialogResult.OK))
+                        //{
+                        //    this.Hide();
+                        //    LoginForm lf=new LoginForm();
+                        //    lf.ShowDialog();
+                        //}
+                        //else
+                        //{
+                        MessageBox.Show("Your Account is created Successfully!!!", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                        DialogResult result = MessageBox.Show("Do You Want to Login Now?", "Login", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
-                        if (result.Equals(DialogResult.OK))
-                        {
-                            this.Hide();
-                            LoginForm lf=new LoginForm();
-                            lf.ShowDialog();
-                        }
-                        else
-                        {
-                            MessageBox.Show("Your Account is created. You can login now.", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                       // }
 
-                        }
-
-                        txtBoxUserName.Text = "";
-                        txtBoxFullName.Text = "";
-                        txtBoxEmail.Text = "";
-                        txtBoxPhoneNumber.Text = "";
-                        txtBoxPassword.Text = "";
-                        txtBoxConfirmPassword.Text = "";
+                    
 
                     }
                 }
@@ -171,6 +170,53 @@ namespace LabelPrint.UserInfo
                 // TextBox Will Not Cleared If I Use SuppressKeyPress
                 e.SuppressKeyPress = true;
             }
+        }
+
+        private void btnClearUserData_Click(object sender, EventArgs e)
+        {
+            ClearAll();
+
+        }
+        private void ClearAll()
+        {
+            txtBoxUserName.Text = "";
+            txtBoxFullName.Text = "";
+            txtBoxEmail.Text = "";
+            txtBoxPhoneNumber.Text = "";
+            txtBoxPassword.Text = "";
+            txtBoxConfirmPassword.Text = "";
+            btnUserRegistration.Text = "Register";
+        }
+
+        private void GetAllUser()
+        {
+            cmd = new SqlCommand("tbl_User_GetAll", cn);
+            da = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            dgUserRegistration.DataSource = dt;
+            dgUserRegistration.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgUserRegistration.Columns["UserId"].Visible = false;
+            this.dgUserRegistration.Columns["RoleId"].Visible = false;
+        }
+
+        private void dgUserRegistration_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0)
+            {
+                return;
+            }
+            txtBoxUserId.Text = dgUserRegistration.Rows[e.RowIndex].Cells[1].Value.ToString();
+            txtBoxUserName.Text = dgUserRegistration.Rows[e.RowIndex].Cells[3].Value.ToString();
+            txtBoxFullName.Text = dgUserRegistration.Rows[e.RowIndex].Cells[4].Value.ToString();
+
+            txtBoxEmail.Text = dgUserRegistration.Rows[e.RowIndex].Cells[5].Value.ToString();
+            txtBoxPhoneNumber.Text = dgUserRegistration.Rows[e.RowIndex].Cells[6].Value.ToString();
+
+            txtBoxPassword.Text = dgUserRegistration.Rows[e.RowIndex].Cells[7].Value.ToString();
+            txtBoxConfirmPassword.Text = dgUserRegistration.Rows[e.RowIndex].Cells[7].Value.ToString();
+
+            btnUserRegistration.Text = "Update";
         }
     }
 }

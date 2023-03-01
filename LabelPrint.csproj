@@ -100,6 +100,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MasterPage\FormVersionEntry.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MasterPage\FormVersionEntry.Designer.cs">
+      <DependentUpon>FormVersionEntry.cs</DependentUpon>
+    </Compile>
     <Compile Include="MasterPage\Label_Home.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -145,6 +151,9 @@
     <Compile Include="UserInfo\UserRegistration.Designer.cs">
       <DependentUpon>UserRegistration.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="MasterPage\FormVersionEntry.resx">
+      <DependentUpon>FormVersionEntry.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MasterPage\Label_Home.resx">
       <DependentUpon>Label_Home.cs</DependentUpon>
     </EmbeddedResource>
@@ -206,11 +215,13 @@
     <Content Include="DB_Script\LabelPrintDB_Script.sql" />
     <None Include="Images\Home.png" />
     <None Include="Images\CopyRight.jpg" />
+    <None Include="Images\addUser.png" />
     <Content Include="Images\LAlogo.jpeg" />
     <None Include="Images\User_Icon.png" />
     <None Include="Images\Product_Icon.png" />
     <None Include="Images\Report.png" />
     <None Include="Images\Logout.png" />
+    <Content Include="Images\userIcon.png" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

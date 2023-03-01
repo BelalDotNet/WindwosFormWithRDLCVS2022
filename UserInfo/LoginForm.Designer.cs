@@ -145,6 +145,7 @@
             this.btnRegisterFormRedirect.TabIndex = 5;
             this.btnRegisterFormRedirect.Text = "Don\'t Have Account? Create";
             this.btnRegisterFormRedirect.UseVisualStyleBackColor = false;
+            this.btnRegisterFormRedirect.Visible = false;
             this.btnRegisterFormRedirect.Click += new System.EventHandler(this.btnRegisterFormRedirect_Click);
             // 
             // LoginForm

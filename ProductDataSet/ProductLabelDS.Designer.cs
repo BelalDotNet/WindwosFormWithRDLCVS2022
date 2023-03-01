@@ -299,6 +299,12 @@ namespace LabelPrint.ProductDataSet {
             
             private global::System.Data.DataColumn columnStorageCondition;
             
+            private global::System.Data.DataColumn columnFormNo;
+            
+            private global::System.Data.DataColumn columnVersionNo;
+            
+            private global::System.Data.DataColumn columnFormVersionId;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public spProductLabel_GetByProductLabelIdDataTable() {
@@ -414,6 +420,30 @@ namespace LabelPrint.ProductDataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn FormNoColumn {
+                get {
+                    return this.columnFormNo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn VersionNoColumn {
+                get {
+                    return this.columnVersionNo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn FormVersionIdColumn {
+                get {
+                    return this.columnFormVersionId;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -449,7 +479,7 @@ namespace LabelPrint.ProductDataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public spProductLabel_GetByProductLabelIdRow AddspProductLabel_GetByProductLabelIdRow(string DisplayName, string ProductName, string BatchNo, System.DateTime MfgDate, System.DateTime ExpDate, decimal PackQuantity, int PackedBy, string SrNo, string StorageCondition) {
+            public spProductLabel_GetByProductLabelIdRow AddspProductLabel_GetByProductLabelIdRow(string DisplayName, string ProductName, string BatchNo, System.DateTime MfgDate, System.DateTime ExpDate, string PackQuantity, int PackedBy, string SrNo, string StorageCondition, string FormNo, string VersionNo, int FormVersionId) {
                 spProductLabel_GetByProductLabelIdRow rowspProductLabel_GetByProductLabelIdRow = ((spProductLabel_GetByProductLabelIdRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         DisplayName,
@@ -461,7 +491,10 @@ namespace LabelPrint.ProductDataSet {
                         PackQuantity,
                         PackedBy,
                         SrNo,
-                        StorageCondition};
+                        StorageCondition,
+                        FormNo,
+                        VersionNo,
+                        FormVersionId};
                 rowspProductLabel_GetByProductLabelIdRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowspProductLabel_GetByProductLabelIdRow);
                 return rowspProductLabel_GetByProductLabelIdRow;
@@ -501,6 +534,9 @@ namespace LabelPrint.ProductDataSet {
                 this.columnPackedBy = base.Columns["PackedBy"];
                 this.columnSrNo = base.Columns["SrNo"];
                 this.columnStorageCondition = base.Columns["StorageCondition"];
+                this.columnFormNo = base.Columns["FormNo"];
+                this.columnVersionNo = base.Columns["VersionNo"];
+                this.columnFormVersionId = base.Columns["FormVersionId"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -518,7 +554,7 @@ namespace LabelPrint.ProductDataSet {
                 base.Columns.Add(this.columnMfgDate);
                 this.columnExpDate = new global::System.Data.DataColumn("ExpDate", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnExpDate);
-                this.columnPackQuantity = new global::System.Data.DataColumn("PackQuantity", typeof(decimal), null, global::System.Data.MappingType.Element);
+                this.columnPackQuantity = new global::System.Data.DataColumn("PackQuantity", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPackQuantity);
                 this.columnPackedBy = new global::System.Data.DataColumn("PackedBy", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPackedBy);
@@ -526,6 +562,12 @@ namespace LabelPrint.ProductDataSet {
                 base.Columns.Add(this.columnSrNo);
                 this.columnStorageCondition = new global::System.Data.DataColumn("StorageCondition", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnStorageCondition);
+                this.columnFormNo = new global::System.Data.DataColumn("FormNo", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFormNo);
+                this.columnVersionNo = new global::System.Data.DataColumn("VersionNo", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnVersionNo);
+                this.columnFormVersionId = new global::System.Data.DataColumn("FormVersionId", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFormVersionId);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnProductLabelId}, true));
                 this.columnDisplayName.MaxLength = 250;
@@ -537,8 +579,11 @@ namespace LabelPrint.ProductDataSet {
                 this.columnProductLabelId.Unique = true;
                 this.columnProductName.MaxLength = 250;
                 this.columnBatchNo.MaxLength = 250;
+                this.columnPackQuantity.MaxLength = 250;
                 this.columnSrNo.MaxLength = 50;
                 this.columnStorageCondition.MaxLength = 250;
+                this.columnFormNo.MaxLength = 150;
+                this.columnVersionNo.MaxLength = 10;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -777,10 +822,10 @@ namespace LabelPrint.ProductDataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public decimal PackQuantity {
+            public string PackQuantity {
                 get {
                     try {
-                        return ((decimal)(this[this.tablespProductLabel_GetByProductLabelId.PackQuantityColumn]));
+                        return ((string)(this[this.tablespProductLabel_GetByProductLabelId.PackQuantityColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'PackQuantity\' in table \'spProductLabel_GetByProductLabelId\'" +
@@ -840,6 +885,57 @@ namespace LabelPrint.ProductDataSet {
                 }
                 set {
                     this[this.tablespProductLabel_GetByProductLabelId.StorageConditionColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string FormNo {
+                get {
+                    try {
+                        return ((string)(this[this.tablespProductLabel_GetByProductLabelId.FormNoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'FormNo\' in table \'spProductLabel_GetByProductLabelId\' is DB" +
+                                "Null.", e);
+                    }
+                }
+                set {
+                    this[this.tablespProductLabel_GetByProductLabelId.FormNoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string VersionNo {
+                get {
+                    try {
+                        return ((string)(this[this.tablespProductLabel_GetByProductLabelId.VersionNoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'VersionNo\' in table \'spProductLabel_GetByProductLabelId\' is" +
+                                " DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablespProductLabel_GetByProductLabelId.VersionNoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int FormVersionId {
+                get {
+                    try {
+                        return ((int)(this[this.tablespProductLabel_GetByProductLabelId.FormVersionIdColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'FormVersionId\' in table \'spProductLabel_GetByProductLabelId" +
+                                "\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablespProductLabel_GetByProductLabelId.FormVersionIdColumn] = value;
                 }
             }
             
@@ -949,6 +1045,42 @@ namespace LabelPrint.ProductDataSet {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetStorageConditionNull() {
                 this[this.tablespProductLabel_GetByProductLabelId.StorageConditionColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsFormNoNull() {
+                return this.IsNull(this.tablespProductLabel_GetByProductLabelId.FormNoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetFormNoNull() {
+                this[this.tablespProductLabel_GetByProductLabelId.FormNoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsVersionNoNull() {
+                return this.IsNull(this.tablespProductLabel_GetByProductLabelId.VersionNoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetVersionNoNull() {
+                this[this.tablespProductLabel_GetByProductLabelId.VersionNoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsFormVersionIdNull() {
+                return this.IsNull(this.tablespProductLabel_GetByProductLabelId.FormVersionIdColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetFormVersionIdNull() {
+                this[this.tablespProductLabel_GetByProductLabelId.FormVersionIdColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -1121,6 +1253,9 @@ namespace LabelPrint.ProductDataSet.ProductLabelDSTableAdapters {
             tableMapping.ColumnMappings.Add("PackedBy", "PackedBy");
             tableMapping.ColumnMappings.Add("SrNo", "SrNo");
             tableMapping.ColumnMappings.Add("StorageCondition", "StorageCondition");
+            tableMapping.ColumnMappings.Add("FormNo", "FormNo");
+            tableMapping.ColumnMappings.Add("VersionNo", "VersionNo");
+            tableMapping.ColumnMappings.Add("FormVersionId", "FormVersionId");
             this._adapter.TableMappings.Add(tableMapping);
         }
         

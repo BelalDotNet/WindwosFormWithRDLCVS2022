@@ -32,6 +32,9 @@
               <Mapping SourceColumn="PackedBy" DataSetColumn="PackedBy" />
               <Mapping SourceColumn="SrNo" DataSetColumn="SrNo" />
               <Mapping SourceColumn="StorageCondition" DataSetColumn="StorageCondition" />
+              <Mapping SourceColumn="FormNo" DataSetColumn="FormNo" />
+              <Mapping SourceColumn="VersionNo" DataSetColumn="VersionNo" />
+              <Mapping SourceColumn="FormVersionId" DataSetColumn="FormVersionId" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -40,7 +43,7 @@
       </DataSource>
     </xs:appinfo>
   </xs:annotation>
-  <xs:element name="ProductLabelDS" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_UserDSName="ProductLabelDS" msprop:Generator_DataSetName="ProductLabelDS">
+  <xs:element name="ProductLabelDS" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="ProductLabelDS" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="ProductLabelDS">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
         <xs:element name="spProductLabel_GetByProductLabelId" msprop:Generator_RowEvHandlerName="spProductLabel_GetByProductLabelIdRowChangeEventHandler" msprop:Generator_RowDeletedName="spProductLabel_GetByProductLabelIdRowDeleted" msprop:Generator_RowDeletingName="spProductLabel_GetByProductLabelIdRowDeleting" msprop:Generator_RowEvArgName="spProductLabel_GetByProductLabelIdRowChangeEvent" msprop:Generator_TablePropName="spProductLabel_GetByProductLabelId" msprop:Generator_RowChangedName="spProductLabel_GetByProductLabelIdRowChanged" msprop:Generator_RowChangingName="spProductLabel_GetByProductLabelIdRowChanging" msprop:Generator_TableClassName="spProductLabel_GetByProductLabelIdDataTable" msprop:Generator_RowClassName="spProductLabel_GetByProductLabelIdRow" msprop:Generator_TableVarName="tablespProductLabel_GetByProductLabelId" msprop:Generator_UserTableName="spProductLabel_GetByProductLabelId">
@@ -70,7 +73,13 @@
               </xs:element>
               <xs:element name="MfgDate" msprop:Generator_ColumnPropNameInRow="MfgDate" msprop:Generator_ColumnPropNameInTable="MfgDateColumn" msprop:Generator_ColumnVarNameInTable="columnMfgDate" msprop:Generator_UserColumnName="MfgDate" type="xs:dateTime" minOccurs="0" />
               <xs:element name="ExpDate" msprop:Generator_ColumnPropNameInRow="ExpDate" msprop:Generator_ColumnPropNameInTable="ExpDateColumn" msprop:Generator_ColumnVarNameInTable="columnExpDate" msprop:Generator_UserColumnName="ExpDate" type="xs:dateTime" minOccurs="0" />
-              <xs:element name="PackQuantity" msprop:Generator_ColumnPropNameInRow="PackQuantity" msprop:Generator_ColumnPropNameInTable="PackQuantityColumn" msprop:Generator_ColumnVarNameInTable="columnPackQuantity" msprop:Generator_UserColumnName="PackQuantity" type="xs:decimal" minOccurs="0" />
+              <xs:element name="PackQuantity" msprop:Generator_ColumnPropNameInRow="PackQuantity" msprop:Generator_ColumnPropNameInTable="PackQuantityColumn" msprop:Generator_ColumnVarNameInTable="columnPackQuantity" msprop:Generator_UserColumnName="PackQuantity" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
               <xs:element name="PackedBy" msprop:Generator_ColumnPropNameInRow="PackedBy" msprop:Generator_ColumnPropNameInTable="PackedByColumn" msprop:Generator_ColumnVarNameInTable="columnPackedBy" msprop:Generator_UserColumnName="PackedBy" type="xs:int" minOccurs="0" />
               <xs:element name="SrNo" msprop:Generator_ColumnPropNameInRow="SrNo" msprop:Generator_ColumnPropNameInTable="SrNoColumn" msprop:Generator_ColumnVarNameInTable="columnSrNo" msprop:Generator_UserColumnName="SrNo" minOccurs="0">
                 <xs:simpleType>
@@ -86,6 +95,21 @@
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
+              <xs:element name="FormNo" msprop:Generator_ColumnPropNameInRow="FormNo" msprop:Generator_ColumnPropNameInTable="FormNoColumn" msprop:Generator_ColumnVarNameInTable="columnFormNo" msprop:Generator_UserColumnName="FormNo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="VersionNo" msprop:Generator_ColumnPropNameInRow="VersionNo" msprop:Generator_ColumnPropNameInTable="VersionNoColumn" msprop:Generator_ColumnVarNameInTable="columnVersionNo" msprop:Generator_UserColumnName="VersionNo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="FormVersionId" msprop:Generator_ColumnPropNameInRow="FormVersionId" msprop:Generator_ColumnPropNameInTable="FormVersionIdColumn" msprop:Generator_ColumnVarNameInTable="columnFormVersionId" msprop:Generator_UserColumnName="FormVersionId" type="xs:int" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

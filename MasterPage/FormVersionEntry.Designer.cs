@@ -36,6 +36,11 @@
             this.txtBoxVersionNo = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.dgFormVersion = new System.Windows.Forms.DataGridView();
+            this.txtBoxFormVersionID = new System.Windows.Forms.TextBox();
+            this.lblFormVersionID = new System.Windows.Forms.Label();
+            this.btnFormVersionClear = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.dgFormVersion)).BeginInit();
             this.SuspendLayout();
             // 
             // comBoxFormTemplate
@@ -85,9 +90,9 @@
             this.btnFormVersionSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFormVersionSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnFormVersionSave.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnFormVersionSave.Location = new System.Drawing.Point(187, 192);
+            this.btnFormVersionSave.Location = new System.Drawing.Point(187, 181);
             this.btnFormVersionSave.Name = "btnFormVersionSave";
-            this.btnFormVersionSave.Size = new System.Drawing.Size(121, 33);
+            this.btnFormVersionSave.Size = new System.Drawing.Size(86, 30);
             this.btnFormVersionSave.TabIndex = 16;
             this.btnFormVersionSave.Text = "Save";
             this.btnFormVersionSave.UseVisualStyleBackColor = false;
@@ -124,12 +129,64 @@
             this.label3.Text = "Form Version Entry";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // dgFormVersion
+            // 
+            this.dgFormVersion.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgFormVersion.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.dgFormVersion.Location = new System.Drawing.Point(0, 217);
+            this.dgFormVersion.Name = "dgFormVersion";
+            this.dgFormVersion.Size = new System.Drawing.Size(495, 189);
+            this.dgFormVersion.TabIndex = 20;
+            this.dgFormVersion.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgFormVersion_CellContentClick);
+            this.dgFormVersion.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgFormVersion_CellContentDoubleClick);
+            // 
+            // txtBoxFormVersionID
+            // 
+            this.txtBoxFormVersionID.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBoxFormVersionID.Location = new System.Drawing.Point(187, 37);
+            this.txtBoxFormVersionID.Multiline = true;
+            this.txtBoxFormVersionID.Name = "txtBoxFormVersionID";
+            this.txtBoxFormVersionID.Size = new System.Drawing.Size(184, 20);
+            this.txtBoxFormVersionID.TabIndex = 22;
+            this.txtBoxFormVersionID.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtBoxFormVersionID.Visible = false;
+            // 
+            // lblFormVersionID
+            // 
+            this.lblFormVersionID.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFormVersionID.Location = new System.Drawing.Point(19, 37);
+            this.lblFormVersionID.Name = "lblFormVersionID";
+            this.lblFormVersionID.Size = new System.Drawing.Size(144, 18);
+            this.lblFormVersionID.TabIndex = 21;
+            this.lblFormVersionID.Text = "Form Version ID";
+            this.lblFormVersionID.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblFormVersionID.Visible = false;
+            // 
+            // btnFormVersionClear
+            // 
+            this.btnFormVersionClear.BackColor = System.Drawing.Color.Tomato;
+            this.btnFormVersionClear.FlatAppearance.BorderSize = 0;
+            this.btnFormVersionClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFormVersionClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFormVersionClear.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnFormVersionClear.Location = new System.Drawing.Point(279, 181);
+            this.btnFormVersionClear.Name = "btnFormVersionClear";
+            this.btnFormVersionClear.Size = new System.Drawing.Size(92, 30);
+            this.btnFormVersionClear.TabIndex = 23;
+            this.btnFormVersionClear.Text = "Clear";
+            this.btnFormVersionClear.UseVisualStyleBackColor = false;
+            this.btnFormVersionClear.Click += new System.EventHandler(this.btnFormVersionClear_Click);
+            // 
             // FormVersionEntry
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Info;
-            this.ClientSize = new System.Drawing.Size(475, 296);
+            this.ClientSize = new System.Drawing.Size(495, 406);
+            this.Controls.Add(this.btnFormVersionClear);
+            this.Controls.Add(this.txtBoxFormVersionID);
+            this.Controls.Add(this.lblFormVersionID);
+            this.Controls.Add(this.dgFormVersion);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtBoxVersionNo);
             this.Controls.Add(this.label1);
@@ -142,6 +199,7 @@
             this.Name = "FormVersionEntry";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.FormVersionEntry_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgFormVersion)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -157,5 +215,9 @@
         private System.Windows.Forms.TextBox txtBoxVersionNo;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.DataGridView dgFormVersion;
+        private System.Windows.Forms.TextBox txtBoxFormVersionID;
+        private System.Windows.Forms.Label lblFormVersionID;
+        private System.Windows.Forms.Button btnFormVersionClear;
     }
 }

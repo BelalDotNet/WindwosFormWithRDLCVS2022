@@ -38,8 +38,12 @@ namespace LabelPrint
 
         private void GetAllPrintedProductLabel()
         {
-            cmd = new SqlCommand("sp_ProductLabelPrintList_Get", cn);
+            cmd = new SqlCommand("sp_ProductLabelPrintList_GetByUserId", cn);
+
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@UserId", DisplayUser.User_Id);
             da = new SqlDataAdapter(cmd);
+
             DataTable dt = new DataTable();
             da.Fill(dt);
             dataGridView1.DataSource = dt;
@@ -127,6 +131,8 @@ namespace LabelPrint
         private void GetAllUser()
         {
             cmd = new SqlCommand("sp_GetAllUser", cn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@UserId", DisplayUser.User_Id);
             da = new SqlDataAdapter(cmd);
             //Fill the DataTable with records from Table.
             DataTable dt = new DataTable();

@@ -47,20 +47,20 @@
             this.dgUserRegistration = new System.Windows.Forms.DataGridView();
             this.lblUserId = new System.Windows.Forms.Label();
             this.txtBoxUserId = new System.Windows.Forms.TextBox();
+            this.btnDeleteUser = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgUserRegistration)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
-            this.label1.Font = new System.Drawing.Font("Century Schoolbook", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Century Schoolbook", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ControlText;
             this.label1.Location = new System.Drawing.Point(347, 32);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(195, 35);
             this.label1.TabIndex = 0;
-            this.label1.Text = "User Registration";
+            this.label1.Text = "Add/Update User";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label1.Visible = false;
             // 
             // txtBoxFullName
             // 
@@ -227,7 +227,7 @@
             this.btnClearUserData.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClearUserData.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClearUserData.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnClearUserData.Location = new System.Drawing.Point(263, 310);
+            this.btnClearUserData.Location = new System.Drawing.Point(255, 310);
             this.btnClearUserData.Name = "btnClearUserData";
             this.btnClearUserData.Size = new System.Drawing.Size(107, 31);
             this.btnClearUserData.TabIndex = 14;
@@ -243,6 +243,7 @@
             this.dgUserRegistration.Name = "dgUserRegistration";
             this.dgUserRegistration.Size = new System.Drawing.Size(946, 200);
             this.dgUserRegistration.TabIndex = 15;
+            this.dgUserRegistration.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgUserRegistration_CellContentClick);
             this.dgUserRegistration.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgUserRegistration_CellContentDoubleClick);
             // 
             // lblUserId
@@ -268,6 +269,22 @@
             this.txtBoxUserId.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtBoxUserId.Visible = false;
             // 
+            // btnDeleteUser
+            // 
+            this.btnDeleteUser.BackColor = System.Drawing.Color.Brown;
+            this.btnDeleteUser.FlatAppearance.BorderSize = 0;
+            this.btnDeleteUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDeleteUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDeleteUser.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnDeleteUser.Location = new System.Drawing.Point(368, 310);
+            this.btnDeleteUser.Name = "btnDeleteUser";
+            this.btnDeleteUser.Size = new System.Drawing.Size(107, 31);
+            this.btnDeleteUser.TabIndex = 18;
+            this.btnDeleteUser.Text = "Delete";
+            this.btnDeleteUser.UseVisualStyleBackColor = false;
+            this.btnDeleteUser.Visible = false;
+            this.btnDeleteUser.Click += new System.EventHandler(this.btnDeleteUser_Click);
+            // 
             // UserRegistration
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -275,6 +292,7 @@
             this.BackColor = System.Drawing.Color.Honeydew;
             this.ClientSize = new System.Drawing.Size(946, 547);
             this.ControlBox = false;
+            this.Controls.Add(this.btnDeleteUser);
             this.Controls.Add(this.lblUserId);
             this.Controls.Add(this.txtBoxUserId);
             this.Controls.Add(this.dgUserRegistration);
@@ -326,5 +344,6 @@
         private System.Windows.Forms.DataGridView dgUserRegistration;
         private System.Windows.Forms.Label lblUserId;
         private System.Windows.Forms.TextBox txtBoxUserId;
+        private System.Windows.Forms.Button btnDeleteUser;
     }
 }

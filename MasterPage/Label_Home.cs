@@ -1,4 +1,5 @@
-﻿using LabelPrint.UserInfo;
+﻿using LabelPrint.ProductEntry;
+using LabelPrint.UserInfo;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -33,6 +34,11 @@ namespace LabelPrint.MasterPage
         private void Label_Home_Load(object sender, EventArgs e)
         {
             lblHomeUserName.Text = DisplayUser.Display_Name;
+            if (DisplayUser.User_Role != "Admin")
+            {
+                btnAddUser.Enabled=false;
+                //btnNavProductReport.Enabled=false;
+            }
         }
 
         private void btnNavProductLabel_Click(object sender, EventArgs e)
@@ -114,6 +120,15 @@ namespace LabelPrint.MasterPage
             panelBottonFooter.Controls.Add(uR);
             uR.BringToFront();
             uR.Show();
+        }
+
+        private void btnProcessLabelNav_Click(object sender, EventArgs e)
+        {
+            ProcessLabel pl = new ProcessLabel();
+            pl.TopLevel = false;
+            panelBottonFooter.Controls.Add(pl);
+            pl.BringToFront();
+            pl.Show();
         }
     }
 }

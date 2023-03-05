@@ -112,6 +112,12 @@
     <Compile Include="MasterPage\Label_Home.Designer.cs">
       <DependentUpon>Label_Home.cs</DependentUpon>
     </Compile>
+    <Compile Include="ProductEntry\ProcessLabel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProductEntry\ProcessLabel.Designer.cs">
+      <DependentUpon>ProcessLabel.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserInfo\DisplayUser.cs" />
     <Compile Include="ProductReport\LabelPrintForm.cs">
       <SubType>Form</SubType>
@@ -156,6 +162,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MasterPage\Label_Home.resx">
       <DependentUpon>Label_Home.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProductEntry\ProcessLabel.resx">
+      <DependentUpon>ProcessLabel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ProductReport\LabelPrintForm.resx">
       <DependentUpon>LabelPrintForm.cs</DependentUpon>

@@ -29,20 +29,21 @@
         private void InitializeComponent()
         {
             this.panelLeftSideBar = new System.Windows.Forms.Panel();
+            this.btnAddUser = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnNavLogout = new System.Windows.Forms.Button();
+            this.btnNavProductReport = new System.Windows.Forms.Button();
+            this.btnNavProductLabel = new System.Windows.Forms.Button();
+            this.btnHome = new System.Windows.Forms.Button();
             this.lblHomeUserName = new System.Windows.Forms.Label();
+            this.panelUserPicBox = new System.Windows.Forms.Panel();
             this.panelTopHeader = new System.Windows.Forms.Panel();
             this.lblCompanyName = new System.Windows.Forms.Label();
             this.btnCross = new System.Windows.Forms.Button();
             this.panelBottonFooter = new System.Windows.Forms.Panel();
             this.panelHomeLogo = new System.Windows.Forms.Panel();
-            this.btnAddUser = new System.Windows.Forms.Button();
-            this.btnNavLogout = new System.Windows.Forms.Button();
-            this.btnNavProductReport = new System.Windows.Forms.Button();
-            this.btnNavProductLabel = new System.Windows.Forms.Button();
-            this.btnHome = new System.Windows.Forms.Button();
-            this.panelUserPicBox = new System.Windows.Forms.Panel();
+            this.btnProcessLabelNav = new System.Windows.Forms.Button();
             this.panelLeftSideBar.SuspendLayout();
             this.panelTopHeader.SuspendLayout();
             this.panelBottonFooter.SuspendLayout();
@@ -51,6 +52,7 @@
             // panelLeftSideBar
             // 
             this.panelLeftSideBar.BackColor = System.Drawing.Color.DarkCyan;
+            this.panelLeftSideBar.Controls.Add(this.btnProcessLabelNav);
             this.panelLeftSideBar.Controls.Add(this.btnAddUser);
             this.panelLeftSideBar.Controls.Add(this.label2);
             this.panelLeftSideBar.Controls.Add(this.label1);
@@ -66,6 +68,22 @@
             this.panelLeftSideBar.Size = new System.Drawing.Size(200, 605);
             this.panelLeftSideBar.TabIndex = 0;
             this.panelLeftSideBar.Paint += new System.Windows.Forms.PaintEventHandler(this.panelLeftSideBar_Paint);
+            // 
+            // btnAddUser
+            // 
+            this.btnAddUser.BackColor = System.Drawing.Color.DarkGray;
+            this.btnAddUser.FlatAppearance.BorderSize = 0;
+            this.btnAddUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddUser.Image = global::LabelPrint.Properties.Resources.addUser;
+            this.btnAddUser.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAddUser.Location = new System.Drawing.Point(3, 213);
+            this.btnAddUser.Name = "btnAddUser";
+            this.btnAddUser.Size = new System.Drawing.Size(191, 29);
+            this.btnAddUser.TabIndex = 8;
+            this.btnAddUser.Text = "Add User";
+            this.btnAddUser.UseVisualStyleBackColor = false;
+            this.btnAddUser.Click += new System.EventHandler(this.btnAddUser_Click);
             // 
             // label2
             // 
@@ -88,6 +106,70 @@
             this.label1.Text = "Developed By : ";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
+            // btnNavLogout
+            // 
+            this.btnNavLogout.BackColor = System.Drawing.Color.DarkGray;
+            this.btnNavLogout.FlatAppearance.BorderSize = 0;
+            this.btnNavLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNavLogout.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNavLogout.Image = global::LabelPrint.Properties.Resources.Logout;
+            this.btnNavLogout.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnNavLogout.Location = new System.Drawing.Point(5, 349);
+            this.btnNavLogout.Name = "btnNavLogout";
+            this.btnNavLogout.Size = new System.Drawing.Size(191, 29);
+            this.btnNavLogout.TabIndex = 5;
+            this.btnNavLogout.Text = "Logout";
+            this.btnNavLogout.UseVisualStyleBackColor = false;
+            this.btnNavLogout.Click += new System.EventHandler(this.btnNavLogout_Click);
+            // 
+            // btnNavProductReport
+            // 
+            this.btnNavProductReport.BackColor = System.Drawing.Color.DarkGray;
+            this.btnNavProductReport.FlatAppearance.BorderSize = 0;
+            this.btnNavProductReport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNavProductReport.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNavProductReport.Image = global::LabelPrint.Properties.Resources.Report;
+            this.btnNavProductReport.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnNavProductReport.Location = new System.Drawing.Point(5, 314);
+            this.btnNavProductReport.Name = "btnNavProductReport";
+            this.btnNavProductReport.Size = new System.Drawing.Size(191, 29);
+            this.btnNavProductReport.TabIndex = 4;
+            this.btnNavProductReport.Text = "Report";
+            this.btnNavProductReport.UseVisualStyleBackColor = false;
+            this.btnNavProductReport.Click += new System.EventHandler(this.btnNavProductReport_Click);
+            // 
+            // btnNavProductLabel
+            // 
+            this.btnNavProductLabel.BackColor = System.Drawing.Color.DarkGray;
+            this.btnNavProductLabel.FlatAppearance.BorderSize = 0;
+            this.btnNavProductLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNavProductLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNavProductLabel.Image = global::LabelPrint.Properties.Resources.Product_Icon;
+            this.btnNavProductLabel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnNavProductLabel.Location = new System.Drawing.Point(4, 246);
+            this.btnNavProductLabel.Name = "btnNavProductLabel";
+            this.btnNavProductLabel.Size = new System.Drawing.Size(191, 29);
+            this.btnNavProductLabel.TabIndex = 3;
+            this.btnNavProductLabel.Text = "Product Label";
+            this.btnNavProductLabel.UseVisualStyleBackColor = false;
+            this.btnNavProductLabel.Click += new System.EventHandler(this.btnNavProductLabel_Click);
+            // 
+            // btnHome
+            // 
+            this.btnHome.BackColor = System.Drawing.Color.DarkGray;
+            this.btnHome.FlatAppearance.BorderSize = 0;
+            this.btnHome.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHome.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHome.Image = global::LabelPrint.Properties.Resources.Home;
+            this.btnHome.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnHome.Location = new System.Drawing.Point(4, 178);
+            this.btnHome.Name = "btnHome";
+            this.btnHome.Size = new System.Drawing.Size(191, 29);
+            this.btnHome.TabIndex = 2;
+            this.btnHome.Text = "Home";
+            this.btnHome.UseVisualStyleBackColor = false;
+            this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
+            // 
             // lblHomeUserName
             // 
             this.lblHomeUserName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -98,6 +180,16 @@
             this.lblHomeUserName.Text = "User Name";
             this.lblHomeUserName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lblHomeUserName.Click += new System.EventHandler(this.lblHomeUserName_Click);
+            // 
+            // panelUserPicBox
+            // 
+            this.panelUserPicBox.BackgroundImage = global::LabelPrint.Properties.Resources.User_Icon;
+            this.panelUserPicBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.panelUserPicBox.Location = new System.Drawing.Point(26, 12);
+            this.panelUserPicBox.Name = "panelUserPicBox";
+            this.panelUserPicBox.Size = new System.Drawing.Size(125, 119);
+            this.panelUserPicBox.TabIndex = 0;
+            this.panelUserPicBox.Paint += new System.Windows.Forms.PaintEventHandler(this.panelUserPicBox_Paint);
             // 
             // panelTopHeader
             // 
@@ -161,95 +253,21 @@
             this.panelHomeLogo.TabIndex = 0;
             this.panelHomeLogo.Paint += new System.Windows.Forms.PaintEventHandler(this.panelHomeLogo_Paint);
             // 
-            // btnAddUser
+            // btnProcessLabelNav
             // 
-            this.btnAddUser.BackColor = System.Drawing.Color.DarkGray;
-            this.btnAddUser.FlatAppearance.BorderSize = 0;
-            this.btnAddUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddUser.Image = global::LabelPrint.Properties.Resources.addUser;
-            this.btnAddUser.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAddUser.Location = new System.Drawing.Point(3, 213);
-            this.btnAddUser.Name = "btnAddUser";
-            this.btnAddUser.Size = new System.Drawing.Size(191, 29);
-            this.btnAddUser.TabIndex = 8;
-            this.btnAddUser.Text = "Add User";
-            this.btnAddUser.UseVisualStyleBackColor = false;
-            this.btnAddUser.Click += new System.EventHandler(this.btnAddUser_Click);
-            // 
-            // btnNavLogout
-            // 
-            this.btnNavLogout.BackColor = System.Drawing.Color.DarkGray;
-            this.btnNavLogout.FlatAppearance.BorderSize = 0;
-            this.btnNavLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNavLogout.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNavLogout.Image = global::LabelPrint.Properties.Resources.Logout;
-            this.btnNavLogout.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNavLogout.Location = new System.Drawing.Point(5, 318);
-            this.btnNavLogout.Name = "btnNavLogout";
-            this.btnNavLogout.Size = new System.Drawing.Size(191, 29);
-            this.btnNavLogout.TabIndex = 5;
-            this.btnNavLogout.Text = "Logout";
-            this.btnNavLogout.UseVisualStyleBackColor = false;
-            this.btnNavLogout.Click += new System.EventHandler(this.btnNavLogout_Click);
-            // 
-            // btnNavProductReport
-            // 
-            this.btnNavProductReport.BackColor = System.Drawing.Color.DarkGray;
-            this.btnNavProductReport.FlatAppearance.BorderSize = 0;
-            this.btnNavProductReport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNavProductReport.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNavProductReport.Image = global::LabelPrint.Properties.Resources.Report;
-            this.btnNavProductReport.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNavProductReport.Location = new System.Drawing.Point(5, 283);
-            this.btnNavProductReport.Name = "btnNavProductReport";
-            this.btnNavProductReport.Size = new System.Drawing.Size(191, 29);
-            this.btnNavProductReport.TabIndex = 4;
-            this.btnNavProductReport.Text = "Report";
-            this.btnNavProductReport.UseVisualStyleBackColor = false;
-            this.btnNavProductReport.Click += new System.EventHandler(this.btnNavProductReport_Click);
-            // 
-            // btnNavProductLabel
-            // 
-            this.btnNavProductLabel.BackColor = System.Drawing.Color.DarkGray;
-            this.btnNavProductLabel.FlatAppearance.BorderSize = 0;
-            this.btnNavProductLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNavProductLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNavProductLabel.Image = global::LabelPrint.Properties.Resources.Product_Icon;
-            this.btnNavProductLabel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNavProductLabel.Location = new System.Drawing.Point(4, 247);
-            this.btnNavProductLabel.Name = "btnNavProductLabel";
-            this.btnNavProductLabel.Size = new System.Drawing.Size(191, 29);
-            this.btnNavProductLabel.TabIndex = 3;
-            this.btnNavProductLabel.Text = "Product Label";
-            this.btnNavProductLabel.UseVisualStyleBackColor = false;
-            this.btnNavProductLabel.Click += new System.EventHandler(this.btnNavProductLabel_Click);
-            // 
-            // btnHome
-            // 
-            this.btnHome.BackColor = System.Drawing.Color.DarkGray;
-            this.btnHome.FlatAppearance.BorderSize = 0;
-            this.btnHome.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnHome.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnHome.Image = global::LabelPrint.Properties.Resources.Home;
-            this.btnHome.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnHome.Location = new System.Drawing.Point(4, 178);
-            this.btnHome.Name = "btnHome";
-            this.btnHome.Size = new System.Drawing.Size(191, 29);
-            this.btnHome.TabIndex = 2;
-            this.btnHome.Text = "Home";
-            this.btnHome.UseVisualStyleBackColor = false;
-            this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
-            // 
-            // panelUserPicBox
-            // 
-            this.panelUserPicBox.BackgroundImage = global::LabelPrint.Properties.Resources.User_Icon;
-            this.panelUserPicBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.panelUserPicBox.Location = new System.Drawing.Point(26, 12);
-            this.panelUserPicBox.Name = "panelUserPicBox";
-            this.panelUserPicBox.Size = new System.Drawing.Size(125, 119);
-            this.panelUserPicBox.TabIndex = 0;
-            this.panelUserPicBox.Paint += new System.Windows.Forms.PaintEventHandler(this.panelUserPicBox_Paint);
+            this.btnProcessLabelNav.BackColor = System.Drawing.Color.DarkGray;
+            this.btnProcessLabelNav.FlatAppearance.BorderSize = 0;
+            this.btnProcessLabelNav.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnProcessLabelNav.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnProcessLabelNav.Image = global::LabelPrint.Properties.Resources.Product_Icon;
+            this.btnProcessLabelNav.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnProcessLabelNav.Location = new System.Drawing.Point(5, 280);
+            this.btnProcessLabelNav.Name = "btnProcessLabelNav";
+            this.btnProcessLabelNav.Size = new System.Drawing.Size(191, 29);
+            this.btnProcessLabelNav.TabIndex = 9;
+            this.btnProcessLabelNav.Text = "Process Label";
+            this.btnProcessLabelNav.UseVisualStyleBackColor = false;
+            this.btnProcessLabelNav.Click += new System.EventHandler(this.btnProcessLabelNav_Click);
             // 
             // Label_Home
             // 
@@ -288,5 +306,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnAddUser;
+        private System.Windows.Forms.Button btnProcessLabelNav;
     }
 }

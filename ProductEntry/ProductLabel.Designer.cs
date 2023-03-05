@@ -52,6 +52,7 @@
             this.lblFormVersion = new System.Windows.Forms.Label();
             this.comBoxFormVersion = new System.Windows.Forms.ComboBox();
             this.btnNewFormVersionPopup = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgProductLabel)).BeginInit();
             this.SuspendLayout();
             // 
@@ -308,6 +309,17 @@
             this.btnNewFormVersionPopup.UseVisualStyleBackColor = false;
             this.btnNewFormVersionPopup.Click += new System.EventHandler(this.btnNewFormVersionPopup_Click);
             // 
+            // label1
+            // 
+            this.label1.Font = new System.Drawing.Font("Century Schoolbook", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label1.Location = new System.Drawing.Point(237, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(247, 35);
+            this.label1.TabIndex = 13;
+            this.label1.Text = "Product Label Entry";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // ProductLabel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -315,6 +327,7 @@
             this.BackColor = System.Drawing.Color.Honeydew;
             this.ClientSize = new System.Drawing.Size(918, 545);
             this.ControlBox = false;
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.btnNewFormVersionPopup);
             this.Controls.Add(this.comBoxFormVersion);
             this.Controls.Add(this.lblFormVersion);
@@ -374,5 +387,6 @@
         private System.Windows.Forms.Label lblFormVersion;
         private System.Windows.Forms.ComboBox comBoxFormVersion;
         private System.Windows.Forms.Button btnNewFormVersionPopup;
+        private System.Windows.Forms.Label label1;
     }
 }

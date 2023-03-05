@@ -58,6 +58,7 @@ namespace LabelPrint
                     DisplayUser.User_Name = dr["UserName"].ToString();
                     DisplayUser.Display_Name = dr["DisplayName"].ToString();
                     DisplayUser.User_Id =Convert.ToInt32(dr["UserId"]);
+                    DisplayUser.User_Role =dr["RoleName"].ToString();
 
                     dr.Close();
                     this.Hide();

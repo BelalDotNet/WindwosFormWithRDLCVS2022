@@ -48,27 +48,84 @@ namespace LabelPrint.UserInfo
 
         private void btnUserRegistration_Click(object sender, EventArgs e)
         {
-            if (txtBoxConfirmPassword.Text != string.Empty && txtBoxPassword.Text != string.Empty && Regex.Replace(txtBoxUserName.Text, " ", "") != string.Empty)
+
+            if (btnUserRegistration.Text == "Register")
             {
-                if (txtBoxPassword.Text == txtBoxConfirmPassword.Text)
+
+                if (txtBoxConfirmPassword.Text != string.Empty && txtBoxPassword.Text != string.Empty && Regex.Replace(txtBoxUserName.Text, " ", "") != string.Empty)
                 {
-                    cmd = new SqlCommand("select * from tbl_User where UserName='" + Regex.Replace(txtBoxUserName.Text, " ", "") + "'", cn);
-                    dr = cmd.ExecuteReader();
-                    if (dr.Read())
+                    if (txtBoxPassword.Text == txtBoxConfirmPassword.Text)
                     {
-                        dr.Close();
-                        MessageBox.Show("User Name Already exist please try another ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        cmd = new SqlCommand("select * from tbl_User where UserName='" + Regex.Replace(txtBoxUserName.Text, " ", "") + "'", cn);
+                        dr = cmd.ExecuteReader();
+                        if (dr.Read())
+                        {
+                            dr.Close();
+                            MessageBox.Show("User Name Already exist please try another ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                        else
+                        {
+                            dr.Close();
+                            cmd = new SqlCommand("tbl_User_Registration_CreateOrUpdate", cn);
+                            cmd.CommandType = CommandType.StoredProcedure;
+                            cmd.Parameters.AddWithValue("@UserName", txtBoxUserName.Text);
+                            cmd.Parameters.AddWithValue("@DisplayName", txtBoxFullName.Text);
+                            cmd.Parameters.AddWithValue("@Password", txtBoxPassword.Text);
+                            cmd.Parameters.AddWithValue("@Email", txtBoxEmail.Text);
+                            cmd.Parameters.AddWithValue("@Phone", txtBoxPhoneNumber.Text);
+                            cmd.Parameters.AddWithValue("@UserId", UserId);
+                            cmd.ExecuteNonQuery();
+                            GetAllUser();
+                            ClearAll();
+                            //DialogResult result = MessageBox.Show("Do You Want to Login Now?", "Login", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+                            //if (result.Equals(DialogResult.OK))
+                            //{
+                            //    this.Hide();
+                            //    LoginForm lf=new LoginForm();
+                            //    lf.ShowDialog();
+                            //}
+                            //else
+                            //{
+                            MessageBox.Show("User Account is created Successfully!!!", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                            // }
+
+
+
+                        }
                     }
                     else
                     {
-                        dr.Close();
-                        cmd = new SqlCommand("tbl_User_Registration_Create", cn);
+                        MessageBox.Show("Please enter both password same ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Please enter value in all field.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                if (txtBoxPassword.Text == txtBoxConfirmPassword.Text && Regex.Replace(txtBoxUserName.Text, " ", "") != string.Empty)
+                {
+                    //cmd = new SqlCommand("select * from tbl_User where UserName='" + Regex.Replace(txtBoxUserName.Text, " ", "") + "'", cn);
+                    //dr = cmd.ExecuteReader();
+                    //if (dr.Read())
+                    //{
+                    //    dr.Close();
+                    //    MessageBox.Show("User Name Already exist please try another ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    //}
+                    //else
+                    //{
+                    //    dr.Close();
+                        cmd = new SqlCommand("tbl_User_Registration_CreateOrUpdate", cn);
                         cmd.CommandType = CommandType.StoredProcedure;
                         cmd.Parameters.AddWithValue("@UserName", txtBoxUserName.Text);
                         cmd.Parameters.AddWithValue("@DisplayName", txtBoxFullName.Text);
                         cmd.Parameters.AddWithValue("@Password", txtBoxPassword.Text);
                         cmd.Parameters.AddWithValue("@Email", txtBoxEmail.Text);
                         cmd.Parameters.AddWithValue("@Phone", txtBoxPhoneNumber.Text);
+                        cmd.Parameters.AddWithValue("@UserId", Convert.ToInt32(txtBoxUserId.Text));
                         cmd.ExecuteNonQuery();
                         GetAllUser();
                         ClearAll();
@@ -81,22 +138,18 @@ namespace LabelPrint.UserInfo
                         //}
                         //else
                         //{
-                        MessageBox.Show("Your Account is created Successfully!!!", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("User Account is Updated Successfully!!!", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                       // }
+                        // }
 
-                    
 
-                    }
+
+                   // }
                 }
                 else
                 {
-                    MessageBox.Show("Please enter both password same ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Please enter both password same & Unique User Name", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-            }
-            else
-            {
-                MessageBox.Show("Please enter value in all field.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -186,6 +239,7 @@ namespace LabelPrint.UserInfo
             txtBoxPassword.Text = "";
             txtBoxConfirmPassword.Text = "";
             btnUserRegistration.Text = "Register";
+            btnDeleteUser.Visible = false;
         }
 
         private void GetAllUser()
@@ -216,7 +270,48 @@ namespace LabelPrint.UserInfo
             txtBoxPassword.Text = dgUserRegistration.Rows[e.RowIndex].Cells[7].Value.ToString();
             txtBoxConfirmPassword.Text = dgUserRegistration.Rows[e.RowIndex].Cells[7].Value.ToString();
 
+            //txtBoxUserId.Text=
             btnUserRegistration.Text = "Update";
+            btnDeleteUser.Visible = true;
+            dgUserRegistration.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+        }
+
+        private void dgUserRegistration_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0)
+            {
+                return;
+            }
+            txtBoxUserId.Text = dgUserRegistration.Rows[e.RowIndex].Cells[1].Value.ToString();
+            txtBoxUserName.Text = dgUserRegistration.Rows[e.RowIndex].Cells[3].Value.ToString();
+            txtBoxFullName.Text = dgUserRegistration.Rows[e.RowIndex].Cells[4].Value.ToString();
+
+            txtBoxEmail.Text = dgUserRegistration.Rows[e.RowIndex].Cells[5].Value.ToString();
+            txtBoxPhoneNumber.Text = dgUserRegistration.Rows[e.RowIndex].Cells[6].Value.ToString();
+
+            txtBoxPassword.Text = dgUserRegistration.Rows[e.RowIndex].Cells[7].Value.ToString();
+            txtBoxConfirmPassword.Text = dgUserRegistration.Rows[e.RowIndex].Cells[7].Value.ToString();
+
+            btnUserRegistration.Text = "Update";
+            btnDeleteUser.Visible = true;
+
+            dgUserRegistration.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+        }
+
+        private void btnDeleteUser_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Are you Confirm to delete this User?", "Delete", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+            if (result.Equals(DialogResult.OK))
+            {
+                cmd = new SqlCommand("tbl_User_DeleteUserByUserId", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@UserId", Convert.ToInt32(txtBoxUserId.Text));
+                cmd.ExecuteNonQuery();
+                GetAllUser();
+                ClearAll();
+            }
+
+           
         }
     }
 }

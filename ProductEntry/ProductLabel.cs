@@ -120,6 +120,9 @@ namespace LabelPrint
         private void GetAllProductLabel()
         {
             cmd = new SqlCommand("ProductLabel_GetAll", cn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@UserId", DisplayUser.User_Id);
+
             da = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable();
             da.Fill(dt);
@@ -149,10 +152,11 @@ namespace LabelPrint
             txtStorageCondition.Text = dgProductLabel.Rows[e.RowIndex].Cells[8].Value.ToString();
 
             comBoxFormVersion.SelectedValue = dgProductLabel.Rows[e.RowIndex].Cells[9].Value.ToString();
-                
 
             btnProductLabelSave.Text = "Update";
-           
+
+            dgProductLabel.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+
         }
 
         private void btnPrintProductLabel_Click(object sender, EventArgs e)
@@ -232,6 +236,9 @@ namespace LabelPrint
             comBoxFormVersion.SelectedValue = dgProductLabel.Rows[e.RowIndex].Cells[9].Value.ToString();
 
             btnProductLabelSave.Text = "Update";
+
+
+            dgProductLabel.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
         }
 
         private void btnLogout_Click(object sender, EventArgs e)
@@ -265,7 +272,7 @@ namespace LabelPrint
         {
             cmd = new SqlCommand("sp_GetAllFormVersionNo", cn);
             da = new SqlDataAdapter(cmd);
-            //Fill the DataTable with records from Table.
+            //////Fill the DataTable with records from Table.
             DataTable dt = new DataTable();
             da.Fill(dt);
 

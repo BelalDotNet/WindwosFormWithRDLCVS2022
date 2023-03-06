@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panelLeftSideBar = new System.Windows.Forms.Panel();
+            this.btnProcessLabelNav = new System.Windows.Forms.Button();
             this.btnAddUser = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -43,7 +44,6 @@
             this.btnCross = new System.Windows.Forms.Button();
             this.panelBottonFooter = new System.Windows.Forms.Panel();
             this.panelHomeLogo = new System.Windows.Forms.Panel();
-            this.btnProcessLabelNav = new System.Windows.Forms.Button();
             this.panelLeftSideBar.SuspendLayout();
             this.panelTopHeader.SuspendLayout();
             this.panelBottonFooter.SuspendLayout();
@@ -68,6 +68,22 @@
             this.panelLeftSideBar.Size = new System.Drawing.Size(200, 605);
             this.panelLeftSideBar.TabIndex = 0;
             this.panelLeftSideBar.Paint += new System.Windows.Forms.PaintEventHandler(this.panelLeftSideBar_Paint);
+            // 
+            // btnProcessLabelNav
+            // 
+            this.btnProcessLabelNav.BackColor = System.Drawing.Color.DarkGray;
+            this.btnProcessLabelNav.FlatAppearance.BorderSize = 0;
+            this.btnProcessLabelNav.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnProcessLabelNav.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnProcessLabelNav.Image = global::LabelPrint.Properties.Resources.Product_Icon;
+            this.btnProcessLabelNav.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnProcessLabelNav.Location = new System.Drawing.Point(5, 280);
+            this.btnProcessLabelNav.Name = "btnProcessLabelNav";
+            this.btnProcessLabelNav.Size = new System.Drawing.Size(191, 29);
+            this.btnProcessLabelNav.TabIndex = 9;
+            this.btnProcessLabelNav.Text = "Process Label";
+            this.btnProcessLabelNav.UseVisualStyleBackColor = false;
+            this.btnProcessLabelNav.Click += new System.EventHandler(this.btnProcessLabelNav_Click);
             // 
             // btnAddUser
             // 
@@ -134,7 +150,7 @@
             this.btnNavProductReport.Name = "btnNavProductReport";
             this.btnNavProductReport.Size = new System.Drawing.Size(191, 29);
             this.btnNavProductReport.TabIndex = 4;
-            this.btnNavProductReport.Text = "Report";
+            this.btnNavProductReport.Text = "Print Log";
             this.btnNavProductReport.UseVisualStyleBackColor = false;
             this.btnNavProductReport.Click += new System.EventHandler(this.btnNavProductReport_Click);
             // 
@@ -252,22 +268,6 @@
             this.panelHomeLogo.Size = new System.Drawing.Size(200, 100);
             this.panelHomeLogo.TabIndex = 0;
             this.panelHomeLogo.Paint += new System.Windows.Forms.PaintEventHandler(this.panelHomeLogo_Paint);
-            // 
-            // btnProcessLabelNav
-            // 
-            this.btnProcessLabelNav.BackColor = System.Drawing.Color.DarkGray;
-            this.btnProcessLabelNav.FlatAppearance.BorderSize = 0;
-            this.btnProcessLabelNav.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnProcessLabelNav.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnProcessLabelNav.Image = global::LabelPrint.Properties.Resources.Product_Icon;
-            this.btnProcessLabelNav.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnProcessLabelNav.Location = new System.Drawing.Point(5, 280);
-            this.btnProcessLabelNav.Name = "btnProcessLabelNav";
-            this.btnProcessLabelNav.Size = new System.Drawing.Size(191, 29);
-            this.btnProcessLabelNav.TabIndex = 9;
-            this.btnProcessLabelNav.Text = "Process Label";
-            this.btnProcessLabelNav.UseVisualStyleBackColor = false;
-            this.btnProcessLabelNav.Click += new System.EventHandler(this.btnProcessLabelNav_Click);
             // 
             // Label_Home
             // 

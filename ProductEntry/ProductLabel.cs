@@ -74,7 +74,7 @@ namespace LabelPrint
                     cmd.Parameters.AddWithValue("@UpdatorId", DisplayUser.User_Id);
 
                     cmd.ExecuteNonQuery();
-                    MessageBox.Show("New Label Saved Successfully.", "Record Saved", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("New Product Label Saved Successfully.", "Record Saved", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     GetAllProductLabel();
                     ClearAll();
                 }
@@ -102,7 +102,7 @@ namespace LabelPrint
                     cmd.Parameters.AddWithValue("@UpdatorId", DisplayUser.User_Id);
 
                     cmd.ExecuteNonQuery();
-                    MessageBox.Show("New Label Updated Successfully.", "Record Updated", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Product Label Updated Successfully.", "Record Updated", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     GetAllProductLabel();
                     ClearAll();
                 }
@@ -172,7 +172,7 @@ namespace LabelPrint
 
                     cmmd.Parameters.AddWithValue("@ProductLabelId", Convert.ToInt32(txtProductID.Text));
                     SqlDataReader dr = cmmd.ExecuteReader();
-                    LabelPrintForm ff = new LabelPrintForm(dr);
+                    LabelPrintForm ff = new LabelPrintForm(dr, "Product_Label");
                     ff.ShowDialog();
                     dr.Close();
                 }
@@ -263,7 +263,7 @@ namespace LabelPrint
             txtSrNo.Text = "";
             txtStorageCondition.Text = "";
             txtProductID.Text = string.Empty;
-            comBoxFormVersion.SelectedIndex = 0;
+            comBoxFormVersion.SelectedValue = 0;
             btnProductLabelSave.Text = "Save";
         }
 

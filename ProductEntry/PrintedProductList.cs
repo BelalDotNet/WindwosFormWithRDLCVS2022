@@ -18,6 +18,7 @@ namespace LabelPrint
         SqlCommand cmd;
         SqlDataAdapter da;
         SqlDataReader dr;
+     
         string con = ConfigurationManager.ConnectionStrings["LabelPrint.Properties.Settings.LabelPrintDBConnectionString"].ConnectionString;
 
         public PrintedProductList()
@@ -33,7 +34,7 @@ namespace LabelPrint
             //bind data in data grid view  
             GetAllPrintedProductLabel();
             GetAllUser();
-
+            GetAllFormTemplateForPrintHistory();
         }
 
         private void GetAllPrintedProductLabel()
@@ -82,6 +83,20 @@ namespace LabelPrint
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
+            if (Convert.ToInt32(comBoxPH_FormTamplate.SelectedValue) == 1)
+            {
+                ProductLabelSearch();
+            }
+            else
+            {
+                MessageBox.Show("Criteria Not Matched", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+
+        private void ProductLabelSearch()
+        {
+
             if (Convert.ToInt32(comboBoxUser.SelectedValue) != 0)
             {
                 cmd = new SqlCommand("sp_PrintedListByUserOrDateRange", cn);
@@ -128,6 +143,7 @@ namespace LabelPrint
         }
 
 
+
         private void GetAllUser()
         {
             cmd = new SqlCommand("sp_GetAllUser", cn);
@@ -141,13 +157,34 @@ namespace LabelPrint
             //Insert the Default Item to DataTable.
             DataRow row = dt.NewRow();
             row[0] = 0;
-            row[1] = "Please select";
+            row[1] = "Please Select User";
             dt.Rows.InsertAt(row, 0);
 
             //Assign DataTable as DataSource.
             comboBoxUser.DataSource = dt;
             comboBoxUser.DisplayMember = "DisplayName";
             comboBoxUser.ValueMember = "UserId";
+        }
+
+
+        private void GetAllFormTemplateForPrintHistory()
+        {
+            cmd = new SqlCommand("tbl_FormTemplate_Get", cn);
+            da = new SqlDataAdapter(cmd);
+            //Fill the DataTable with records from Table.
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+
+            //Insert the Default Item to DataTable.
+            DataRow row = dt.NewRow();
+            row[0] = 0;
+            row[1] = "Select Form Template";
+            dt.Rows.InsertAt(row, 0);
+
+            //Assign DataTable as DataSource.
+            comBoxPH_FormTamplate.DataSource = dt;
+            comBoxPH_FormTamplate.DisplayMember = "TemplateName";
+            comBoxPH_FormTamplate.ValueMember = "FromTemplateId";
         }
     }
 }

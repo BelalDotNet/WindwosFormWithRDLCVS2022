@@ -13,26 +13,55 @@ namespace LabelPrint
 {
     public partial class LabelPrintForm : Form
     {
+        public static string _reportTemplate=string.Empty;
+        ReportDataSource datasource;
+
         public LabelPrintForm()
         {
             InitializeComponent();
         }
 
-        ReportDataSource datasource;
-
-        public LabelPrintForm(IDataReader dr)
+        public LabelPrintForm(IDataReader dr, string reportTemplate)
         {
             InitializeComponent();
 
-            datasource = new ReportDataSource("DS_ProductLabel", dr);
+            _reportTemplate=reportTemplate;
+
+            if (reportTemplate=="Product_Label")
+            {
+                datasource = new ReportDataSource("DS_ProductLabel", dr);
+            }
+            else if(reportTemplate == "Process_Label")
+            {
+                datasource = new ReportDataSource("DS_ProcessLabel", dr);
+            }
+           
         }
+
 
         private void LabelPrintForm_Load(object sender, EventArgs e)
         {
             this.reportViewer1.LocalReport.DataSources.Clear();
+            string RDLCFilePath =Application.StartupPath.Replace("\\bin\\Debug", "");
+
+            if (_reportTemplate== "Product_Label")
+            {
+                reportViewer1.LocalReport.ReportPath = RDLCFilePath + @"\ProductReport\Rpt_ProductLabelPrint.rdlc"; // Path of the rdlc file
+            }
+            else if (_reportTemplate=="Process_Label")
+            {
+                reportViewer1.LocalReport.ReportPath = RDLCFilePath + @"\ProductReport\Rpt_ProcessLabelPrint.rdlc"; 
+            }
+            
             this.reportViewer1.LocalReport.DataSources.Add(datasource);
             this.reportViewer1.RefreshReport();
-            
+
+
+
+            //this.reportViewer1.LocalReport.DataSources.Clear();
+            //this.reportViewer1.LocalReport.DataSources.Add(datasource);
+            //this.reportViewer1.RefreshReport();
+
         }
     }
 }

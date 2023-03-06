@@ -58,6 +58,8 @@
             this.txtBoxPLTareWt = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
+            this.txtBoxPLCheckedDate = new System.Windows.Forms.DateTimePicker();
+            this.label11 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgProcessLabel)).BeginInit();
             this.SuspendLayout();
             // 
@@ -74,6 +76,7 @@
             this.btnNewPLFormVersionPopup.TabIndex = 34;
             this.btnNewPLFormVersionPopup.Text = "New";
             this.btnNewPLFormVersionPopup.UseVisualStyleBackColor = false;
+            this.btnNewPLFormVersionPopup.Click += new System.EventHandler(this.btnNewPLFormVersionPopup_Click);
             // 
             // comBoxPLFormVersion
             // 
@@ -102,12 +105,13 @@
             this.btnProcessLabelClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnProcessLabelClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnProcessLabelClear.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnProcessLabelClear.Location = new System.Drawing.Point(381, 327);
+            this.btnProcessLabelClear.Location = new System.Drawing.Point(381, 352);
             this.btnProcessLabelClear.Name = "btnProcessLabelClear";
             this.btnProcessLabelClear.Size = new System.Drawing.Size(123, 33);
             this.btnProcessLabelClear.TabIndex = 16;
             this.btnProcessLabelClear.Text = "Clear Record";
             this.btnProcessLabelClear.UseVisualStyleBackColor = false;
+            this.btnProcessLabelClear.Click += new System.EventHandler(this.btnProcessLabelClear_Click);
             // 
             // txtBoxProcessLabelID
             // 
@@ -139,12 +143,13 @@
             this.btnPrintProcessLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPrintProcessLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPrintProcessLabel.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnPrintProcessLabel.Location = new System.Drawing.Point(510, 327);
+            this.btnPrintProcessLabel.Location = new System.Drawing.Point(510, 352);
             this.btnPrintProcessLabel.Name = "btnPrintProcessLabel";
             this.btnPrintProcessLabel.Size = new System.Drawing.Size(129, 33);
             this.btnPrintProcessLabel.TabIndex = 26;
             this.btnPrintProcessLabel.Text = "Print";
             this.btnPrintProcessLabel.UseVisualStyleBackColor = false;
+            this.btnPrintProcessLabel.Click += new System.EventHandler(this.btnPrintProcessLabel_Click);
             // 
             // btnProcessLabelSave
             // 
@@ -153,7 +158,7 @@
             this.btnProcessLabelSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnProcessLabelSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnProcessLabelSave.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnProcessLabelSave.Location = new System.Drawing.Point(254, 327);
+            this.btnProcessLabelSave.Location = new System.Drawing.Point(254, 352);
             this.btnProcessLabelSave.Name = "btnProcessLabelSave";
             this.btnProcessLabelSave.Size = new System.Drawing.Size(121, 33);
             this.btnProcessLabelSave.TabIndex = 23;
@@ -243,18 +248,20 @@
             // 
             this.dgProcessLabel.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgProcessLabel.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dgProcessLabel.Location = new System.Drawing.Point(0, 363);
+            this.dgProcessLabel.Location = new System.Drawing.Point(0, 391);
             this.dgProcessLabel.Name = "dgProcessLabel";
-            this.dgProcessLabel.Size = new System.Drawing.Size(920, 184);
+            this.dgProcessLabel.Size = new System.Drawing.Size(920, 156);
             this.dgProcessLabel.TabIndex = 35;
+            this.dgProcessLabel.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgProcessLabel_CellContentClick);
+            this.dgProcessLabel.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgProcessLabel_CellContentDoubleClick);
             // 
             // txtBoxPLBatchSize
             // 
             this.txtBoxPLBatchSize.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBoxPLBatchSize.Location = new System.Drawing.Point(518, 142);
+            this.txtBoxPLBatchSize.Location = new System.Drawing.Point(510, 142);
             this.txtBoxPLBatchSize.Multiline = true;
             this.txtBoxPLBatchSize.Name = "txtBoxPLBatchSize";
-            this.txtBoxPLBatchSize.Size = new System.Drawing.Size(121, 32);
+            this.txtBoxPLBatchSize.Size = new System.Drawing.Size(129, 32);
             this.txtBoxPLBatchSize.TabIndex = 37;
             this.txtBoxPLBatchSize.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -291,10 +298,10 @@
             // txtBoxPLGrossWt
             // 
             this.txtBoxPLGrossWt.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBoxPLGrossWt.Location = new System.Drawing.Point(518, 246);
+            this.txtBoxPLGrossWt.Location = new System.Drawing.Point(510, 246);
             this.txtBoxPLGrossWt.Multiline = true;
             this.txtBoxPLGrossWt.Name = "txtBoxPLGrossWt";
-            this.txtBoxPLGrossWt.Size = new System.Drawing.Size(121, 32);
+            this.txtBoxPLGrossWt.Size = new System.Drawing.Size(129, 32);
             this.txtBoxPLGrossWt.TabIndex = 43;
             this.txtBoxPLGrossWt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -331,10 +338,10 @@
             // txtBoxPLNetWt
             // 
             this.txtBoxPLNetWt.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBoxPLNetWt.Location = new System.Drawing.Point(518, 284);
+            this.txtBoxPLNetWt.Location = new System.Drawing.Point(510, 284);
             this.txtBoxPLNetWt.Multiline = true;
             this.txtBoxPLNetWt.Name = "txtBoxPLNetWt";
-            this.txtBoxPLNetWt.Size = new System.Drawing.Size(121, 32);
+            this.txtBoxPLNetWt.Size = new System.Drawing.Size(129, 32);
             this.txtBoxPLNetWt.TabIndex = 47;
             this.txtBoxPLNetWt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -379,12 +386,33 @@
             this.label10.Text = "Process Label Entry";
             this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // txtBoxPLCheckedDate
+            // 
+            this.txtBoxPLCheckedDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBoxPLCheckedDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.txtBoxPLCheckedDate.Location = new System.Drawing.Point(254, 322);
+            this.txtBoxPLCheckedDate.Name = "txtBoxPLCheckedDate";
+            this.txtBoxPLCheckedDate.Size = new System.Drawing.Size(121, 23);
+            this.txtBoxPLCheckedDate.TabIndex = 50;
+            // 
+            // label11
+            // 
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(72, 320);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(138, 23);
+            this.label11.TabIndex = 49;
+            this.label11.Text = "Checked Date";
+            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // ProcessLabel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Honeydew;
             this.ClientSize = new System.Drawing.Size(920, 547);
+            this.Controls.Add(this.txtBoxPLCheckedDate);
+            this.Controls.Add(this.label11);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.txtBoxPLNetWt);
             this.Controls.Add(this.label8);
@@ -458,5 +486,7 @@
         private System.Windows.Forms.TextBox txtBoxPLTareWt;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.DateTimePicker txtBoxPLCheckedDate;
+        private System.Windows.Forms.Label label11;
     }
 }

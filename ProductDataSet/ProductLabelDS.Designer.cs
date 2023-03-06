@@ -26,6 +26,8 @@ namespace LabelPrint.ProductDataSet {
         
         private spProductLabel_GetByProductLabelIdDataTable tablespProductLabel_GetByProductLabelId;
         
+        private tbl_ProcessLabel_GetByPLIdForPrintDataTable tabletbl_ProcessLabel_GetByPLIdForPrint;
+        
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -57,6 +59,9 @@ namespace LabelPrint.ProductDataSet {
                 if ((ds.Tables["spProductLabel_GetByProductLabelId"] != null)) {
                     base.Tables.Add(new spProductLabel_GetByProductLabelIdDataTable(ds.Tables["spProductLabel_GetByProductLabelId"]));
                 }
+                if ((ds.Tables["tbl_ProcessLabel_GetByPLIdForPrint"] != null)) {
+                    base.Tables.Add(new tbl_ProcessLabel_GetByPLIdForPrintDataTable(ds.Tables["tbl_ProcessLabel_GetByPLIdForPrint"]));
+                }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
                 this.Namespace = ds.Namespace;
@@ -82,6 +87,16 @@ namespace LabelPrint.ProductDataSet {
         public spProductLabel_GetByProductLabelIdDataTable spProductLabel_GetByProductLabelId {
             get {
                 return this.tablespProductLabel_GetByProductLabelId;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public tbl_ProcessLabel_GetByPLIdForPrintDataTable tbl_ProcessLabel_GetByPLIdForPrint {
+            get {
+                return this.tabletbl_ProcessLabel_GetByPLIdForPrint;
             }
         }
         
@@ -155,6 +170,9 @@ namespace LabelPrint.ProductDataSet {
                 if ((ds.Tables["spProductLabel_GetByProductLabelId"] != null)) {
                     base.Tables.Add(new spProductLabel_GetByProductLabelIdDataTable(ds.Tables["spProductLabel_GetByProductLabelId"]));
                 }
+                if ((ds.Tables["tbl_ProcessLabel_GetByPLIdForPrint"] != null)) {
+                    base.Tables.Add(new tbl_ProcessLabel_GetByPLIdForPrintDataTable(ds.Tables["tbl_ProcessLabel_GetByPLIdForPrint"]));
+                }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
                 this.Namespace = ds.Namespace;
@@ -194,6 +212,12 @@ namespace LabelPrint.ProductDataSet {
                     this.tablespProductLabel_GetByProductLabelId.InitVars();
                 }
             }
+            this.tabletbl_ProcessLabel_GetByPLIdForPrint = ((tbl_ProcessLabel_GetByPLIdForPrintDataTable)(base.Tables["tbl_ProcessLabel_GetByPLIdForPrint"]));
+            if ((initTable == true)) {
+                if ((this.tabletbl_ProcessLabel_GetByPLIdForPrint != null)) {
+                    this.tabletbl_ProcessLabel_GetByPLIdForPrint.InitVars();
+                }
+            }
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -206,11 +230,19 @@ namespace LabelPrint.ProductDataSet {
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
             this.tablespProductLabel_GetByProductLabelId = new spProductLabel_GetByProductLabelIdDataTable();
             base.Tables.Add(this.tablespProductLabel_GetByProductLabelId);
+            this.tabletbl_ProcessLabel_GetByPLIdForPrint = new tbl_ProcessLabel_GetByPLIdForPrintDataTable();
+            base.Tables.Add(this.tabletbl_ProcessLabel_GetByPLIdForPrint);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private bool ShouldSerializespProductLabel_GetByProductLabelId() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private bool ShouldSerializetbl_ProcessLabel_GetByPLIdForPrint() {
             return false;
         }
         
@@ -271,6 +303,9 @@ namespace LabelPrint.ProductDataSet {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         public delegate void spProductLabel_GetByProductLabelIdRowChangeEventHandler(object sender, spProductLabel_GetByProductLabelIdRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public delegate void tbl_ProcessLabel_GetByPLIdForPrintRowChangeEventHandler(object sender, tbl_ProcessLabel_GetByPLIdForPrintRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -711,6 +746,520 @@ namespace LabelPrint.ProductDataSet {
         }
         
         /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class tbl_ProcessLabel_GetByPLIdForPrintDataTable : global::System.Data.TypedTableBase<tbl_ProcessLabel_GetByPLIdForPrintRow> {
+            
+            private global::System.Data.DataColumn columnDisplayName;
+            
+            private global::System.Data.DataColumn columnProcessLabelId;
+            
+            private global::System.Data.DataColumn columnProductName;
+            
+            private global::System.Data.DataColumn columnBatchNo;
+            
+            private global::System.Data.DataColumn columnBatchSize;
+            
+            private global::System.Data.DataColumn columnStatus;
+            
+            private global::System.Data.DataColumn columnMfgDate;
+            
+            private global::System.Data.DataColumn columnExpDate;
+            
+            private global::System.Data.DataColumn columnContNo;
+            
+            private global::System.Data.DataColumn columnGrossWt;
+            
+            private global::System.Data.DataColumn columnTareWt;
+            
+            private global::System.Data.DataColumn columnNetWt;
+            
+            private global::System.Data.DataColumn columnCheckedBy;
+            
+            private global::System.Data.DataColumn columnCheckedDate;
+            
+            private global::System.Data.DataColumn columnFormNo;
+            
+            private global::System.Data.DataColumn columnVersionNo;
+            
+            private global::System.Data.DataColumn columnFormVersionId;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public tbl_ProcessLabel_GetByPLIdForPrintDataTable() {
+                this.TableName = "tbl_ProcessLabel_GetByPLIdForPrint";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            internal tbl_ProcessLabel_GetByPLIdForPrintDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected tbl_ProcessLabel_GetByPLIdForPrintDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn DisplayNameColumn {
+                get {
+                    return this.columnDisplayName;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn ProcessLabelIdColumn {
+                get {
+                    return this.columnProcessLabelId;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn ProductNameColumn {
+                get {
+                    return this.columnProductName;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn BatchNoColumn {
+                get {
+                    return this.columnBatchNo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn BatchSizeColumn {
+                get {
+                    return this.columnBatchSize;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn StatusColumn {
+                get {
+                    return this.columnStatus;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn MfgDateColumn {
+                get {
+                    return this.columnMfgDate;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn ExpDateColumn {
+                get {
+                    return this.columnExpDate;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn ContNoColumn {
+                get {
+                    return this.columnContNo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn GrossWtColumn {
+                get {
+                    return this.columnGrossWt;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn TareWtColumn {
+                get {
+                    return this.columnTareWt;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn NetWtColumn {
+                get {
+                    return this.columnNetWt;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn CheckedByColumn {
+                get {
+                    return this.columnCheckedBy;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn CheckedDateColumn {
+                get {
+                    return this.columnCheckedDate;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn FormNoColumn {
+                get {
+                    return this.columnFormNo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn VersionNoColumn {
+                get {
+                    return this.columnVersionNo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn FormVersionIdColumn {
+                get {
+                    return this.columnFormVersionId;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public tbl_ProcessLabel_GetByPLIdForPrintRow this[int index] {
+                get {
+                    return ((tbl_ProcessLabel_GetByPLIdForPrintRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event tbl_ProcessLabel_GetByPLIdForPrintRowChangeEventHandler tbl_ProcessLabel_GetByPLIdForPrintRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event tbl_ProcessLabel_GetByPLIdForPrintRowChangeEventHandler tbl_ProcessLabel_GetByPLIdForPrintRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event tbl_ProcessLabel_GetByPLIdForPrintRowChangeEventHandler tbl_ProcessLabel_GetByPLIdForPrintRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event tbl_ProcessLabel_GetByPLIdForPrintRowChangeEventHandler tbl_ProcessLabel_GetByPLIdForPrintRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Addtbl_ProcessLabel_GetByPLIdForPrintRow(tbl_ProcessLabel_GetByPLIdForPrintRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public tbl_ProcessLabel_GetByPLIdForPrintRow Addtbl_ProcessLabel_GetByPLIdForPrintRow(
+                        string DisplayName, 
+                        string ProductName, 
+                        string BatchNo, 
+                        string BatchSize, 
+                        string Status, 
+                        System.DateTime MfgDate, 
+                        System.DateTime ExpDate, 
+                        string ContNo, 
+                        string GrossWt, 
+                        string TareWt, 
+                        string NetWt, 
+                        int CheckedBy, 
+                        System.DateTime CheckedDate, 
+                        string FormNo, 
+                        string VersionNo, 
+                        int FormVersionId) {
+                tbl_ProcessLabel_GetByPLIdForPrintRow rowtbl_ProcessLabel_GetByPLIdForPrintRow = ((tbl_ProcessLabel_GetByPLIdForPrintRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        DisplayName,
+                        null,
+                        ProductName,
+                        BatchNo,
+                        BatchSize,
+                        Status,
+                        MfgDate,
+                        ExpDate,
+                        ContNo,
+                        GrossWt,
+                        TareWt,
+                        NetWt,
+                        CheckedBy,
+                        CheckedDate,
+                        FormNo,
+                        VersionNo,
+                        FormVersionId};
+                rowtbl_ProcessLabel_GetByPLIdForPrintRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowtbl_ProcessLabel_GetByPLIdForPrintRow);
+                return rowtbl_ProcessLabel_GetByPLIdForPrintRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public tbl_ProcessLabel_GetByPLIdForPrintRow FindByProcessLabelId(int ProcessLabelId) {
+                return ((tbl_ProcessLabel_GetByPLIdForPrintRow)(this.Rows.Find(new object[] {
+                            ProcessLabelId})));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                tbl_ProcessLabel_GetByPLIdForPrintDataTable cln = ((tbl_ProcessLabel_GetByPLIdForPrintDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new tbl_ProcessLabel_GetByPLIdForPrintDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            internal void InitVars() {
+                this.columnDisplayName = base.Columns["DisplayName"];
+                this.columnProcessLabelId = base.Columns["ProcessLabelId"];
+                this.columnProductName = base.Columns["ProductName"];
+                this.columnBatchNo = base.Columns["BatchNo"];
+                this.columnBatchSize = base.Columns["BatchSize"];
+                this.columnStatus = base.Columns["Status"];
+                this.columnMfgDate = base.Columns["MfgDate"];
+                this.columnExpDate = base.Columns["ExpDate"];
+                this.columnContNo = base.Columns["ContNo"];
+                this.columnGrossWt = base.Columns["GrossWt"];
+                this.columnTareWt = base.Columns["TareWt"];
+                this.columnNetWt = base.Columns["NetWt"];
+                this.columnCheckedBy = base.Columns["CheckedBy"];
+                this.columnCheckedDate = base.Columns["CheckedDate"];
+                this.columnFormNo = base.Columns["FormNo"];
+                this.columnVersionNo = base.Columns["VersionNo"];
+                this.columnFormVersionId = base.Columns["FormVersionId"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            private void InitClass() {
+                this.columnDisplayName = new global::System.Data.DataColumn("DisplayName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDisplayName);
+                this.columnProcessLabelId = new global::System.Data.DataColumn("ProcessLabelId", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnProcessLabelId);
+                this.columnProductName = new global::System.Data.DataColumn("ProductName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnProductName);
+                this.columnBatchNo = new global::System.Data.DataColumn("BatchNo", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnBatchNo);
+                this.columnBatchSize = new global::System.Data.DataColumn("BatchSize", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnBatchSize);
+                this.columnStatus = new global::System.Data.DataColumn("Status", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnStatus);
+                this.columnMfgDate = new global::System.Data.DataColumn("MfgDate", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMfgDate);
+                this.columnExpDate = new global::System.Data.DataColumn("ExpDate", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnExpDate);
+                this.columnContNo = new global::System.Data.DataColumn("ContNo", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnContNo);
+                this.columnGrossWt = new global::System.Data.DataColumn("GrossWt", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnGrossWt);
+                this.columnTareWt = new global::System.Data.DataColumn("TareWt", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTareWt);
+                this.columnNetWt = new global::System.Data.DataColumn("NetWt", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNetWt);
+                this.columnCheckedBy = new global::System.Data.DataColumn("CheckedBy", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCheckedBy);
+                this.columnCheckedDate = new global::System.Data.DataColumn("CheckedDate", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCheckedDate);
+                this.columnFormNo = new global::System.Data.DataColumn("FormNo", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFormNo);
+                this.columnVersionNo = new global::System.Data.DataColumn("VersionNo", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnVersionNo);
+                this.columnFormVersionId = new global::System.Data.DataColumn("FormVersionId", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFormVersionId);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnProcessLabelId}, true));
+                this.columnDisplayName.MaxLength = 250;
+                this.columnProcessLabelId.AutoIncrement = true;
+                this.columnProcessLabelId.AutoIncrementSeed = -1;
+                this.columnProcessLabelId.AutoIncrementStep = -1;
+                this.columnProcessLabelId.AllowDBNull = false;
+                this.columnProcessLabelId.ReadOnly = true;
+                this.columnProcessLabelId.Unique = true;
+                this.columnProductName.MaxLength = 150;
+                this.columnBatchNo.MaxLength = 150;
+                this.columnBatchSize.MaxLength = 150;
+                this.columnStatus.MaxLength = 250;
+                this.columnContNo.MaxLength = 150;
+                this.columnGrossWt.MaxLength = 150;
+                this.columnTareWt.MaxLength = 150;
+                this.columnNetWt.MaxLength = 150;
+                this.columnFormNo.MaxLength = 150;
+                this.columnVersionNo.MaxLength = 10;
+                this.columnFormVersionId.AllowDBNull = false;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public tbl_ProcessLabel_GetByPLIdForPrintRow Newtbl_ProcessLabel_GetByPLIdForPrintRow() {
+                return ((tbl_ProcessLabel_GetByPLIdForPrintRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new tbl_ProcessLabel_GetByPLIdForPrintRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(tbl_ProcessLabel_GetByPLIdForPrintRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.tbl_ProcessLabel_GetByPLIdForPrintRowChanged != null)) {
+                    this.tbl_ProcessLabel_GetByPLIdForPrintRowChanged(this, new tbl_ProcessLabel_GetByPLIdForPrintRowChangeEvent(((tbl_ProcessLabel_GetByPLIdForPrintRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.tbl_ProcessLabel_GetByPLIdForPrintRowChanging != null)) {
+                    this.tbl_ProcessLabel_GetByPLIdForPrintRowChanging(this, new tbl_ProcessLabel_GetByPLIdForPrintRowChangeEvent(((tbl_ProcessLabel_GetByPLIdForPrintRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.tbl_ProcessLabel_GetByPLIdForPrintRowDeleted != null)) {
+                    this.tbl_ProcessLabel_GetByPLIdForPrintRowDeleted(this, new tbl_ProcessLabel_GetByPLIdForPrintRowChangeEvent(((tbl_ProcessLabel_GetByPLIdForPrintRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.tbl_ProcessLabel_GetByPLIdForPrintRowDeleting != null)) {
+                    this.tbl_ProcessLabel_GetByPLIdForPrintRowDeleting(this, new tbl_ProcessLabel_GetByPLIdForPrintRowChangeEvent(((tbl_ProcessLabel_GetByPLIdForPrintRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Removetbl_ProcessLabel_GetByPLIdForPrintRow(tbl_ProcessLabel_GetByPLIdForPrintRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                ProductLabelDS ds = new ProductLabelDS();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "tbl_ProcessLabel_GetByPLIdForPrintDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
         public partial class spProductLabel_GetByProductLabelIdRow : global::System.Data.DataRow {
@@ -1085,6 +1634,478 @@ namespace LabelPrint.ProductDataSet {
         }
         
         /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class tbl_ProcessLabel_GetByPLIdForPrintRow : global::System.Data.DataRow {
+            
+            private tbl_ProcessLabel_GetByPLIdForPrintDataTable tabletbl_ProcessLabel_GetByPLIdForPrint;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            internal tbl_ProcessLabel_GetByPLIdForPrintRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tabletbl_ProcessLabel_GetByPLIdForPrint = ((tbl_ProcessLabel_GetByPLIdForPrintDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string DisplayName {
+                get {
+                    try {
+                        return ((string)(this[this.tabletbl_ProcessLabel_GetByPLIdForPrint.DisplayNameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'DisplayName\' in table \'tbl_ProcessLabel_GetByPLIdForPrint\' " +
+                                "is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tabletbl_ProcessLabel_GetByPLIdForPrint.DisplayNameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int ProcessLabelId {
+                get {
+                    return ((int)(this[this.tabletbl_ProcessLabel_GetByPLIdForPrint.ProcessLabelIdColumn]));
+                }
+                set {
+                    this[this.tabletbl_ProcessLabel_GetByPLIdForPrint.ProcessLabelIdColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string ProductName {
+                get {
+                    try {
+                        return ((string)(this[this.tabletbl_ProcessLabel_GetByPLIdForPrint.ProductNameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ProductName\' in table \'tbl_ProcessLabel_GetByPLIdForPrint\' " +
+                                "is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tabletbl_ProcessLabel_GetByPLIdForPrint.ProductNameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string BatchNo {
+                get {
+                    try {
+                        return ((string)(this[this.tabletbl_ProcessLabel_GetByPLIdForPrint.BatchNoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'BatchNo\' in table \'tbl_ProcessLabel_GetByPLIdForPrint\' is D" +
+                                "BNull.", e);
+                    }
+                }
+                set {
+                    this[this.tabletbl_ProcessLabel_GetByPLIdForPrint.BatchNoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string BatchSize {
+                get {
+                    try {
+                        return ((string)(this[this.tabletbl_ProcessLabel_GetByPLIdForPrint.BatchSizeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'BatchSize\' in table \'tbl_ProcessLabel_GetByPLIdForPrint\' is" +
+                                " DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tabletbl_ProcessLabel_GetByPLIdForPrint.BatchSizeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string Status {
+                get {
+                    try {
+                        return ((string)(this[this.tabletbl_ProcessLabel_GetByPLIdForPrint.StatusColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Status\' in table \'tbl_ProcessLabel_GetByPLIdForPrint\' is DB" +
+                                "Null.", e);
+                    }
+                }
+                set {
+                    this[this.tabletbl_ProcessLabel_GetByPLIdForPrint.StatusColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public System.DateTime MfgDate {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tabletbl_ProcessLabel_GetByPLIdForPrint.MfgDateColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'MfgDate\' in table \'tbl_ProcessLabel_GetByPLIdForPrint\' is D" +
+                                "BNull.", e);
+                    }
+                }
+                set {
+                    this[this.tabletbl_ProcessLabel_GetByPLIdForPrint.MfgDateColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public System.DateTime ExpDate {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tabletbl_ProcessLabel_GetByPLIdForPrint.ExpDateColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ExpDate\' in table \'tbl_ProcessLabel_GetByPLIdForPrint\' is D" +
+                                "BNull.", e);
+                    }
+                }
+                set {
+                    this[this.tabletbl_ProcessLabel_GetByPLIdForPrint.ExpDateColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string ContNo {
+                get {
+                    try {
+                        return ((string)(this[this.tabletbl_ProcessLabel_GetByPLIdForPrint.ContNoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ContNo\' in table \'tbl_ProcessLabel_GetByPLIdForPrint\' is DB" +
+                                "Null.", e);
+                    }
+                }
+                set {
+                    this[this.tabletbl_ProcessLabel_GetByPLIdForPrint.ContNoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string GrossWt {
+                get {
+                    try {
+                        return ((string)(this[this.tabletbl_ProcessLabel_GetByPLIdForPrint.GrossWtColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'GrossWt\' in table \'tbl_ProcessLabel_GetByPLIdForPrint\' is D" +
+                                "BNull.", e);
+                    }
+                }
+                set {
+                    this[this.tabletbl_ProcessLabel_GetByPLIdForPrint.GrossWtColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string TareWt {
+                get {
+                    try {
+                        return ((string)(this[this.tabletbl_ProcessLabel_GetByPLIdForPrint.TareWtColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'TareWt\' in table \'tbl_ProcessLabel_GetByPLIdForPrint\' is DB" +
+                                "Null.", e);
+                    }
+                }
+                set {
+                    this[this.tabletbl_ProcessLabel_GetByPLIdForPrint.TareWtColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string NetWt {
+                get {
+                    try {
+                        return ((string)(this[this.tabletbl_ProcessLabel_GetByPLIdForPrint.NetWtColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'NetWt\' in table \'tbl_ProcessLabel_GetByPLIdForPrint\' is DBN" +
+                                "ull.", e);
+                    }
+                }
+                set {
+                    this[this.tabletbl_ProcessLabel_GetByPLIdForPrint.NetWtColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int CheckedBy {
+                get {
+                    try {
+                        return ((int)(this[this.tabletbl_ProcessLabel_GetByPLIdForPrint.CheckedByColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'CheckedBy\' in table \'tbl_ProcessLabel_GetByPLIdForPrint\' is" +
+                                " DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tabletbl_ProcessLabel_GetByPLIdForPrint.CheckedByColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public System.DateTime CheckedDate {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tabletbl_ProcessLabel_GetByPLIdForPrint.CheckedDateColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'CheckedDate\' in table \'tbl_ProcessLabel_GetByPLIdForPrint\' " +
+                                "is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tabletbl_ProcessLabel_GetByPLIdForPrint.CheckedDateColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string FormNo {
+                get {
+                    try {
+                        return ((string)(this[this.tabletbl_ProcessLabel_GetByPLIdForPrint.FormNoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'FormNo\' in table \'tbl_ProcessLabel_GetByPLIdForPrint\' is DB" +
+                                "Null.", e);
+                    }
+                }
+                set {
+                    this[this.tabletbl_ProcessLabel_GetByPLIdForPrint.FormNoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string VersionNo {
+                get {
+                    try {
+                        return ((string)(this[this.tabletbl_ProcessLabel_GetByPLIdForPrint.VersionNoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'VersionNo\' in table \'tbl_ProcessLabel_GetByPLIdForPrint\' is" +
+                                " DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tabletbl_ProcessLabel_GetByPLIdForPrint.VersionNoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int FormVersionId {
+                get {
+                    return ((int)(this[this.tabletbl_ProcessLabel_GetByPLIdForPrint.FormVersionIdColumn]));
+                }
+                set {
+                    this[this.tabletbl_ProcessLabel_GetByPLIdForPrint.FormVersionIdColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsDisplayNameNull() {
+                return this.IsNull(this.tabletbl_ProcessLabel_GetByPLIdForPrint.DisplayNameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetDisplayNameNull() {
+                this[this.tabletbl_ProcessLabel_GetByPLIdForPrint.DisplayNameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsProductNameNull() {
+                return this.IsNull(this.tabletbl_ProcessLabel_GetByPLIdForPrint.ProductNameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetProductNameNull() {
+                this[this.tabletbl_ProcessLabel_GetByPLIdForPrint.ProductNameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsBatchNoNull() {
+                return this.IsNull(this.tabletbl_ProcessLabel_GetByPLIdForPrint.BatchNoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetBatchNoNull() {
+                this[this.tabletbl_ProcessLabel_GetByPLIdForPrint.BatchNoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsBatchSizeNull() {
+                return this.IsNull(this.tabletbl_ProcessLabel_GetByPLIdForPrint.BatchSizeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetBatchSizeNull() {
+                this[this.tabletbl_ProcessLabel_GetByPLIdForPrint.BatchSizeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsStatusNull() {
+                return this.IsNull(this.tabletbl_ProcessLabel_GetByPLIdForPrint.StatusColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetStatusNull() {
+                this[this.tabletbl_ProcessLabel_GetByPLIdForPrint.StatusColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsMfgDateNull() {
+                return this.IsNull(this.tabletbl_ProcessLabel_GetByPLIdForPrint.MfgDateColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetMfgDateNull() {
+                this[this.tabletbl_ProcessLabel_GetByPLIdForPrint.MfgDateColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsExpDateNull() {
+                return this.IsNull(this.tabletbl_ProcessLabel_GetByPLIdForPrint.ExpDateColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetExpDateNull() {
+                this[this.tabletbl_ProcessLabel_GetByPLIdForPrint.ExpDateColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsContNoNull() {
+                return this.IsNull(this.tabletbl_ProcessLabel_GetByPLIdForPrint.ContNoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetContNoNull() {
+                this[this.tabletbl_ProcessLabel_GetByPLIdForPrint.ContNoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsGrossWtNull() {
+                return this.IsNull(this.tabletbl_ProcessLabel_GetByPLIdForPrint.GrossWtColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetGrossWtNull() {
+                this[this.tabletbl_ProcessLabel_GetByPLIdForPrint.GrossWtColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsTareWtNull() {
+                return this.IsNull(this.tabletbl_ProcessLabel_GetByPLIdForPrint.TareWtColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetTareWtNull() {
+                this[this.tabletbl_ProcessLabel_GetByPLIdForPrint.TareWtColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsNetWtNull() {
+                return this.IsNull(this.tabletbl_ProcessLabel_GetByPLIdForPrint.NetWtColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetNetWtNull() {
+                this[this.tabletbl_ProcessLabel_GetByPLIdForPrint.NetWtColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsCheckedByNull() {
+                return this.IsNull(this.tabletbl_ProcessLabel_GetByPLIdForPrint.CheckedByColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetCheckedByNull() {
+                this[this.tabletbl_ProcessLabel_GetByPLIdForPrint.CheckedByColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsCheckedDateNull() {
+                return this.IsNull(this.tabletbl_ProcessLabel_GetByPLIdForPrint.CheckedDateColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetCheckedDateNull() {
+                this[this.tabletbl_ProcessLabel_GetByPLIdForPrint.CheckedDateColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsFormNoNull() {
+                return this.IsNull(this.tabletbl_ProcessLabel_GetByPLIdForPrint.FormNoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetFormNoNull() {
+                this[this.tabletbl_ProcessLabel_GetByPLIdForPrint.FormNoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsVersionNoNull() {
+                return this.IsNull(this.tabletbl_ProcessLabel_GetByPLIdForPrint.VersionNoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetVersionNoNull() {
+                this[this.tabletbl_ProcessLabel_GetByPLIdForPrint.VersionNoColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
@@ -1104,6 +2125,40 @@ namespace LabelPrint.ProductDataSet {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public spProductLabel_GetByProductLabelIdRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public class tbl_ProcessLabel_GetByPLIdForPrintRowChangeEvent : global::System.EventArgs {
+            
+            private tbl_ProcessLabel_GetByPLIdForPrintRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public tbl_ProcessLabel_GetByPLIdForPrintRowChangeEvent(tbl_ProcessLabel_GetByPLIdForPrintRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public tbl_ProcessLabel_GetByPLIdForPrintRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -1310,6 +2365,203 @@ namespace LabelPrint.ProductDataSet.ProductLabelDSTableAdapters {
                 this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
             ProductLabelDS.spProductLabel_GetByProductLabelIdDataTable dataTable = new ProductLabelDS.spProductLabel_GetByProductLabelIdDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+    }
+    
+    /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class tbl_ProcessLabel_GetByPLIdForPrintTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
+        
+        private global::System.Data.SqlClient.SqlConnection _connection;
+        
+        private global::System.Data.SqlClient.SqlTransaction _transaction;
+        
+        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public tbl_ProcessLabel_GetByPLIdForPrintTableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        internal global::System.Data.SqlClient.SqlConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        internal global::System.Data.SqlClient.SqlTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "tbl_ProcessLabel_GetByPLIdForPrint";
+            tableMapping.ColumnMappings.Add("DisplayName", "DisplayName");
+            tableMapping.ColumnMappings.Add("ProcessLabelId", "ProcessLabelId");
+            tableMapping.ColumnMappings.Add("ProductName", "ProductName");
+            tableMapping.ColumnMappings.Add("BatchNo", "BatchNo");
+            tableMapping.ColumnMappings.Add("BatchSize", "BatchSize");
+            tableMapping.ColumnMappings.Add("Status", "Status");
+            tableMapping.ColumnMappings.Add("MfgDate", "MfgDate");
+            tableMapping.ColumnMappings.Add("ExpDate", "ExpDate");
+            tableMapping.ColumnMappings.Add("ContNo", "ContNo");
+            tableMapping.ColumnMappings.Add("GrossWt", "GrossWt");
+            tableMapping.ColumnMappings.Add("TareWt", "TareWt");
+            tableMapping.ColumnMappings.Add("NetWt", "NetWt");
+            tableMapping.ColumnMappings.Add("CheckedBy", "CheckedBy");
+            tableMapping.ColumnMappings.Add("CheckedDate", "CheckedDate");
+            tableMapping.ColumnMappings.Add("FormNo", "FormNo");
+            tableMapping.ColumnMappings.Add("VersionNo", "VersionNo");
+            tableMapping.ColumnMappings.Add("FormVersionId", "FormVersionId");
+            this._adapter.TableMappings.Add(tableMapping);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::System.Data.SqlClient.SqlConnection();
+            this._connection.ConnectionString = global::LabelPrint.Properties.Settings.Default.LabelPrintDBConnectionString;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = "dbo.tbl_ProcessLabel_GetByPLIdForPrint";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.StoredProcedure;
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ProcessLabelId", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(ProductLabelDS.tbl_ProcessLabel_GetByPLIdForPrintDataTable dataTable, global::System.Nullable<int> ProcessLabelId) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((ProcessLabelId.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(ProcessLabelId.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual ProductLabelDS.tbl_ProcessLabel_GetByPLIdForPrintDataTable GetData(global::System.Nullable<int> ProcessLabelId) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((ProcessLabelId.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(ProcessLabelId.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            ProductLabelDS.tbl_ProcessLabel_GetByPLIdForPrintDataTable dataTable = new ProductLabelDS.tbl_ProcessLabel_GetByPLIdForPrintDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }

@@ -169,6 +169,7 @@
     <EmbeddedResource Include="ProductReport\LabelPrintForm.resx">
       <DependentUpon>LabelPrintForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ProductReport\Rpt_ProcessLabelPrint.rdlc" />
     <EmbeddedResource Include="UserInfo\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>

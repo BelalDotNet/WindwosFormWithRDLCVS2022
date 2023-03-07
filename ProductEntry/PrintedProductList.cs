@@ -18,7 +18,6 @@ namespace LabelPrint
         SqlCommand cmd;
         SqlDataAdapter da;
         SqlDataReader dr;
-     
         string con = ConfigurationManager.ConnectionStrings["LabelPrint.Properties.Settings.LabelPrintDBConnectionString"].ConnectionString;
 
         public PrintedProductList()
@@ -35,6 +34,7 @@ namespace LabelPrint
             GetAllPrintedProductLabel();
             GetAllUser();
             GetAllFormTemplateForPrintHistory();
+           
         }
 
         private void GetAllPrintedProductLabel()
@@ -83,33 +83,29 @@ namespace LabelPrint
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            if (Convert.ToInt32(comBoxPH_FormTamplate.SelectedValue) == 1)
+            if (comBoxPH_FormTamplate.Text == "Product Label")
             {
+                lblPrintFormTemplate.Text =comBoxPH_FormTamplate.Text;
+
                 ProductLabelSearch();
+            }
+            else if (comBoxPH_FormTamplate.Text == "Process Label")
+            {
+                lblPrintFormTemplate.Text = comBoxPH_FormTamplate.Text;
+                ProcessLabelSearch();
             }
             else
             {
-                MessageBox.Show("Criteria Not Matched", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Select Product Label Or Process Label Template ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
 
         private void ProductLabelSearch()
         {
+         
 
-            if (Convert.ToInt32(comboBoxUser.SelectedValue) != 0)
-            {
-                cmd = new SqlCommand("sp_PrintedListByUserOrDateRange", cn);
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@PrintById", Convert.ToInt32(comboBoxUser.SelectedValue));
-
-                da = new SqlDataAdapter(cmd);
-                DataTable dt = new DataTable();
-                da.Fill(dt);
-                dataGridView1.DataSource = dt;
-                dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            }
-            else if (Convert.ToInt32(comboBoxUser.SelectedValue) != 0 && txtFromDate.Text != string.Empty && txtToDate.Text != string.Empty)
+            if (Convert.ToInt32(comboBoxUser.SelectedValue) != 0 && txtFromDate.Text != string.Empty && txtToDate.Text != string.Empty)
             {
                 cmd = new SqlCommand("sp_PrintedListByUserOrDateRange", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
@@ -122,6 +118,8 @@ namespace LabelPrint
                 da.Fill(dt);
                 dataGridView1.DataSource = dt;
                 dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
+               
             }
             else if (Convert.ToInt32(comboBoxUser.SelectedValue) == 0 && txtFromDate.Text != string.Empty && txtToDate.Text != string.Empty)
             {
@@ -129,6 +127,45 @@ namespace LabelPrint
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@FromDate", Convert.ToDateTime(txtFromDate.Text));
                 cmd.Parameters.AddWithValue("@ToDate", Convert.ToDateTime(txtToDate.Text));
+                cmd.Parameters.AddWithValue("@PrintById", DisplayUser.User_Id);
+
+                da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                dataGridView1.DataSource = dt;
+                dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            }          
+            else
+            {
+                MessageBox.Show("Criteria Not Matched", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void ProcessLabelSearch()
+        {
+            if (Convert.ToInt32(comboBoxUser.SelectedValue) != 0 && txtFromDate.Text != string.Empty && txtToDate.Text != string.Empty)
+            {
+                cmd = new SqlCommand("Rpt_ProcessLabelPrintList_UserWisePrintListWithDateRange", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@PrintById", Convert.ToInt32(comboBoxUser.SelectedValue));
+                cmd.Parameters.AddWithValue("@FromDate", Convert.ToDateTime(txtFromDate.Text));
+                cmd.Parameters.AddWithValue("@ToDate", Convert.ToDateTime(txtToDate.Text));
+
+                da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                dataGridView1.DataSource = dt;
+                dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
+
+            }
+            else if (Convert.ToInt32(comboBoxUser.SelectedValue) == 0 && txtFromDate.Text != string.Empty && txtToDate.Text != string.Empty)
+            {
+                cmd = new SqlCommand("Rpt_ProcessLabelPrintList_UserWisePrintListWithDateRange", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@FromDate", Convert.ToDateTime(txtFromDate.Text));
+                cmd.Parameters.AddWithValue("@ToDate", Convert.ToDateTime(txtToDate.Text));
+                cmd.Parameters.AddWithValue("@PrintById", DisplayUser.User_Id);
 
                 da = new SqlDataAdapter(cmd);
                 DataTable dt = new DataTable();
@@ -141,6 +178,7 @@ namespace LabelPrint
                 MessageBox.Show("Criteria Not Matched", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
 
 
 

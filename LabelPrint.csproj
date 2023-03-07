@@ -67,6 +67,9 @@
   <PropertyGroup>
     <ManifestKeyFile>LabelPrint_TemporaryKey.pfx</ManifestKeyFile>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>favicon.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1537.0\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
@@ -226,6 +229,7 @@
     <None Include="Images\Home.png" />
     <None Include="Images\CopyRight.jpg" />
     <None Include="Images\addUser.png" />
+    <Content Include="favicon.ico" />
     <Content Include="Images\LAlogo.jpeg" />
     <None Include="Images\User_Icon.png" />
     <None Include="Images\Product_Icon.png" />

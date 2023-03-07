@@ -48,6 +48,8 @@
             this.lblUserId = new System.Windows.Forms.Label();
             this.txtBoxUserId = new System.Windows.Forms.TextBox();
             this.btnDeleteUser = new System.Windows.Forms.Button();
+            this.lblUserRole = new System.Windows.Forms.Label();
+            this.comBoxUserRole = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgUserRegistration)).BeginInit();
             this.SuspendLayout();
             // 
@@ -65,10 +67,10 @@
             // txtBoxFullName
             // 
             this.txtBoxFullName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBoxFullName.Location = new System.Drawing.Point(148, 126);
+            this.txtBoxFullName.Location = new System.Drawing.Point(60, 126);
             this.txtBoxFullName.Multiline = true;
             this.txtBoxFullName.Name = "txtBoxFullName";
-            this.txtBoxFullName.Size = new System.Drawing.Size(222, 30);
+            this.txtBoxFullName.Size = new System.Drawing.Size(225, 30);
             this.txtBoxFullName.TabIndex = 1;
             this.txtBoxFullName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtBoxFullName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBoxFullName_KeyDown);
@@ -76,7 +78,7 @@
             // label2
             // 
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(157, 100);
+            this.label2.Location = new System.Drawing.Point(72, 100);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(203, 24);
             this.label2.TabIndex = 2;
@@ -86,7 +88,7 @@
             // lbl3
             // 
             this.lbl3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl3.Location = new System.Drawing.Point(478, 99);
+            this.lbl3.Location = new System.Drawing.Point(393, 99);
             this.lbl3.Name = "lbl3";
             this.lbl3.Size = new System.Drawing.Size(200, 24);
             this.lbl3.TabIndex = 4;
@@ -96,7 +98,7 @@
             // txtBoxUserName
             // 
             this.txtBoxUserName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBoxUserName.Location = new System.Drawing.Point(466, 125);
+            this.txtBoxUserName.Location = new System.Drawing.Point(381, 125);
             this.txtBoxUserName.Multiline = true;
             this.txtBoxUserName.Name = "txtBoxUserName";
             this.txtBoxUserName.Size = new System.Drawing.Size(222, 30);
@@ -107,7 +109,7 @@
             // label4
             // 
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(481, 169);
+            this.label4.Location = new System.Drawing.Point(396, 169);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(194, 24);
             this.label4.TabIndex = 8;
@@ -117,10 +119,10 @@
             // txtBoxPhoneNumber
             // 
             this.txtBoxPhoneNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBoxPhoneNumber.Location = new System.Drawing.Point(469, 195);
+            this.txtBoxPhoneNumber.Location = new System.Drawing.Point(381, 195);
             this.txtBoxPhoneNumber.Multiline = true;
             this.txtBoxPhoneNumber.Name = "txtBoxPhoneNumber";
-            this.txtBoxPhoneNumber.Size = new System.Drawing.Size(219, 30);
+            this.txtBoxPhoneNumber.Size = new System.Drawing.Size(222, 30);
             this.txtBoxPhoneNumber.TabIndex = 4;
             this.txtBoxPhoneNumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtBoxPhoneNumber.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBoxPhoneNumber_KeyDown);
@@ -128,7 +130,7 @@
             // label5
             // 
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(151, 170);
+            this.label5.Location = new System.Drawing.Point(66, 170);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(206, 24);
             this.label5.TabIndex = 6;
@@ -138,7 +140,7 @@
             // txtBoxEmail
             // 
             this.txtBoxEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBoxEmail.Location = new System.Drawing.Point(145, 196);
+            this.txtBoxEmail.Location = new System.Drawing.Point(60, 196);
             this.txtBoxEmail.Multiline = true;
             this.txtBoxEmail.Name = "txtBoxEmail";
             this.txtBoxEmail.Size = new System.Drawing.Size(225, 30);
@@ -149,7 +151,7 @@
             // label6
             // 
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(475, 241);
+            this.label6.Location = new System.Drawing.Point(390, 241);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(203, 24);
             this.label6.TabIndex = 12;
@@ -159,7 +161,7 @@
             // txtBoxConfirmPassword
             // 
             this.txtBoxConfirmPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBoxConfirmPassword.Location = new System.Drawing.Point(469, 268);
+            this.txtBoxConfirmPassword.Location = new System.Drawing.Point(384, 268);
             this.txtBoxConfirmPassword.Multiline = true;
             this.txtBoxConfirmPassword.Name = "txtBoxConfirmPassword";
             this.txtBoxConfirmPassword.Size = new System.Drawing.Size(217, 30);
@@ -170,7 +172,7 @@
             // label7
             // 
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(154, 243);
+            this.label7.Location = new System.Drawing.Point(69, 243);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(200, 24);
             this.label7.TabIndex = 10;
@@ -180,10 +182,10 @@
             // txtBoxPassword
             // 
             this.txtBoxPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBoxPassword.Location = new System.Drawing.Point(142, 269);
+            this.txtBoxPassword.Location = new System.Drawing.Point(60, 269);
             this.txtBoxPassword.Multiline = true;
             this.txtBoxPassword.Name = "txtBoxPassword";
-            this.txtBoxPassword.Size = new System.Drawing.Size(228, 30);
+            this.txtBoxPassword.Size = new System.Drawing.Size(225, 30);
             this.txtBoxPassword.TabIndex = 5;
             this.txtBoxPassword.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtBoxPassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBoxPassword_KeyDown);
@@ -195,7 +197,7 @@
             this.btnUserRegistration.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUserRegistration.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUserRegistration.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnUserRegistration.Location = new System.Drawing.Point(142, 310);
+            this.btnUserRegistration.Location = new System.Drawing.Point(77, 310);
             this.btnUserRegistration.Name = "btnUserRegistration";
             this.btnUserRegistration.Size = new System.Drawing.Size(107, 31);
             this.btnUserRegistration.TabIndex = 7;
@@ -211,7 +213,7 @@
             this.btnToLoginRender.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnToLoginRender.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnToLoginRender.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnToLoginRender.Location = new System.Drawing.Point(466, 310);
+            this.btnToLoginRender.Location = new System.Drawing.Point(401, 310);
             this.btnToLoginRender.Name = "btnToLoginRender";
             this.btnToLoginRender.Size = new System.Drawing.Size(219, 31);
             this.btnToLoginRender.TabIndex = 13;
@@ -227,7 +229,7 @@
             this.btnClearUserData.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClearUserData.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClearUserData.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnClearUserData.Location = new System.Drawing.Point(255, 310);
+            this.btnClearUserData.Location = new System.Drawing.Point(190, 310);
             this.btnClearUserData.Name = "btnClearUserData";
             this.btnClearUserData.Size = new System.Drawing.Size(107, 31);
             this.btnClearUserData.TabIndex = 14;
@@ -249,7 +251,7 @@
             // lblUserId
             // 
             this.lblUserId.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUserId.Location = new System.Drawing.Point(145, 63);
+            this.lblUserId.Location = new System.Drawing.Point(93, 63);
             this.lblUserId.Name = "lblUserId";
             this.lblUserId.Size = new System.Drawing.Size(104, 24);
             this.lblUserId.TabIndex = 17;
@@ -260,7 +262,7 @@
             // txtBoxUserId
             // 
             this.txtBoxUserId.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBoxUserId.Location = new System.Drawing.Point(255, 63);
+            this.txtBoxUserId.Location = new System.Drawing.Point(203, 63);
             this.txtBoxUserId.Multiline = true;
             this.txtBoxUserId.Name = "txtBoxUserId";
             this.txtBoxUserId.ReadOnly = true;
@@ -276,7 +278,7 @@
             this.btnDeleteUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDeleteUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDeleteUser.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnDeleteUser.Location = new System.Drawing.Point(368, 310);
+            this.btnDeleteUser.Location = new System.Drawing.Point(303, 310);
             this.btnDeleteUser.Name = "btnDeleteUser";
             this.btnDeleteUser.Size = new System.Drawing.Size(107, 31);
             this.btnDeleteUser.TabIndex = 18;
@@ -285,6 +287,26 @@
             this.btnDeleteUser.Visible = false;
             this.btnDeleteUser.Click += new System.EventHandler(this.btnDeleteUser_Click);
             // 
+            // lblUserRole
+            // 
+            this.lblUserRole.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUserRole.Location = new System.Drawing.Point(664, 99);
+            this.lblUserRole.Name = "lblUserRole";
+            this.lblUserRole.Size = new System.Drawing.Size(200, 24);
+            this.lblUserRole.TabIndex = 20;
+            this.lblUserRole.Text = "User Role";
+            this.lblUserRole.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // comBoxUserRole
+            // 
+            this.comBoxUserRole.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.comBoxUserRole.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comBoxUserRole.FormattingEnabled = true;
+            this.comBoxUserRole.Location = new System.Drawing.Point(667, 125);
+            this.comBoxUserRole.Name = "comBoxUserRole";
+            this.comBoxUserRole.Size = new System.Drawing.Size(219, 24);
+            this.comBoxUserRole.TabIndex = 21;
+            // 
             // UserRegistration
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -292,6 +314,8 @@
             this.BackColor = System.Drawing.Color.Honeydew;
             this.ClientSize = new System.Drawing.Size(946, 547);
             this.ControlBox = false;
+            this.Controls.Add(this.comBoxUserRole);
+            this.Controls.Add(this.lblUserRole);
             this.Controls.Add(this.btnDeleteUser);
             this.Controls.Add(this.lblUserId);
             this.Controls.Add(this.txtBoxUserId);
@@ -345,5 +369,7 @@
         private System.Windows.Forms.Label lblUserId;
         private System.Windows.Forms.TextBox txtBoxUserId;
         private System.Windows.Forms.Button btnDeleteUser;
+        private System.Windows.Forms.Label lblUserRole;
+        private System.Windows.Forms.ComboBox comBoxUserRole;
     }
 }

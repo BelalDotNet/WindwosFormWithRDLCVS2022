@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LabelPrint.ProductEntry;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Configuration;
@@ -37,6 +38,7 @@ namespace LabelPrint.UserInfo
             txtBoxConfirmPassword.PasswordChar = '*';
             ClearAll();
             GetAllUser();
+            GetAllUserRole();
         }
 
         private void btnToLoginRender_Click(object sender, EventArgs e)
@@ -74,6 +76,8 @@ namespace LabelPrint.UserInfo
                             cmd.Parameters.AddWithValue("@Email", txtBoxEmail.Text);
                             cmd.Parameters.AddWithValue("@Phone", txtBoxPhoneNumber.Text);
                             cmd.Parameters.AddWithValue("@UserId", UserId);
+                            cmd.Parameters.AddWithValue("@RoleId", Convert.ToInt32(comBoxUserRole.SelectedValue));
+
                             cmd.ExecuteNonQuery();
                             GetAllUser();
                             ClearAll();
@@ -126,7 +130,9 @@ namespace LabelPrint.UserInfo
                         cmd.Parameters.AddWithValue("@Email", txtBoxEmail.Text);
                         cmd.Parameters.AddWithValue("@Phone", txtBoxPhoneNumber.Text);
                         cmd.Parameters.AddWithValue("@UserId", Convert.ToInt32(txtBoxUserId.Text));
-                        cmd.ExecuteNonQuery();
+                        cmd.Parameters.AddWithValue("@RoleId", Convert.ToInt32(comBoxUserRole.SelectedValue));
+
+                    cmd.ExecuteNonQuery();
                         GetAllUser();
                         ClearAll();
                         //DialogResult result = MessageBox.Show("Do You Want to Login Now?", "Login", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
@@ -270,10 +276,13 @@ namespace LabelPrint.UserInfo
             txtBoxPassword.Text = dgUserRegistration.Rows[e.RowIndex].Cells[7].Value.ToString();
             txtBoxConfirmPassword.Text = dgUserRegistration.Rows[e.RowIndex].Cells[7].Value.ToString();
 
+            comBoxUserRole.SelectedValue = dgUserRegistration.Rows[e.RowIndex].Cells[2].Value.ToString();
+
             //txtBoxUserId.Text=
             btnUserRegistration.Text = "Update";
             btnDeleteUser.Visible = true;
             dgUserRegistration.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            
         }
 
         private void dgUserRegistration_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -291,6 +300,9 @@ namespace LabelPrint.UserInfo
 
             txtBoxPassword.Text = dgUserRegistration.Rows[e.RowIndex].Cells[7].Value.ToString();
             txtBoxConfirmPassword.Text = dgUserRegistration.Rows[e.RowIndex].Cells[7].Value.ToString();
+
+            comBoxUserRole.SelectedValue = dgUserRegistration.Rows[e.RowIndex].Cells[2].Value.ToString();
+
 
             btnUserRegistration.Text = "Update";
             btnDeleteUser.Visible = true;
@@ -313,5 +325,28 @@ namespace LabelPrint.UserInfo
 
            
         }
+
+
+        private void GetAllUserRole()
+        {
+            cmd = new SqlCommand("tbl_Role_GetAllUserRole", cn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            da = new SqlDataAdapter(cmd);
+            //Fill the DataTable with records from Table.
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+
+            //Insert the Default Item to DataTable.
+            DataRow row = dt.NewRow();
+            row[0] = 0;
+            row[1] = "Please Select User";
+            dt.Rows.InsertAt(row, 0);
+
+            //Assign DataTable as DataSource.
+            comBoxUserRole.DataSource = dt;
+            comBoxUserRole.DisplayMember = "RoleName";
+            comBoxUserRole.ValueMember = "RoleId";
+        }
+
     }
 }

@@ -293,6 +293,33 @@ namespace LabelPrint
             FormVersionEntry nFV=new FormVersionEntry();
             nFV.ShowDialog();
         }
+
+        private void btnProductLabelDirectPrint_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (txtProductID.Text != string.Empty)
+                {
+                    SqlCommand cmmd = new SqlCommand("spProductLabel_GetByProductLabelId", cn);
+                    cmmd.CommandType = CommandType.StoredProcedure;
+
+                    cmmd.Parameters.AddWithValue("@ProductLabelId", Convert.ToInt32(txtProductID.Text));
+                    SqlDataReader dr = cmmd.ExecuteReader();
+                    LabelPrintForm ff = new LabelPrintForm(dr, "Product_Label", true);
+                    ff.ShowDialog();
+                    dr.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Please Select Data From List", "Empty Field Clicked", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
     }
     
  

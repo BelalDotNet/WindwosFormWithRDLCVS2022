@@ -53,6 +53,7 @@
             this.comBoxFormVersion = new System.Windows.Forms.ComboBox();
             this.btnNewFormVersionPopup = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnProductLabelDirectPrint = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgProductLabel)).BeginInit();
             this.SuspendLayout();
             // 
@@ -232,7 +233,7 @@
             this.btnPrintProductLabel.Name = "btnPrintProductLabel";
             this.btnPrintProductLabel.Size = new System.Drawing.Size(129, 33);
             this.btnPrintProductLabel.TabIndex = 5;
-            this.btnPrintProductLabel.Text = "Print";
+            this.btnPrintProductLabel.Text = "Print Preview";
             this.btnPrintProductLabel.UseVisualStyleBackColor = false;
             this.btnPrintProductLabel.Click += new System.EventHandler(this.btnPrintProductLabel_Click);
             // 
@@ -320,6 +321,21 @@
             this.label1.Text = "Product Label Entry";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // btnProductLabelDirectPrint
+            // 
+            this.btnProductLabelDirectPrint.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnProductLabelDirectPrint.FlatAppearance.BorderSize = 0;
+            this.btnProductLabelDirectPrint.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnProductLabelDirectPrint.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnProductLabelDirectPrint.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnProductLabelDirectPrint.Location = new System.Drawing.Point(610, 301);
+            this.btnProductLabelDirectPrint.Name = "btnProductLabelDirectPrint";
+            this.btnProductLabelDirectPrint.Size = new System.Drawing.Size(129, 33);
+            this.btnProductLabelDirectPrint.TabIndex = 14;
+            this.btnProductLabelDirectPrint.Text = "Print";
+            this.btnProductLabelDirectPrint.UseVisualStyleBackColor = false;
+            this.btnProductLabelDirectPrint.Click += new System.EventHandler(this.btnProductLabelDirectPrint_Click);
+            // 
             // ProductLabel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -327,6 +343,7 @@
             this.BackColor = System.Drawing.Color.Honeydew;
             this.ClientSize = new System.Drawing.Size(918, 545);
             this.ControlBox = false;
+            this.Controls.Add(this.btnProductLabelDirectPrint);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnNewFormVersionPopup);
             this.Controls.Add(this.comBoxFormVersion);
@@ -388,5 +405,6 @@
         private System.Windows.Forms.ComboBox comBoxFormVersion;
         private System.Windows.Forms.Button btnNewFormVersionPopup;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnProductLabelDirectPrint;
     }
 }
